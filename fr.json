@@ -67,5 +67,10 @@
         "placeholder": "Adresse / Coord. WGS84...",
         "error": "Emplacement introuvable.",
         "result": "Résultat de la recherche"
+    },
+    "layer": {
+        "street": "Plan de rue",
+        "satellite": "Carte satellite",
+        "hybrid": "Carte hybride"
     }
 }

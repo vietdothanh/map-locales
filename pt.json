@@ -67,5 +67,10 @@
         "placeholder": "Endereço / Coord. WGS84...",
         "error": "Localização não encontrada.",
         "result": "Resultado da pesquisa"
+    },
+    "layer": {
+        "street": "Mapa de ruas",
+        "satellite": "Mapa de satélite",
+        "hybrid": "Mapa híbrido"
     }
 }

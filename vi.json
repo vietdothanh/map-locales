@@ -67,5 +67,10 @@
         "placeholder": "Địa chỉ / Tọa độ WGS84...",
         "error": "Không tìm thấy vị trí.",
         "result": "Kết quả tìm kiếm"
+    },
+    "layer": {
+        "street": "Bản đồ đường phố",
+        "satellite": "Bản đồ vệ tinh",
+        "hybrid": "Bản đồ kết hợp"
     }
 }

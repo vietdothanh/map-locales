@@ -1,0 +1,66 @@
+{
+    "general": {
+        "loading_map": "Cargando mapa...",
+        "btn_show_on_map": "MOSTRAR EN EL MAPA",
+        "btn_open_gmap": "📍 ABRIR EN GOOGLE MAPS",
+        "guide_help": "📖 Guía y Ayuda",
+        "lbl_gmaps": "Google Maps",
+        "btn_remove": "Eliminar",
+        "btn_add_point": "Añadir punto"
+    },
+    "sidebar": {
+        "select_province": "Seleccionar provincia:",
+        "custom_meridian_option": "-- Meridiano personalizado (BD antigua) --",
+        "central_meridian": "Meridiano central (L0):",
+        "placeholder_meridian": "ej., 105.5",
+        "placeholder_coords": "Las coordenadas aparecerán aquí, o pégalas manualmente..."
+    },
+    "results": {
+        "table_edge": "Lado",
+        "table_length": "Longitud",
+        "table_total": "Total",
+        "lbl_area": "Área:"
+    },
+    "status_box": {
+        "idle": "Inicio: ⬠ Polígono / ↝ Línea",
+        "drawing_polygon": "Toca para añadir puntos • ❌ para terminar (≥ 3 puntos)",
+        "drawing_line": "Toca para añadir puntos • ❌ para terminar (≥ 2 puntos)",
+        "done": "Añade, arrastra o elimina puntos para ajustar • Toca 📸 para capturar",
+        "saved": "Enlace listo → Copiar y Compartir",
+        "modified": "Modificado → Toca 📸 para crear nueva captura"
+    },
+    "map_controls": {
+        "tooltip_draw_poly": "Dibujar límite de parcela (Presiona ESC para salir)",
+        "tooltip_draw_line": "Dibujar ruta (Presiona ESC para salir)",
+        "tooltip_my_location": "Mi ubicación",
+        "popup_you_are_here": "¡Estás aquí!",
+        "popup_accuracy": "Precisión:",
+        "alert_loc_error": "No se pudo encontrar tu ubicación: "
+    },
+    "snapshot": {
+        "tooltip_create_snapshot": "Crear Captura",
+        "lbl_snapshot_link": "Enlace de Captura",
+        "tooltip_copy_link": "Copiar enlace",
+        "btn_copy": "Copiar",
+        "btn_copied": "Copiado",
+        "alert_draw_first": "¡Por favor, dibuja un polígono o línea primero!",
+        "alert_finish_drawing": "¡Por favor, termina tu dibujo primero antes de crear una captura!",
+        "tooltip_generating_link": "Generando enlace..."
+    },
+    "alerts": {
+        "no_coordinates": "¡No se encontraron coordenadas! Por favor, introduzca sus datos.",
+        "need_2_points": "¡Se requieren al menos 2 puntos para dibujar una ruta!",
+        "need_3_points": "¡Se requieren al menos 3 puntos para dibujar un límite!",
+        "missing_meridian": "¡Meridiano central no determinado!",
+        "select_province_first": "¡Por favor, seleccione una provincia / meridiano central antes de ingresar las coordenadas VN2000!",
+        "out_of_bounds": "⚠️ ALERTA ROJA: ¡Estas coordenadas VN-2000 NO CAEN DENTRO DE {province}!\n\nEs posible que haya seleccionado el meridiano central equivocado. ¡Por favor, compruébelo!",
+        "restricted_overlap": "🛑 ACCESO DENEGADO: ¡Estas coordenadas se superponen con un área restringida!",
+        "restricted_close": "🛑 ACCESO DENEGADO: La parcela está demasiado cerca de un área restringida ({distance}m)."
+    },
+    "settings": {
+        "show_board": "Mostrar panel",
+        "unit_metric": "Métrico (m/ha)",
+        "unit_imperial": "Imperial (ft/ac)",
+        "language": "Idioma:"
+    }
+}

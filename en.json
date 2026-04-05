@@ -1,0 +1,66 @@
+{
+    "general": {
+        "loading_map": "Loading map...",
+        "btn_show_on_map": "SHOW ON MAP",
+        "btn_open_gmap": "📍 OPEN IN GOOGLE MAPS",
+        "guide_help": "📖 Guide & Help",
+        "lbl_gmaps": "Google Maps",
+        "btn_remove": "Remove",
+        "btn_add_point": "Add point"
+    },
+    "sidebar": {
+        "select_province": "Select Province:",
+        "custom_meridian_option": "-- Custom Meridian (Old DB) --",
+        "central_meridian": "Central Meridian (L0):",
+        "placeholder_meridian": "e.g., 105.5",
+        "placeholder_coords": "Coordinates will appear here, or paste them manually..."
+    },
+    "results": {
+        "table_edge": "Edge",
+        "table_length": "Length",
+        "table_total": "Total",
+        "lbl_area": "Area:"
+    },
+    "status_box": {
+        "idle": "Start: ⬠ Polygon / ↝ Line",
+        "drawing_polygon": "Tap to add points • ❌ to finish (≥ 3 points)",
+        "drawing_line": "Tap to add points • ❌ to finish (≥ 2 points)",
+        "done": "Add, drag, or delete points to adjust • Tap 📸 to capture",
+        "saved": "Link ready → Copy & Share",
+        "modified": "Changed → Tap 📸 to create new snapshot"
+    },
+    "map_controls": {
+        "tooltip_draw_poly": "Draw plot boundary (Press ESC to exit)",
+        "tooltip_draw_line": "Draw path (Press ESC to exit)",
+        "tooltip_my_location": "My location",
+        "popup_you_are_here": "You are here!",
+        "popup_accuracy": "Accuracy:",
+        "alert_loc_error": "Could not find your location: "
+    },
+    "snapshot": {
+        "tooltip_create_snapshot": "Create Snapshot",
+        "lbl_snapshot_link": "Snapshot Link",
+        "tooltip_copy_link": "Copy link",
+        "btn_copy": "Copy",
+        "btn_copied": "Copied",
+        "alert_draw_first": "Please draw a polygon or line first!",
+        "alert_finish_drawing": "Please finish your drawing first before creating a snapshot!",
+        "tooltip_generating_link": "Generating link..."
+    },
+    "alerts": {
+        "no_coordinates": "No coordinates found! Please enter your data.",
+        "need_2_points": "At least 2 points are required to draw a path!",
+        "need_3_points": "At least 3 points are required to draw a boundary!",
+        "missing_meridian": "Central Meridian not determined!",
+        "select_province_first": "Please select a Province/Central Meridian before entering VN2000 coordinates!",
+        "out_of_bounds": "⚠️ RED ALERT: These VN-2000 coordinates DO NOT FALL INSIDE {province}!\n\nYou may have selected the wrong Central Meridian. Please double check!",
+        "restricted_overlap": "🛑 ACCESS DENIED: These coordinates overlap with a restricted area!",
+        "restricted_close": "🛑 ACCESS DENIED: The plot is too close to a restricted area ({distance}m)."
+    },
+    "settings": {
+        "show_board": "Show Board",
+        "unit_metric": "Metric (m/ha)",
+        "unit_imperial": "Imperial (ft/ac)",
+        "language": "Language:"
+    }
+}

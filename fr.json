@@ -1,0 +1,66 @@
+{
+    "general": {
+        "loading_map": "Chargement de la carte...",
+        "btn_show_on_map": "AFFICHER SUR LA CARTE",
+        "btn_open_gmap": "📍 OUVRIR DANS GOOGLE MAPS",
+        "guide_help": "📖 Guide et Aide",
+        "lbl_gmaps": "Google Maps",
+        "btn_remove": "Supprimer",
+        "btn_add_point": "Ajouter un point"
+    },
+    "sidebar": {
+        "select_province": "Sélectionner la province :",
+        "custom_meridian_option": "-- Méridien personnalisé (Ancienne BD) --",
+        "central_meridian": "Méridien central (L0) :",
+        "placeholder_meridian": "ex. 105.5",
+        "placeholder_coords": "Les coordonnées apparaîtront ici, ou collez-les manuellement..."
+    },
+    "results": {
+        "table_edge": "Côté",
+        "table_length": "Longueur",
+        "table_total": "Total",
+        "lbl_area": "Superficie :"
+    },
+    "status_box": {
+        "idle": "Début : ⬠ Polygone / ↝ Ligne",
+        "drawing_polygon": "Appuyez pour ajouter • ❌ pour terminer (≥ 3 pts)",
+        "drawing_line": "Appuyez pour ajouter • ❌ pour terminer (≥ 2 pts)",
+        "done": "Ajoutez, glissez ou supprimez des points • 📸 pour capturer",
+        "saved": "Lien prêt → Copier et Partager",
+        "modified": "Modifié → 📸 pour nouvelle capture"
+    },
+    "map_controls": {
+        "tooltip_draw_poly": "Dessiner la limite (Échap pour quitter)",
+        "tooltip_draw_line": "Dessiner le chemin (Échap pour quitter)",
+        "tooltip_my_location": "Ma position",
+        "popup_you_are_here": "Vous êtes ici !",
+        "popup_accuracy": "Précision :",
+        "alert_loc_error": "Impossible de trouver votre position : "
+    },
+    "snapshot": {
+        "tooltip_create_snapshot": "Créer une capture",
+        "lbl_snapshot_link": "Lien de la capture",
+        "tooltip_copy_link": "Copier le lien",
+        "btn_copy": "Copier",
+        "btn_copied": "Copié",
+        "alert_draw_first": "Veuillez d'abord dessiner un polygone ou une ligne !",
+        "alert_finish_drawing": "Veuillez terminer votre dessin avant de créer une capture !",
+        "tooltip_generating_link": "Création du lien..."
+    },
+    "alerts": {
+        "no_coordinates": "Aucune coordonnée trouvée ! Veuillez entrer vos données.",
+        "need_2_points": "Au moins 2 points sont requis pour dessiner un chemin !",
+        "need_3_points": "Au moins 3 points sont requis pour dessiner une limite !",
+        "missing_meridian": "Méridien central non déterminé !",
+        "select_province_first": "Veuillez sélectionner une province / méridien central avant d'entrer les coordonnées VN2000 !",
+        "out_of_bounds": "⚠️ ALERTE ROUGE : Ces coordonnées VN-2000 NE TOMBENT PAS DANS {province} !\n\nVous avez peut-être sélectionné le mauvais méridien central. Veuillez vérifier !",
+        "restricted_overlap": "🛑 ACCÈS REFUSÉ : Ces coordonnées chevauchent une zone restreinte !",
+        "restricted_close": "🛑 ACCÈS REFUSÉ : La parcelle est trop proche d'une zone restreinte ({distance}m)."
+    },
+    "settings": {
+        "show_board": "Afficher le panneau",
+        "unit_metric": "Métrique (m/ha)",
+        "unit_imperial": "Impérial (ft/ac)",
+        "language": "Langue :"
+    }
+}

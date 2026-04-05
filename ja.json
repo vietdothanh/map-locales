@@ -1,0 +1,66 @@
+{
+    "general": {
+        "loading_map": "マップを読み込み中...",
+        "btn_show_on_map": "マップに表示",
+        "btn_open_gmap": "📍 Googleマップで開く",
+        "guide_help": "📖 ガイドとヘルプ",
+        "lbl_gmaps": "Google Maps",
+        "btn_remove": "削除",
+        "btn_add_point": "点を追加"
+    },
+    "sidebar": {
+        "select_province": "省を選択:",
+        "custom_meridian_option": "-- カスタム子午線 (旧DB) --",
+        "central_meridian": "中央子午線 (L0):",
+        "placeholder_meridian": "例: 105.5",
+        "placeholder_coords": "座標がここに表示されます。または手動で貼り付けてください..."
+    },
+    "results": {
+        "table_edge": "辺",
+        "table_length": "長さ",
+        "table_total": "合計",
+        "lbl_area": "面積:"
+    },
+    "status_box": {
+        "idle": "開始: ⬠ ポリゴン / ↝ ライン",
+        "drawing_polygon": "タップして点を追加 • ❌ で終了 (3点以上)",
+        "drawing_line": "タップして点を追加 • ❌ で終了 (2点以上)",
+        "done": "点を追加、ドラッグ、削除して調整 • 📸 をタップして保存",
+        "saved": "リンク作成完了 → コピーして共有",
+        "modified": "変更されました → 📸 をタップして新しいスナップショットを作成"
+    },
+    "map_controls": {
+        "tooltip_draw_poly": "区画の境界を描画 (ESCキーで終了)",
+        "tooltip_draw_line": "経路を描画 (ESCキーで終了)",
+        "tooltip_my_location": "現在地",
+        "popup_you_are_here": "現在地はここです！",
+        "popup_accuracy": "精度:",
+        "alert_loc_error": "現在地を取得できませんでした: "
+    },
+    "snapshot": {
+        "tooltip_create_snapshot": "スナップショットを作成",
+        "lbl_snapshot_link": "スナップショットのリンク",
+        "tooltip_copy_link": "リンクをコピー",
+        "btn_copy": "コピー",
+        "btn_copied": "コピー完了",
+        "alert_draw_first": "まずポリゴンまたはラインを描画してください！",
+        "alert_finish_drawing": "スナップショットを作成する前に、描画を完了してください！",
+        "tooltip_generating_link": "リンクを生成中..."
+    },
+    "alerts": {
+        "no_coordinates": "座標が見つかりません！データを入力してください。",
+        "need_2_points": "経路を描画するには、少なくとも2つの点が必要です！",
+        "need_3_points": "境界を描画するには、少なくとも3つの点が必要です！",
+        "missing_meridian": "中央子午線が決定されていません！",
+        "select_province_first": "VN2000座標を入力する前に、省または中央子午線を選択してください！",
+        "out_of_bounds": "⚠️ 警告: これらのVN-2000座標は {province} の範囲外です！\n\n誤った中央子午線を選択した可能性があります。再度確認してください！",
+        "restricted_overlap": "🛑 アクセス拒否: これらの座標は制限区域と重なっています！",
+        "restricted_close": "🛑 アクセス拒否: 区画が制限区域に近すぎます（{distance}m）。"
+    },
+    "settings": {
+        "show_board": "ボードを表示",
+        "unit_metric": "メートル法 (m/ha)",
+        "unit_imperial": "ヤード・ポンド法 (ft/ac)",
+        "language": "言語:"
+    }
+}

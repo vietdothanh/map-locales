@@ -62,5 +62,10 @@
         "unit_metric": "メートル法 (m/ha)",
         "unit_imperial": "ヤード・ポンド法 (ft/ac)",
         "language": "言語:"
+    },
+    "geocoder": {
+        "placeholder": "住所 / WGS84座標...",
+        "error": "場所が見つかりません。",
+        "result": "検索結果"
     }
 }

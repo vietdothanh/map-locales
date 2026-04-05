@@ -64,8 +64,8 @@
         "language": "Language:"
     },
         "geocoder": {
-        "placeholder": "Dirección / Coord. WGS84...",
-        "error": "Ubicación no encontrada.",
-        "result": "Resultado de búsqueda"
+        "placeholder": "Address / WGS84 coords...",
+        "error": "Location not found.",
+        "result": "Search Result"
     }
 }

@@ -1,0 +1,84 @@
+{
+    "general": {
+        "loading_map": "Memuat peta...",
+        "btn_show_on_map": "TAMPILKAN DI PETA",
+        "btn_open_gmap": "📍 BUKA DI GOOGLE MAPS",
+        "guide_help": "📖 Panduan & Bantuan",
+        "lbl_gmaps": "Google Maps",
+        "btn_remove": "Hapus",
+        "btn_add_point": "Tambah titik"
+    },
+    "sidebar": {
+        "select_province": "Pilih Provinsi:",
+        "custom_meridian_option": "-- Meridian Kustom (DB Lama) --",
+        "central_meridian": "Meridian Tengah (L0):",
+        "placeholder_meridian": "cth., 105.5",
+        "placeholder_coords": "Koordinat akan muncul di sini, atau tempel manual...",
+        "popular-posts-title": "Pos Populer"
+    },
+    "results": {
+        "table_edge": "Sisi",
+        "table_length": "Panjang",
+        "table_total": "Total",
+        "lbl_area": "Luas:"
+    },
+    "status_box": {
+        "idle": "Mulai: ⬠ Poligon / ↝ Garis",
+        "drawing_polygon": "Ketuk untuk tambah titik • ❌ untuk selesai (≥ 3 titik)",
+        "drawing_line": "Ketuk untuk tambah titik • ❌ untuk selesai (≥ 2 titik)",
+        "done": "Tambah, geser, atau hapus titik • Ketuk 📸 untuk snapshot",
+        "saved": "Tautan siap → Salin & Bagikan",
+        "modified": "Diubah → Ketuk 📸 untuk buat snapshot baru"
+    },
+    "map_controls": {
+        "tooltip_draw_poly": "Gambar batas bidang (Tekan ESC untuk keluar)",
+        "tooltip_draw_line": "Gambar jalur (Tekan ESC untuk keluar)",
+        "tooltip_my_location": "Lokasi saya",
+        "popup_you_are_here": "Anda di sini!",
+        "popup_accuracy": "Akurasi:",
+        "alert_loc_error": "Tidak dapat menemukan lokasi Anda: "
+    },
+    "snapshot": {
+        "tooltip_create_snapshot": "Buat Snapshot",
+        "lbl_snapshot_link": "Tautan Snapshot",
+        "tooltip_copy_link": "Salin tautan",
+        "btn_copy": "Salin",
+        "btn_copied": "Tersalin",
+        "alert_draw_first": "Harap gambar poligon atau garis terlebih dahulu!",
+        "alert_finish_drawing": "Harap selesaikan gambar Anda sebelum membuat snapshot!",
+        "tooltip_generating_link": "Membuat tautan..."
+    },
+    "alerts": {
+        "no_coordinates": "Koordinat tidak ditemukan! Harap masukkan data Anda.",
+        "need_2_points": "Minimal 2 titik diperlukan untuk menggambar jalur!",
+        "need_3_points": "Minimal 3 titik diperlukan untuk menggambar batas!",
+        "missing_meridian": "Meridian Tengah belum ditentukan!",
+        "select_province_first": "Harap pilih Provinsi/Meridian Tengah sebelum memasukkan koordinat VN2000!",
+        "out_of_bounds": "⚠️ PERINGATAN MERAH: Koordinat VN-2000 ini TIDAK BERADA DI DALAM {province}!\n\nAnda mungkin salah memilih Meridian Tengah. Harap periksa kembali!",
+        "restricted_overlap": "🛑 AKSES DITOLAK: Koordinat ini tumpang tindih dengan area terlarang!",
+        "restricted_close": "🛑 AKSES DITOLAK: Bidang terlalu dekat dengan area terlarang ({distance}m)."
+    },
+    "settings": {
+        "show_board": "Tampilkan Papan",
+        "unit_metric": "Metrik (m/ha)",
+        "unit_imperial": "Imperial (ft/ac)",
+        "language": "Bahasa:"
+    },
+    "geocoder": {
+        "placeholder": "Alamat / Koordinat WGS84...",
+        "error": "Lokasi tidak ditemukan.",
+        "result": "Hasil Pencarian"
+    },
+    "layer": {
+        "street": "Peta Jalan",
+        "satellite": "Peta Satelit",
+        "hybrid": "Peta Hibrida"
+    },
+    "postpage": {
+        "home-msg": "Beranda",
+        "newer-page-title": "Pos lebih baru",
+        "older-page-title": "Pos lebih lama",
+        "live_demo_btn": "Demo Langsung QuickMapShare",
+        "live_demo_subtext": "Lihat contoh interaktif beraksi. Tidak perlu login."
+    }
+}

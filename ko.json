@@ -13,7 +13,8 @@
         "custom_meridian_option": "-- 사용자 지정 자오선 (구 DB) --",
         "central_meridian": "중앙 자오선 (L0):",
         "placeholder_meridian": "예: 105.5",
-        "placeholder_coords": "좌표가 여기에 표시되거나 수동으로 붙여넣으세요..."
+        "placeholder_coords": "좌표가 여기에 표시되거나 수동으로 붙여넣으세요...",
+        "popular-posts-title": "인기 게시물"
     },
     "results": {
         "table_edge": "변",

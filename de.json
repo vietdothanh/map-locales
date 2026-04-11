@@ -73,5 +73,10 @@
         "street": "Straßenkarte",
         "satellite": "Satellitenkarte",
         "hybrid": "Hybridkarte"
+    },
+    "postpage": {
+        "home-msg": "Startseite",
+        "newer-page-title": "Neuere Posts",
+        "older-page-title": "Ältere Posts"
     }
 }

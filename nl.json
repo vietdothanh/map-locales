@@ -1,0 +1,84 @@
+{
+    "general": {
+        "loading_map": "Kaart laden...",
+        "btn_show_on_map": "OP KAART TONEN",
+        "btn_open_gmap": "📍 OPENEN IN GOOGLE MAPS",
+        "guide_help": "📖 Gids & Help",
+        "lbl_gmaps": "Google Maps",
+        "btn_remove": "Verwijderen",
+        "btn_add_point": "Punt toevoegen"
+    },
+    "sidebar": {
+        "select_province": "Selecteer Provincie:",
+        "custom_meridian_option": "-- Aangepaste Meridiaan (Oude DB) --",
+        "central_meridian": "Centrale Meridiaan (L0):",
+        "placeholder_meridian": "bijv., 105.5",
+        "placeholder_coords": "Coördinaten verschijnen hier, of plak ze handmatig...",
+        "popular-posts-title": "Populaire Berichten"
+    },
+    "results": {
+        "table_edge": "Zijde",
+        "table_length": "Lengte",
+        "table_total": "Totaal",
+        "lbl_area": "Oppervlakte:"
+    },
+    "status_box": {
+        "idle": "Start: ⬠ Polygoon / ↝ Lijn",
+        "drawing_polygon": "Tik om punten toe te voegen • ❌ om te voltooien (≥ 3 punten)",
+        "drawing_line": "Tik om punten toe te voegen • ❌ om te voltooien (≥ 2 punten)",
+        "done": "Voeg toe, sleep of verwijder punten • Tik 📸 voor opname",
+        "saved": "Link klaar → Kopiëren & Delen",
+        "modified": "Gewijzigd → Tik 📸 om nieuwe snapshot te maken"
+    },
+    "map_controls": {
+        "tooltip_draw_poly": "Teken perceelgrens (Druk op ESC om te verlaten)",
+        "tooltip_draw_line": "Teken pad (Druk op ESC om te verlaten)",
+        "tooltip_my_location": "Mijn locatie",
+        "popup_you_are_here": "U bent hier!",
+        "popup_accuracy": "Nauwkeurigheid:",
+        "alert_loc_error": "Kon uw locatie niet vinden: "
+    },
+    "snapshot": {
+        "tooltip_create_snapshot": "Snapshot maken",
+        "lbl_snapshot_link": "Snapshot Link",
+        "tooltip_copy_link": "Link kopiëren",
+        "btn_copy": "Kopiëren",
+        "btn_copied": "Gekopieerd",
+        "alert_draw_first": "Teken eerst een polygoon of lijn!",
+        "alert_finish_drawing": "Voltooi eerst uw tekening voordat u een snapshot maakt!",
+        "tooltip_generating_link": "Link genereren..."
+    },
+    "alerts": {
+        "no_coordinates": "Geen coördinaten gevonden! Voer uw gegevens in.",
+        "need_2_points": "Er zijn minimaal 2 punten nodig om een pad te tekenen!",
+        "need_3_points": "Er zijn minimaal 3 punten nodig om een grens te tekenen!",
+        "missing_meridian": "Centrale Meridiaan niet bepaald!",
+        "select_province_first": "Selecteer eerst een Provincie/Centrale Meridiaan voordat u VN2000-coördinaten invoert!",
+        "out_of_bounds": "⚠️ RODE WAARSCHUWING: Deze VN-2000 coördinaten VALLEN NIET BINNEN {province}!\n\nU heeft mogelijk de verkeerde Centrale Meridiaan geselecteerd. Controleer dit alstublieft!",
+        "restricted_overlap": "🛑 TOEGANG GEWEIGERD: Deze coördinaten overlappen met een beperkt gebied!",
+        "restricted_close": "🛑 TOEGANG GEWEIGERD: Het perceel is te dicht bij een beperkt gebied ({distance}m)."
+    },
+    "settings": {
+        "show_board": "Toon Paneel",
+        "unit_metric": "Metrisch (m/ha)",
+        "unit_imperial": "Imperiaal (ft/ac)",
+        "language": "Taal:"
+    },
+    "geocoder": {
+        "placeholder": "Adres / WGS84 coördinaten...",
+        "error": "Locatie niet gevonden.",
+        "result": "Zoekresultaat"
+    },
+    "layer": {
+        "street": "Wegenkaart",
+        "satellite": "Satellietkaart",
+        "hybrid": "Hybride Kaart"
+    },
+    "postpage": {
+        "home-msg": "Home",
+        "newer-page-title": "Nieuwer bericht",
+        "older-page-title": "Ouder bericht",
+        "live_demo_btn": "QuickMapShare Live Demo",
+        "live_demo_subtext": "Bekijk interactieve voorbeelden in actie. Geen login vereist."
+    }
+}

@@ -77,6 +77,8 @@
     "postpage": {
         "home-msg": "首页",
         "newer-page-title": "较新文章",
-        "older-page-title": "较旧文章"
+        "older-page-title": "较旧文章",
+        "live_demo_btn": "QuickMapShare 实时演示",
+        "live_demo_subtext": "查看实际的交互式示例。无需登录。"
     }
 }

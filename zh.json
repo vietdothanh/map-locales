@@ -13,7 +13,8 @@
         "custom_meridian_option": "-- 自定义中央经线 (旧数据库) --",
         "central_meridian": "中央经线 (L0)：",
         "placeholder_meridian": "例如：105.5",
-        "placeholder_coords": "坐标将显示在这里，或手动粘贴..."
+        "placeholder_coords": "坐标将显示在这里，或手动粘贴...",
+        "popular-posts-title": "热门文章"
     },
     "results": {
         "table_edge": "边长",

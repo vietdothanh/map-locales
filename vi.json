@@ -77,6 +77,8 @@
     "postpage": {
         "home-msg": "Trang chủ",
         "newer-page-title": "Bài mới hơn",
-        "older-page-title": "Bài cũ hơn"
+        "older-page-title": "Bài cũ hơn",
+        "live_demo_btn": "Trải nghiệm QuickMapShare",
+        "live_demo_subtext": "Xem các ví dụ tương tác thực tế. Không yêu cầu đăng nhập."
     }
 }

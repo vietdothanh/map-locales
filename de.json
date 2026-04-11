@@ -77,6 +77,8 @@
     "postpage": {
         "home-msg": "Startseite",
         "newer-page-title": "Neuere Posts",
-        "older-page-title": "Ältere Posts"
+        "older-page-title": "Ältere Posts",
+        "live_demo_btn": "QuickMapShare Live-Demo",
+        "live_demo_subtext": "Erleben Sie interaktive Beispiele in Aktion. Keine Anmeldung erforderlich."
     }
 }

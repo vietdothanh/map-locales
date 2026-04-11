@@ -64,7 +64,7 @@
         "unit_imperial": "Imperial (ft/ac)",
         "language": "Language:"
     },
-        "geocoder": {
+    "geocoder": {
         "placeholder": "Address / WGS84 coords...",
         "error": "Location not found.",
         "result": "Search Result"
@@ -73,5 +73,10 @@
         "street": "Street Map",
         "satellite": "Satellite Map",
         "hybrid": "Hybrid Map"
+    },
+    "postpage": {
+        "home-msg": "Home",
+        "newer-page-title": "Newer post",
+        "older-page-title": "Older post"
     }
 }

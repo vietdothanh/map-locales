@@ -13,7 +13,8 @@
         "custom_meridian_option": "-- Tự nhập Kinh tuyến (Sổ cũ) --",
         "central_meridian": "Kinh tuyến trục (L0):",
         "placeholder_meridian": "VD: 105.5",
-        "placeholder_coords": "Tọa độ sẽ hiển thị ở đây, hoặc tự dán vào..."
+        "placeholder_coords": "Tọa độ sẽ hiển thị ở đây, hoặc tự dán vào...",
+        "popular-posts-title": "Bài phổ biến"
     },
     "results": {
         "table_edge": "Cạnh",

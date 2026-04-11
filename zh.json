@@ -73,5 +73,10 @@
         "street": "街道地图",
         "satellite": "卫星地图",
         "hybrid": "混合地图"
+    },
+    "postpage": {
+        "home-msg": "首页",
+        "newer-page-title": "较新文章",
+        "older-page-title": "较旧文章"
     }
 }

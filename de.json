@@ -13,7 +13,8 @@
         "custom_meridian_option": "-- Benutzerdefinierter Meridian (Alte DB) --",
         "central_meridian": "Mittelmeridian (L0):",
         "placeholder_meridian": "z. B. 105.5",
-        "placeholder_coords": "Koordinaten erscheinen hier oder manuell einfügen..."
+        "placeholder_coords": "Koordinaten erscheinen hier oder manuell einfügen...",
+        "popular-posts-title": "Beliebte Posts"
     },
     "results": {
         "table_edge": "Kante",

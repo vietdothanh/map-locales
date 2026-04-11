@@ -77,6 +77,8 @@
     "postpage": {
         "home-msg": "홈",
         "newer-page-title": "최신 게시물",
-        "older-page-title": "이전 게시물"
+        "older-page-title": "이전 게시물",
+        "live_demo_btn": "QuickMapShare 라이브 데모",
+        "live_demo_subtext": "실제 인터랙티브 예시를 확인하세요. 로그인이 필요하지 않습니다."
     }
 }

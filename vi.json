@@ -73,5 +73,10 @@
         "street": "Bản đồ đường phố",
         "satellite": "Bản đồ vệ tinh",
         "hybrid": "Bản đồ kết hợp"
+    },
+    "postpage": {
+        "home-msg": "Trang chủ",
+        "newer-page-title": "Bài mới hơn",
+        "older-page-title": "Bài cũ hơn"
     }
 }

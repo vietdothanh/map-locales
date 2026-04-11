@@ -77,6 +77,8 @@
     "postpage": {
         "home-msg": "Accueil",
         "newer-page-title": "Articles plus récents",
-        "older-page-title": "Articles plus anciens"
+        "older-page-title": "Articles plus anciens",
+        "live_demo_btn": "Démo en direct QuickMapShare",
+        "live_demo_subtext": "Découvrez des exemples interactifs en action. Aucune connexion requise."
     }
 }

@@ -6,7 +6,14 @@
         "guide_help": "📖 Guide & Help",
         "lbl_gmaps": "Google Maps",
         "btn_remove": "Remove",
-        "btn_add_point": "Add point"
+        "btn_add_point": "Add point",
+        "btn_add_point_auto": "Add point (Auto)",
+        "btn_hide_circle": "Hide circle",
+        "btn_show_circle": "Show circle",
+        "btn_show_all": "Show all circles",
+        "btn_hide_all": "Hide all circles",
+        "lbl_nav_title": "Node Navigator",
+        "lbl_placeholder_wgs": "WGS84 (Lat, Lng)..."
     },
     "sidebar": {
         "select_province": "Select Province:",

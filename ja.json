@@ -22,6 +22,8 @@
         "no_maps": "マップがまだありません。",
         "snapshot": "スナップショット ",
         "delete_map": "マップを削除",
-        "load_list_error": "マップリストを読み込めませんでした。"
+        "load_list_error": "マップリストを読み込めませんでした。",
+        "inapp_warn_title": "サポートされていないブラウザ",
+        "inapp_warn_desc": "Googleでログインするには、右上隅にある3つの点をタップし、「ブラウザで開く」（Chrome/Safari）を選択してください。"
     }
 }

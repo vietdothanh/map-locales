@@ -9,5 +9,19 @@
     "settings": { "show_board": "Mostrar Painel", "unit_metric": "Métrico (m/ha)", "unit_imperial": "Imperial (ft/ac)", "language": "Idioma:" },
     "geocoder": { "placeholder": "Endereço / Coordenadas WGS84...", "error": "Localização não encontrada.", "result": "Resultado da Pesquisa" },
     "layer": { "street": "Mapa de Ruas", "satellite": "Satélite", "hybrid": "Híbrido" },
-    "postpage": { "home-msg": "Início", "newer-page-title": "Postagem mais recente", "older-page-title": "Postagem mais antiga", "live_demo_btn": "Demo ao Vivo", "live_demo_subtext": "Veja exemplos interativos. Sem login." }
+    "postpage": { "home-msg": "Início", "newer-page-title": "Postagem mais recente", "older-page-title": "Postagem mais antiga", "live_demo_btn": "Demo ao Vivo", "live_demo_subtext": "Veja exemplos interativos. Sem login." },
+    "auth": {
+        "manage_maps": "Gerencie seus mapas facilmente: ",
+        "sign_in": "Fazer login com o Google",
+        "sign_out": "Sair",
+        "my_maps_title": "Meus mapas:",
+        "error": "Erro: ",
+        "delete_confirm": "Tem certeza de que deseja excluir este snapshot?",
+        "delete_error": "Não foi possível conectar ao servidor para excluir.",
+        "loading": "Carregando dados...",
+        "no_maps": "Você ainda não tem nenhum mapa.",
+        "snapshot": "Snapshot ",
+        "delete_map": "Excluir mapa",
+        "load_list_error": "Não foi possível carregar a lista de mapas."
+    }
 }

@@ -1,84 +1,13 @@
 {
-    "general": {
-        "loading_map": "กำลังโหลดแผนที่...",
-        "btn_show_on_map": "แสดงบนแผนที่",
-        "btn_open_gmap": "📍 เปิดใน GOOGLE MAPS",
-        "guide_help": "📖 คู่มือและความช่วยเหลือ",
-        "lbl_gmaps": "Google Maps",
-        "btn_remove": "ลบ",
-        "btn_add_point": "เพิ่มจุด"
-    },
-    "sidebar": {
-        "select_province": "เลือกจังหวัด:",
-        "custom_meridian_option": "-- เมริเดียนกำหนดเอง (DB เก่า) --",
-        "central_meridian": "เมริเดียนกลาง (L0):",
-        "placeholder_meridian": "เช่น 105.5",
-        "placeholder_coords": "พิกัดจะปรากฏที่นี่ หรือวางด้วยตนเอง...",
-        "popular-posts-title": "โพสต์ยอดนิยม"
-    },
-    "results": {
-        "table_edge": "ด้าน",
-        "table_length": "ความยาว",
-        "table_total": "รวม",
-        "lbl_area": "พื้นที่:"
-    },
-    "status_box": {
-        "idle": "เริ่ม: ⬠ รูปหลายเหลี่ยม / ↝ เส้น",
-        "drawing_polygon": "แตะเพื่อเพิ่มจุด • ❌ เพื่อเสร็จสิ้น (≥ 3 จุด)",
-        "drawing_line": "แตะเพื่อเพิ่มจุด • ❌ เพื่อเสร็จสิ้น (≥ 2 จุด)",
-        "done": "เพิ่ม ลาก หรือลบจุด • แตะ 📸 เพื่อจับภาพ",
-        "saved": "ลิงก์พร้อมใช้งาน → คัดลอกและแชร์",
-        "modified": "มีการเปลี่ยนแปลง → แตะ 📸 เพื่อสร้างภาพใหม่"
-    },
-    "map_controls": {
-        "tooltip_draw_poly": "วาดแนวเขตแปลง (กด ESC เพื่อออก)",
-        "tooltip_draw_line": "วาดเส้นทาง (กด ESC เพื่อออก)",
-        "tooltip_my_location": "ตำแหน่งของฉัน",
-        "popup_you_are_here": "คุณอยู่ที่นี่!",
-        "popup_accuracy": "ความแม่นยำ:",
-        "alert_loc_error": "ไม่พบตำแหน่งของคุณ: "
-    },
-    "snapshot": {
-        "tooltip_create_snapshot": "สร้างสแนปชอต",
-        "lbl_snapshot_link": "ลิงก์สแนปชอต",
-        "tooltip_copy_link": "คัดลอกลิงก์",
-        "btn_copy": "คัดลอก",
-        "btn_copied": "คัดลอกแล้ว",
-        "alert_draw_first": "กรุณาวาดรูปหลายเหลี่ยมหรือเส้นก่อน!",
-        "alert_finish_drawing": "กรุณาวาดให้เสร็จก่อนสร้างสแนปชอต!",
-        "tooltip_generating_link": "กำลังสร้างลิงก์..."
-    },
-    "alerts": {
-        "no_coordinates": "ไม่พบพิกัด! กรุณาป้อนข้อมูลของคุณ",
-        "need_2_points": "ต้องมีอย่างน้อย 2 จุดในการวาดเส้นทาง!",
-        "need_3_points": "ต้องมีอย่างน้อย 3 จุดในการวาดแนวเขต!",
-        "missing_meridian": "ไม่ได้กำหนดเมริเดียนกลาง!",
-        "select_province_first": "กรุณาเลือกจังหวัด/เมริเดียนกลางก่อนป้อนพิกัด VN2000!",
-        "out_of_bounds": "⚠️ การแจ้งเตือนสีแดง: พิกัด VN-2000 เหล่านี้ไม่ได้อยู่ใน {province}!\n\nคุณอาจเลือกเมริเดียนกลางผิด กรุณาตรวจสอบอีกครั้ง!",
-        "restricted_overlap": "🛑 การเข้าถึงถูกปฏิเสธ: พิกัดเหล่านี้ทับซ้อนกับพื้นที่หวงห้าม!",
-        "restricted_close": "🛑 การเข้าถึงถูกปฏิเสธ: แปลงอยู่ใกล้พื้นที่หวงห้ามเกินไป ({distance}m)"
-    },
-    "settings": {
-        "show_board": "แสดงกระดาน",
-        "unit_metric": "เมตริก (m/ha)",
-        "unit_imperial": "อิมพีเรียล (ft/ac)",
-        "language": "ภาษา:"
-    },
-    "geocoder": {
-        "placeholder": "ที่อยู่ / พิกัด WGS84...",
-        "error": "ไม่พบตำแหน่งที่ตั้ง",
-        "result": "ผลการค้นหา"
-    },
-    "layer": {
-        "street": "แผนที่ถนน",
-        "satellite": "แผนที่ดาวเทียม",
-        "hybrid": "แผนที่แบบผสม"
-    },
-    "postpage": {
-        "home-msg": "หน้าแรก",
-        "newer-page-title": "โพสต์ใหม่กว่า",
-        "older-page-title": "โพสต์เก่ากว่า",
-        "live_demo_btn": "ตัวอย่างสด QuickMapShare",
-        "live_demo_subtext": "ดูตัวอย่างแบบโต้ตอบขณะทำงาน ไม่ต้องเข้าสู่ระบบ"
-    }
+    "general": { "loading_map": "กำลังโหลดแผนที่...", "btn_show_on_map": "แสดงบนแผนที่", "btn_open_gmap": "📍 เปิดใน GOOGLE MAPS", "guide_help": "📖 คู่มือและวิธีใช้", "lbl_gmaps": "Google Maps", "btn_remove": "ลบ", "btn_add_point": "เพิ่มจุด", "btn_add_point_auto": "เพิ่มจุด (อัตโนมัติ)", "btn_hide_circle": "ซ่อนวงกลม", "btn_show_circle": "แสดงวงกลม", "btn_show_all": "แสดงทั้งหมด", "btn_hide_all": "ซ่อนทั้งหมด", "lbl_nav_title": "ระบบนำทางจุด", "lbl_placeholder_wgs": "WGS84 (ละติจูด, ลองจิจูด)..." },
+    "sidebar": { "select_province": "เลือกจังหวัด:", "custom_meridian_option": "-- เส้นเมริเดียนกำหนดเอง --", "central_meridian": "เส้นเมริเดียนกลาง (L0):", "placeholder_meridian": "เช่น 105.5", "placeholder_coords": "พิกัดจะแสดงที่นี่ หรือวางด้วยตนเอง...", "popular-posts-title": "โพสต์ยอดนิยม" },
+    "results": { "table_edge": "ขอบ", "table_length": "ความยาว", "table_total": "รวม", "lbl_area": "พื้นที่:" },
+    "status_box": { "idle": "เริ่มต้น: ⬠ รูปหลายเหลี่ยม / ↝ เส้น", "drawing_polygon": "แตะเพื่อเพิ่มจุด • ❌ เพื่อเสร็จสิ้น (≥ 3 จุด)", "drawing_line": "แตะเพื่อเพิ่มจุด • ❌ เพื่อเสร็จสิ้น (≥ 2 จุด)", "done": "เพิ่ม ย้าย หรือลบจุด • แตะ 📸 เพื่อบันทึก", "saved": "ลิงก์พร้อมใช้งาน → คัดลอก & แชร์", "modified": "มีการเปลี่ยนแปลง → แตะ 📸 สร้างลิงก์ใหม่" },
+    "map_controls": { "tooltip_draw_poly": "วาดขอบเขตเขต (ESC เพื่อออก)", "tooltip_draw_line": "วาดเส้นทาง (ESC เพื่อออก)", "tooltip_my_location": "ตำแหน่งของฉัน", "popup_you_are_here": "คุณอยู่ที่นี่!", "popup_accuracy": "ความแม่นยำ:", "alert_loc_error": "ไม่พบตำแหน่งของคุณ: " },
+    "snapshot": { "tooltip_create_snapshot": "สร้างสแนปชอต", "lbl_snapshot_link": "ลิงก์สแนปชอต", "tooltip_copy_link": "คัดลอกลิงก์", "btn_copy": "คัดลอก", "btn_copied": "คัดลอกแล้ว", "alert_draw_first": "โปรดวาดรูปหลายเหลี่ยมหรือเส้นก่อน!", "alert_finish_drawing": "โปรดวาดให้เสร็จก่อนสร้างลิงก์!", "tooltip_generating_link": "กำลังสร้างลิงก์..." },
+    "alerts": { "no_coordinates": "ไม่พบพิกัด! โปรดป้อนข้อมูล", "need_2_points": "ต้องมีอย่างน้อย 2 จุดเพื่อวาดเส้นทาง!", "need_3_points": "ต้องมีอย่างน้อย 3 จุดเพื่อวาดขอบเขต!", "missing_meridian": "ยังไม่ได้กำหนดเส้นเมริเดียนกลาง!", "select_province_first": "โปรดเลือกจังหวัด/เส้นเมริเดียนก่อนป้อน VN2000!", "out_of_bounds": "⚠️ คำเตือน: พิกัด VN-2000 ไม่อยู่ใน {province}!", "restricted_overlap": "🛑 ปฏิเสธการเข้าถึง: ทับซ้อนกับพื้นที่หวงห้าม!", "restricted_close": "🛑 ปฏิเสธการเข้าถึง: ใกล้พื้นที่หวงห้ามเกินไป ({distance}m)" },
+    "settings": { "show_board": "แสดงแผงควบคุม", "unit_metric": "เมตริก (m/ha)", "unit_imperial": "อิมพีเรียล (ft/ac)", "language": "ภาษา:" },
+    "geocoder": { "placeholder": "ที่อยู่ / พิกัด WGS84...", "error": "ไม่พบตำแหน่ง", "result": "ผลการค้นหา" },
+    "layer": { "street": "แผนที่ถนน", "satellite": "ดาวเทียม", "hybrid": "ผสม" },
+    "postpage": { "home-msg": "หน้าแรก", "newer-page-title": "โพสต์ใหม่กว่า", "older-page-title": "โพสต์เก่ากว่า", "live_demo_btn": "ลองใช้เวอร์ชันจริง", "live_demo_subtext": "ดูตัวอย่างแบบโต้ตอบ ไม่ต้องเข้าสู่ระบบ" }
 }

@@ -6,15 +6,22 @@
         "guide_help": "📖 Hướng dẫn & Trợ giúp",
         "lbl_gmaps": "Google Maps",
         "btn_remove": "Xóa",
-        "btn_add_point": "Thêm điểm"
+        "btn_add_point": "Thêm điểm",
+        "btn_add_point_auto": "Thêm điểm (Tự động)",
+        "btn_hide_circle": "Ẩn vòng tròn",
+        "btn_show_circle": "Hiện vòng tròn",
+        "btn_show_all": "Hiện tất cả",
+        "btn_hide_all": "Ẩn tất cả",
+        "lbl_nav_title": "Điều hướng điểm",
+        "lbl_placeholder_wgs": "WGS84 (Vĩ độ, Kinh độ)..."
     },
     "sidebar": {
-        "select_province": "Chọn Tỉnh/Thành:",
-        "custom_meridian_option": "-- Tự nhập Kinh tuyến (Sổ cũ) --",
+        "select_province": "Chọn Tỉnh/Thành phố:",
+        "custom_meridian_option": "-- Kinh tuyến trục tùy chỉnh (CSDL cũ) --",
         "central_meridian": "Kinh tuyến trục (L0):",
         "placeholder_meridian": "VD: 105.5",
-        "placeholder_coords": "Tọa độ sẽ hiển thị ở đây, hoặc tự dán vào...",
-        "popular-posts-title": "Bài phổ biến"
+        "placeholder_coords": "Tọa độ sẽ hiển thị ở đây, hoặc dán thủ công...",
+        "popular-posts-title": "Bài viết nổi bật"
     },
     "results": {
         "table_edge": "Cạnh",
@@ -23,62 +30,62 @@
         "lbl_area": "Diện tích:"
     },
     "status_box": {
-        "idle": "Bắt đầu: ⬠ Vẽ Vùng / ↝ Vẽ Đường",
+        "idle": "Bắt đầu: ⬠ Đa giác / ↝ Đường đi",
         "drawing_polygon": "Chạm để thêm điểm • ❌ để kết thúc (≥ 3 điểm)",
         "drawing_line": "Chạm để thêm điểm • ❌ để kết thúc (≥ 2 điểm)",
-        "done": "Thêm, kéo, xóa điểm để sửa • Bấm 📸 để chụp",
-        "saved": "Đã tạo Link → Copy & Chia sẻ ngay",
-        "modified": "Đã sửa đổi → Bấm 📸 để chụp link mới"
+        "done": "Thêm, kéo, hoặc xóa điểm để chỉnh • Chạm 📸 để lưu",
+        "saved": "Đã tạo link → Sao chép & Chia sẻ",
+        "modified": "Đã thay đổi → Chạm 📸 để tạo link mới"
     },
     "map_controls": {
-        "tooltip_draw_poly": "Vẽ ranh giới (Nhấn ESC để thoát)",
+        "tooltip_draw_poly": "Vẽ ranh giới thửa đất (Nhấn ESC để thoát)",
         "tooltip_draw_line": "Vẽ đường đi (Nhấn ESC để thoát)",
         "tooltip_my_location": "Vị trí của tôi",
         "popup_you_are_here": "Bạn đang ở đây!",
         "popup_accuracy": "Độ chính xác:",
-        "alert_loc_error": "Không thể xác định vị trí: "
+        "alert_loc_error": "Không thể tìm thấy vị trí của bạn: "
     },
     "snapshot": {
-        "tooltip_create_snapshot": "Tạo Link Chia Sẻ",
-        "lbl_snapshot_link": "Link Bản Đồ Của Bạn",
+        "tooltip_create_snapshot": "Tạo liên kết chia sẻ (Snapshot)",
+        "lbl_snapshot_link": "Link chia sẻ",
         "tooltip_copy_link": "Sao chép link",
         "btn_copy": "Sao chép",
         "btn_copied": "Đã chép",
-        "alert_draw_first": "Vui lòng vẽ vùng hoặc đường trước khi chia sẻ!",
-        "alert_finish_drawing": "Vui lòng hoàn thành thao tác vẽ trước khi tạo link!",
+        "alert_draw_first": "Vui lòng vẽ đa giác hoặc đường đi trước!",
+        "alert_finish_drawing": "Vui lòng hoàn tất thao tác vẽ trước khi tạo link chia sẻ!",
         "tooltip_generating_link": "Đang tạo link..."
     },
     "alerts": {
         "no_coordinates": "Không tìm thấy tọa độ! Vui lòng nhập dữ liệu của bạn.",
-        "need_2_points": "Cần ít nhất 2 điểm để vẽ đường đi!",
-        "need_3_points": "Cần ít nhất 3 điểm để vẽ ranh giới!",
-        "missing_meridian": "Chưa xác định được Kinh tuyến trục!",
-        "select_province_first": "Vui lòng chọn Tỉnh/Kinh tuyến trục trước khi nhập tọa độ VN-2000!",
-        "out_of_bounds": "⚠️ CẢNH BÁO ĐỎ: Tọa độ VN-2000 này khi dịch ra KHÔNG NẰM TRONG tỉnh {province}!\n\nCó thể bạn đã chọn sai Kinh tuyến trục. Vui lòng kiểm tra lại!",
-        "restricted_overlap": "🛑 TỪ CHỐI TRUY CẬP: Tọa độ này nằm đè lên khu vực cấm!",
-        "restricted_close": "🛑 TỪ CHỐI TRUY CẬP: Khu đất quá gần khu vực cấm ({distance}m)."
+        "need_2_points": "Cần ít nhất 2 điểm để vẽ một đường đi!",
+        "need_3_points": "Cần ít nhất 3 điểm để vẽ một ranh giới!",
+        "missing_meridian": "Chưa xác định Kinh tuyến trục!",
+        "select_province_first": "Vui lòng chọn Tỉnh/Thành phố (Kinh tuyến trục) trước khi nhập tọa độ VN2000!",
+        "out_of_bounds": "⚠️ CẢNH BÁO ĐỎ: Các tọa độ VN-2000 này KHÔNG NẰM TRONG {province}!\n\nCó thể bạn đã chọn sai Kinh tuyến trục. Vui lòng kiểm tra lại!",
+        "restricted_overlap": "🛑 TỪ CHỐI TRUY CẬP: Các tọa độ này chồng lấn với khu vực hạn chế!",
+        "restricted_close": "🛑 TỪ CHỐI TRUY CẬP: Thửa đất quá gần khu vực hạn chế ({distance}m)."
     },
     "settings": {
-        "show_board": "Hiển thị bảng",
+        "show_board": "Hiện bảng",
         "unit_metric": "Hệ mét (m/ha)",
         "unit_imperial": "Hệ Anh (ft/ac)",
         "language": "Ngôn ngữ:"
-    }, 
+    },
     "geocoder": {
         "placeholder": "Địa chỉ / Tọa độ WGS84...",
         "error": "Không tìm thấy vị trí.",
         "result": "Kết quả tìm kiếm"
     },
     "layer": {
-        "street": "Bản đồ đường phố",
-        "satellite": "Bản đồ vệ tinh",
-        "hybrid": "Bản đồ kết hợp"
+        "street": "Bản đồ Đường phố",
+        "satellite": "Bản đồ Vệ tinh",
+        "hybrid": "Bản đồ Hỗn hợp"
     },
     "postpage": {
         "home-msg": "Trang chủ",
         "newer-page-title": "Bài mới hơn",
         "older-page-title": "Bài cũ hơn",
-        "live_demo_btn": "Trải nghiệm QuickMapShare",
-        "live_demo_subtext": "Xem các ví dụ tương tác thực tế. Không yêu cầu đăng nhập."
+        "live_demo_btn": "Dùng thử QuickMapShare",
+        "live_demo_subtext": "Xem các ví dụ tương tác thực tế. Không cần đăng nhập."
     }
 }

@@ -9,5 +9,19 @@
     "settings": { "show_board": "Paneli Göster", "unit_metric": "Metrik (m/ha)", "unit_imperial": "İmparatorluk (ft/ac)", "language": "Dil:" },
     "geocoder": { "placeholder": "Adres / WGS84 Koordinatları...", "error": "Konum bulunamadı.", "result": "Arama Sonucu" },
     "layer": { "street": "Sokak Haritası", "satellite": "Uydu", "hybrid": "Karma" },
-    "postpage": { "home-msg": "Ana Sayfa", "newer-page-title": "Daha yeni gönderi", "older-page-title": "Daha eski gönderi", "live_demo_btn": "Canlı Demo", "live_demo_subtext": "Etkileşimli örnekleri görün. Giriş gerekmez." }
+    "postpage": { "home-msg": "Ana Sayfa", "newer-page-title": "Daha yeni gönderi", "older-page-title": "Daha eski gönderi", "live_demo_btn": "Canlı Demo", "live_demo_subtext": "Etkileşimli örnekleri görün. Giriş gerekmez." },
+    "auth": {
+        "manage_maps": "Haritalarınızı kolayca yönetin: ",
+        "sign_in": "Google ile giriş yap",
+        "sign_out": "Çıkış yap",
+        "my_maps_title": "Haritalarım:",
+        "error": "Hata: ",
+        "delete_confirm": "Bu anlık görüntüyü silmek istediğinize emin misiniz?",
+        "delete_error": "Silmek için sunucuya bağlanılamıyor.",
+        "loading": "Veriler yükleniyor...",
+        "no_maps": "Henüz hiç haritanız yok.",
+        "snapshot": "Anlık görüntü ",
+        "delete_map": "Haritayı sil",
+        "load_list_error": "Harita listesi yüklenemedi."
+    }
 }

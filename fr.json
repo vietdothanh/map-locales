@@ -9,5 +9,19 @@
     "settings": { "show_board": "Afficher le Panneau", "unit_metric": "Métrique (m/ha)", "unit_imperial": "Impérial (ft/ac)", "language": "Langue :" },
     "geocoder": { "placeholder": "Adresse / Coordonnées WGS84...", "error": "Emplacement introuvable.", "result": "Résultat de Recherche" },
     "layer": { "street": "Plan de Rue", "satellite": "Satellite", "hybrid": "Hybride" },
-    "postpage": { "home-msg": "Accueil", "newer-page-title": "Article plus récent", "older-page-title": "Article plus ancien", "live_demo_btn": "Démo en Direct", "live_demo_subtext": "Exemples interactifs. Sans inscription." }
+    "postpage": { "home-msg": "Accueil", "newer-page-title": "Article plus récent", "older-page-title": "Article plus ancien", "live_demo_btn": "Démo en Direct", "live_demo_subtext": "Exemples interactifs. Sans inscription." },
+    "auth": {
+        "manage_maps": "Gérez vos cartes facilement : ",
+        "sign_in": "Se connecter avec Google",
+        "sign_out": "Se déconnecter",
+        "my_maps_title": "Mes cartes :",
+        "error": "Erreur : ",
+        "delete_confirm": "Êtes-vous sûr de vouloir supprimer cet instantané ?",
+        "delete_error": "Impossible de se connecter au serveur pour la suppression.",
+        "loading": "Chargement des données...",
+        "no_maps": "Vous n'avez pas encore de cartes.",
+        "snapshot": "Instantané ",
+        "delete_map": "Supprimer la carte",
+        "load_list_error": "Impossible de charger la liste des cartes."
+    }
 }

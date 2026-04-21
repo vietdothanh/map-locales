@@ -9,5 +9,19 @@
     "settings": { "show_board": "Toon Paneel", "unit_metric": "Metrisch (m/ha)", "unit_imperial": "Imperiaal (ft/ac)", "language": "Taal:" },
     "geocoder": { "placeholder": "Adres / WGS84 coördinaten...", "error": "Locatie niet gevonden.", "result": "Zoekresultaat" },
     "layer": { "street": "Stratenkaart", "satellite": "Satelliet", "hybrid": "Hybride" },
-    "postpage": { "home-msg": "Home", "newer-page-title": "Nieuwer bericht", "older-page-title": "Ouder bericht", "live_demo_btn": "Live Demo", "live_demo_subtext": "Bekijk interactieve voorbeelden. Geen login nodig." }
+    "postpage": { "home-msg": "Home", "newer-page-title": "Nieuwer bericht", "older-page-title": "Ouder bericht", "live_demo_btn": "Live Demo", "live_demo_subtext": "Bekijk interactieve voorbeelden. Geen login nodig." },
+    "auth": {
+        "manage_maps": "Beheer je kaarten eenvoudig: ",
+        "sign_in": "Inloggen met Google",
+        "sign_out": "Uitloggen",
+        "my_maps_title": "Mijn kaarten:",
+        "error": "Fout: ",
+        "delete_confirm": "Weet je zeker dat je deze momentopname wilt verwijderen?",
+        "delete_error": "Kan geen verbinding maken met de server om te verwijderen.",
+        "loading": "Gegevens laden...",
+        "no_maps": "Je hebt nog geen kaarten.",
+        "snapshot": "Momentopname ",
+        "delete_map": "Kaart verwijderen",
+        "load_list_error": "Kon de kaartenlijst niet laden."
+    }
 }

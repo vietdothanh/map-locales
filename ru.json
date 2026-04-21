@@ -1,84 +1,13 @@
 {
-    "general": {
-        "loading_map": "Загрузка карты...",
-        "btn_show_on_map": "ПОКАЗАТЬ НА КАРТЕ",
-        "btn_open_gmap": "📍 ОТКРЫТЬ В GOOGLE MAPS",
-        "guide_help": "📖 Руководство и помощь",
-        "lbl_gmaps": "Google Maps",
-        "btn_remove": "Удалить",
-        "btn_add_point": "Добавить точку"
-    },
-    "sidebar": {
-        "select_province": "Выберите провинцию:",
-        "custom_meridian_option": "-- Свой меридиан (Старая БД) --",
-        "central_meridian": "Осевой меридиан (L0):",
-        "placeholder_meridian": "напр., 105.5",
-        "placeholder_coords": "Координаты появятся здесь, или вставьте их вручную...",
-        "popular-posts-title": "Популярные записи"
-    },
-    "results": {
-        "table_edge": "Край",
-        "table_length": "Длина",
-        "table_total": "Итого",
-        "lbl_area": "Площадь:"
-    },
-    "status_box": {
-        "idle": "Начать: ⬠ Полигон / ↝ Линия",
-        "drawing_polygon": "Коснитесь, чтобы добавить • ❌ для завершения (≥ 3 точек)",
-        "drawing_line": "Коснитесь, чтобы добавить • ❌ для завершения (≥ 2 точек)",
-        "done": "Добавляйте, двигайте или удаляйте точки • Коснитесь 📸",
-        "saved": "Ссылка готова → Копировать и Поделиться",
-        "modified": "Изменено → Коснитесь 📸 для нового снимка"
-    },
-    "map_controls": {
-        "tooltip_draw_poly": "Нарисовать границы участка (ESC для выхода)",
-        "tooltip_draw_line": "Нарисовать путь (ESC для выхода)",
-        "tooltip_my_location": "Мое местоположение",
-        "popup_you_are_here": "Вы здесь!",
-        "popup_accuracy": "Точность:",
-        "alert_loc_error": "Не удалось определить ваше местоположение: "
-    },
-    "snapshot": {
-        "tooltip_create_snapshot": "Создать снимок",
-        "lbl_snapshot_link": "Ссылка на снимок",
-        "tooltip_copy_link": "Копировать ссылку",
-        "btn_copy": "Копировать",
-        "btn_copied": "Скопировано",
-        "alert_draw_first": "Пожалуйста, сначала нарисуйте полигон или линию!",
-        "alert_finish_drawing": "Пожалуйста, завершите рисование перед созданием снимка!",
-        "tooltip_generating_link": "Создание ссылки..."
-    },
-    "alerts": {
-        "no_coordinates": "Координаты не найдены! Пожалуйста, введите данные.",
-        "need_2_points": "Для построения пути требуется не менее 2 точек!",
-        "need_3_points": "Для построения границы требуется не менее 3 точек!",
-        "missing_meridian": "Осевой меридиан не определен!",
-        "select_province_first": "Пожалуйста, выберите провинцию/осевой меридиан перед вводом координат VN2000!",
-        "out_of_bounds": "⚠️ КРАСНАЯ ТРЕВОГА: Эти координаты VN-2000 НЕ НАХОДЯТСЯ В ПРЕДЕЛАХ {province}!\n\nВозможно, вы выбрали неверный осевой меридиан. Пожалуйста, проверьте еще раз!",
-        "restricted_overlap": "🛑 В ДОСТУПЕ ОТКАЗАНО: Эти координаты пересекаются с запретной зоной!",
-        "restricted_close": "🛑 В ДОСТУПЕ ОТКАЗАНО: Участок слишком близко к запретной зоне ({distance}м)."
-    },
-    "settings": {
-        "show_board": "Показать панель",
-        "unit_metric": "Метрическая (м/га)",
-        "unit_imperial": "Британская (фт/акр)",
-        "language": "Язык:"
-    },
-    "geocoder": {
-        "placeholder": "Адрес / координаты WGS84...",
-        "error": "Местоположение не найдено.",
-        "result": "Результат поиска"
-    },
-    "layer": {
-        "street": "Схема улиц",
-        "satellite": "Спутник",
-        "hybrid": "Гибрид"
-    },
-    "postpage": {
-        "home-msg": "Главная",
-        "newer-page-title": "Более новая запись",
-        "older-page-title": "Более старая запись",
-        "live_demo_btn": "Живая демо-версия QuickMapShare",
-        "live_demo_subtext": "Смотрите интерактивные примеры в действии. Вход не требуется."
-    }
+    "general": { "loading_map": "Загрузка карты...", "btn_show_on_map": "ПОКАЗАТЬ НА КАРТЕ", "btn_open_gmap": "📍 ОТКРЫТЬ В GOOGLE MAPS", "guide_help": "📖 Руководство и помощь", "lbl_gmaps": "Google Maps", "btn_remove": "Удалить", "btn_add_point": "Добавить точку", "btn_add_point_auto": "Добавить точку (Авто)", "btn_hide_circle": "Скрыть круг", "btn_show_circle": "Показать круг", "btn_show_all": "Показать все", "btn_hide_all": "Скрыть все", "lbl_nav_title": "Навигатор точек", "lbl_placeholder_wgs": "WGS84 (Широта, Долгота)..." },
+    "sidebar": { "select_province": "Выберите провинцию:", "custom_meridian_option": "-- Пользовательский меридиан --", "central_meridian": "Центральный меридиан (L0):", "placeholder_meridian": "Напр., 105.5", "placeholder_coords": "Координаты появятся здесь, или вставьте их вручную...", "popular-posts-title": "Популярные записи" },
+    "results": { "table_edge": "Край", "table_length": "Длина", "table_total": "Всего", "lbl_area": "Площадь:" },
+    "status_box": { "idle": "Старт: ⬠ Полигон / ↝ Линия", "drawing_polygon": "Нажмите для добавления • ❌ Завершить (≥ 3 т.)", "drawing_line": "Нажмите для добавления • ❌ Завершить (≥ 2 т.)", "done": "Добавляйте, перемещайте • 📸 для сохранения", "saved": "Ссылка готова → Копировать и поделиться", "modified": "Изменено → 📸 для новой ссылки" },
+    "map_controls": { "tooltip_draw_poly": "Нарисовать границу (ESC для выхода)", "tooltip_draw_line": "Нарисовать путь (ESC для выхода)", "tooltip_my_location": "Мое местоположение", "popup_you_are_here": "Вы здесь!", "popup_accuracy": "Точность:", "alert_loc_error": "Не удалось определить ваше местоположение: " },
+    "snapshot": { "tooltip_create_snapshot": "Создать снимок (Snapshot)", "lbl_snapshot_link": "Ссылка на снимок", "tooltip_copy_link": "Копировать ссылку", "btn_copy": "Копировать", "btn_copied": "Скопировано", "alert_draw_first": "Сначала нарисуйте полигон или линию!", "alert_finish_drawing": "Завершите рисование перед созданием ссылки!", "tooltip_generating_link": "Генерация ссылки..." },
+    "alerts": { "no_coordinates": "Координаты не найдены! Введите данные.", "need_2_points": "Для пути требуется не менее 2 точек!", "need_3_points": "Для границы требуется не менее 3 точек!", "missing_meridian": "Центральный меридиан не определен!", "select_province_first": "Выберите провинцию перед вводом координат VN2000!", "out_of_bounds": "⚠️ ВНИМАНИЕ: Координаты НЕ НАХОДЯТСЯ В {province}!\n\nВозможно, неверный меридиан. Проверьте!", "restricted_overlap": "🛑 ДОСТУП ЗАПРЕЩЕН: Пересечение с запретной зоной!", "restricted_close": "🛑 ДОСТУП ЗАПРЕЩЕН: Слишком близко к запретной зоне ({distance}m)." },
+    "settings": { "show_board": "Показать панель", "unit_metric": "Метрическая (м/га)", "unit_imperial": "Британская (фут/акр)", "language": "Язык:" },
+    "geocoder": { "placeholder": "Адрес / Координаты WGS84...", "error": "Место не найдено.", "result": "Результат поиска" },
+    "layer": { "street": "Карта улиц", "satellite": "Спутник", "hybrid": "Гибрид" },
+    "postpage": { "home-msg": "Главная", "newer-page-title": "Новая запись", "older-page-title": "Старая запись", "live_demo_btn": "Live-Демо", "live_demo_subtext": "Интерактивные примеры. Вход не требуется." }
 }

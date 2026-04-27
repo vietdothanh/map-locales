@@ -18,37 +18,2662 @@
     <meta property="og:image" content="https://app.quickmapshare.com/default-banner.png">
     <meta property="og:url" content="https://app.quickmapshare.com">
     <meta property="og:type" content="website">
+    <style>
+        #navbar-iframe {
+        display: none !important;
+        }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; display: flex; height: 100vh; margin: 0; background: #eef2f3; }
+
+        .sidebar {
+          width: 100%;
+        }
+
+        #map { flex-grow: 1; }
+
+        h3 { color: #2c3e50; border-bottom: 2px solid #27ae60; padding-bottom: 10px; }
+        textarea { width: 100%; height: 100%; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px; padding: 8px; box-sizing: border-box; }
+        select, button { width: 100%; padding: 12px; margin-bottom: 10px; border-radius: 4px; border: 1px solid #ddd; font-size: 14px; }
+        
+        .btn-draw { background: #27ae60; color: white; border: none; font-weight: bold; cursor: pointer; }
+        .btn-share { background: #3498db; color: white; border: none; font-weight: bold; cursor: pointer; }
+        button:hover { opacity: 0.9; }
+
+        #outer-wrapper {
+            width: 100%;
+        }
+
+        #content-wrapper{   
+            margin: 20px 20px;
+        }
+
+        /* Giao diện cho các nốt số tọa độ */
+        .point-label {
+            background-color: rgba(0, 0, 0, 0.65) !important; 
+            color: #CCFF00 !important; 
+            font-weight: bold !important;
+            font-size: 16px !important; 
+            border-radius: 50% !important; 
+            border: 2px solid #FFFFFF !important; 
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            box-shadow: 0px 0px 5px rgba(0,0,0,0.8); 
+        }
+
+        img {
+            max-width: 95%;
+            height: auto; /* Giữ nguyên tỷ lệ khung hình, chống méo ảnh */
+            display: block; /* Định dạng khối để căn giữa dễ dàng */
+            margin: 0 auto; /* Tự động căn giữa ảnh vào giữa khung chứa */
+        }
+
+    body, html { margin: 0; padding: 0; height: 100%; height: 100dvh; overflow: hidden; }
+
+    #diachinh-app {
+        display: flex; flex-direction: row; 
+        height: 100vh; height: 100dvh; 
+        width: 100%; 
+        font-family: &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif; margin: 0; box-sizing: border-box;
+    }
+    
+    #diachinh-sidebar {
+        width: 321px; padding: 15px; background: #f9f9f9; 
+        box-sizing: border-box; border-right: 1px solid #ddd;
+        height: 100%; 
+        overflow-y: auto; 
+        -webkit-overflow-scrolling: touch;
+    }
+
+    #diachinh-map { 
+        flex-grow: 1; height: 100%; background: #e5e3df; z-index: 1; position: relative; 
+    }
+    
+    #diachinh-map .leaflet-control-scale { margin-bottom: 12px; }
+
+    #divider {
+        display: none; height: 24px; background-color: #f9f9f9; cursor: row-resize;
+        justify-content: center; align-items: center; touch-action: none;
+        z-index: 11; border-radius: 15px 15px 0 0; margin-top: -12px;
+        box-shadow: 0 -4px 10px rgba(0,0,0,0.05);
+    }
+    #divider .drag-handle { width: 40px; height: 5px; background-color: #bdc3c7; border-radius: 3px; }
+
+    #diachinh-sidebar input, #diachinh-sidebar select, #diachinh-sidebar button, #diachinh-sidebar textarea {
+        width: 100%; padding: 8px; margin-bottom: 10px; box-sizing: border-box;
+    }
+  
+
+  
+
+  
+
+    
+    #meridian { border: 2px solid #3498db; font-weight: bold; }
+    #customM-box { display: none; background: #e8f4fd; padding: 10px; border-radius: 4px; margin-bottom: 10px; }
+
+    .btn-draw { background: #27ae60; color: white; border: none; font-weight: bold; cursor: pointer; padding: 10px !important; }
+    .btn-share { background: #3498db; color: white; border: none; font-weight: bold; cursor: pointer; padding: 10px !important; }
+    button:hover { opacity: 0.9; }
+    #btnShareLink { margin-top: 10px !important; }  
+    
+    .btn-gmap { 
+        position: absolute !important; bottom: 40px !important; right: 15px !important;
+        z-index: 99999 !important; background: #ea4335; color: white; border: none; font-weight: bold; cursor: pointer; 
+        display: none; padding: 12px 20px !important; border-radius: 4px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.4); width: auto !important;
+    }
+
+    #results {
+        margin-top: 10px;
+    }
+
+    .table-container {
+        margin-top: 5px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    table#edgeTable { 
+        width: 100%; border-collapse: collapse; table-layout: fixed; 
+        font-size: 13px; background: transparent; margin: 0;
+    }
+
+    table#edgeTable th, table#edgeTable td { 
+        border: 1px solid rgba(0, 0, 0, 0.1); padding: 8px 6px; 
+    }
+
+    #edgeTable th:first-child, #edgeTable td:first-child { width: 45%; text-align: left; padding-left: 10px; }
+    #lengthHeader, #edgeTable td:nth-child(2) { width: 55%; text-align: right; padding-right: 10px; }
+
+    /* Đã gỡ bỏ position: sticky ở đây */
+    #edgeTable thead th {
+        background-color: #f1f5f9; 
+        color: #334155;
+    }
+
+    /* Khối hiển thị Diện Tích */
+    .result-box { 
+        background: transparent; 
+        padding: 15px 0 5px 12px;
+        border-radius: 0; 
+        border-left: 4px solid #27ae60; 
+        margin-top: 15px; 
+    }
+    .area-val { font-size: 18px; color: #e74c3c; font-weight: bold; }
+
+    #shareStatus { font-size: 12px; color: #27ae60; text-align: center; margin-top: 5px; margin-bottom: 10px; display: none; }  
+    
+    .point-label {
+        display: flex; align-items: center; justify-content: center;
+        background: transparent; color: #CCFF00; font-weight: 300; font-size: 11px;
+        text-shadow: 1px 1px 0px #000, -1px -1px 0px #000;
+    }
+  
+    .khung-nhap-toa-do {
+        display: flex; border: 1px solid #ccc; border-radius: 5px;
+        max-width: 400px; background: #fff;
+        font-family: &#39;Courier New&#39;, Courier, monospace; font-size: 14px; line-height: 16px; 
+        height: 150px; margin: 5px 0;
+    }
+
+    .cot-so-thu-tu {
+        padding: 10px 5px; background-color: #f8f9fa; color: #adb5bd; 
+        text-align: right; min-width: 20px; border-right: 1px solid #e9ecef;
+        overflow: hidden; user-select: none; margin: 0; 
+    }
+
+    .textarea-toa-do {
+        flex: 1; padding: 10px; border: none; resize: none; outline: none;
+        overflow-y: auto; white-space: pre; background: transparent;
+        font-family: inherit; font-size: inherit; line-height: inherit; margin: 0; height: 100%; 
+    }  
+
+    input[type=&quot;search&quot;]::-webkit-search-decoration,
+    input[type=&quot;search&quot;]::-webkit-search-cancel-button,
+    input[type=&quot;search&quot;]::-webkit-search-results-button,
+    input[type=&quot;search&quot;]::-webkit-search-results-decoration { -webkit-appearance: none; display: none; }  
+
+    #statusBox {
+        margin: 6px 0 12px 0; padding: 10px 12px;
+        font-size: 13px; line-height: 1.5; font-weight: 500;
+        color: #334155; background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+        border: 1px solid #e2e8f0; border-left: 4px solid #f97316; 
+        border-radius: 6px; box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        transition: all 0.2s ease; letter-spacing: 0.2px;
+    }
+    #statusBox:hover { background: #f1f5f9; }
+
+    .box-wrapper { position: relative; padding-right: 36px; min-height: 30px; }
+    .help-button {
+        position: absolute; top: 46%; transform: translateY(-50%); right: 4px; 
+        display: flex; align-items: center; justify-content: center;
+        width: 28px; height: 28px; color: #9ca3af; border-radius: 50%; transition: all 0.2s ease;
+    }
+    .help-button:hover { color: #3b82f6; background-color: #eff6ff; }  
+    
+    .hidden { display: none !important; }  
+
+    /* ------------------------------------------------------------------- */
+    /* TƯƠNG THÍCH MOBILE TỔNG HỢP */
+    /* ------------------------------------------------------------------- */
+    @media (max-width: 768px) {
+        #diachinh-app { flex-direction: column; }
+        #diachinh-map { order: 1; height: 80%; width: 100%; flex-grow: 0; }
+        #divider { order: 2; display: flex !important; }
+        
+        #diachinh-sidebar { 
+            order: 3; width: 100%; height: 20%; 
+            border-right: none; border-top: 1px solid #ddd;
+            border-radius: 15px 15px 0 0; 
+            box-shadow: 0 -4px 15px rgba(0,0,0,0.1); 
+            z-index: 10; overflow-y: auto; display: block; 
+        }
+
+        #diachinh-sidebar h3 { font-size: 18px; margin-bottom: 10px; }
+
+        .khung-nhap-toa-do {
+            min-height: 80px; height: auto !important; margin-bottom: 10px;
+        }
+        .textarea-toa-do { height: 100px !important; }
+        
+        .btn-gmap { 
+            bottom: auto !important; top: 15px !important; right: 10px !important; 
+            padding: 8px 12px !important; font-size: 11px !important; 
+        }
+        #statusBox { font-size: 12px; padding: 8px 10px; }
+    }
+  
+
+/* Màu cho node đầu và cuối */
+.first-node { border-color: #27ae60 !important; }
+.last-node { border-color: #e74c3c !important; }
+
+/* Nút bấm dùng chung trong popup */
+.popup-btn {
+    display: block;
+    width: 100%;
+    color: white !important;
+    border: none;
+    padding: 7px 10px;
+    margin-bottom: 6px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    box-sizing: border-box;
+    transition: background 0.2s;
+}
+.popup-btn:hover { opacity: 0.85; }
+
+/* Từng màu riêng cho từng nút */
+.btn-gmaps { background: #10b981; } /* Xanh ngọc Google Maps */
+.btn-remove { background: #ef4444; } /* Đỏ Xóa */
+.btn-add { background: #3b82f6; margin-bottom: 0; } /* Xanh dương Add Point */
+
+  
+  
+  
+  
+/* CSS cho Loading Screen */
+.qms-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #ffffff; /* Màu nền lúc tải */
+    z-index: 99999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.6s ease-out, visibility 0.6s ease-out;
+}
+
+/* Class để ẩn loading */
+.qms-loader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Vòng xoay Loading */
+.qms-spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #2563eb; /* Màu xanh dương */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 15px;
+}
+
+.qms-loading-text {
+    font-family: Arial, sans-serif;
+    color: #4b5563;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}  
+  
+
+#PageList1 {
+  padding: 15px !important;
+  background: #f8f9fa !important;
+  border-radius: 8px;
+}
+
+#PageList1 ul {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+#PageList1 li {
+  border-bottom: 1px solid #eee; /* Đường kẻ mờ ngăn cách */
+  padding: 8px 0 !important;
+}
+
+#PageList1 li:last-child {
+  border-bottom: none;
+}
+
+#PageList1 li a {
+  color: #3c4043 !important;
+  font-size: 14px;
+  text-decoration: none !important;
+  display: block;
+  transition: padding-left 0.2s;
+}
+
+#PageList1 li a:hover {
+  color: #1a73e8 !important;
+  padding-left: 5px; /* Hiệu ứng dịch chuyển nhẹ khi hover */
+}
+  
+  
+  
+/* Tổng thể Widget Popular Posts - Cùng khung nền với PageList */
+#PopularPosts1 {
+  padding: 15px !important;
+  background: #f8f9fa !important;
+  border-radius: 8px;
+  margin-top: 20px; /* Tạo khoảng cách với widget bên trên */
+}
+
+/* Kiểu dáng cho Tiêu đề &quot;Popular Posts&quot; */
+#PopularPosts1 h2 {
+  margin: 0 0 15px 0 !important;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #1a73e8; /* Nhấn nhá gạch chân xanh Google */
+  color: #202124 !important;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Định dạng danh sách bài viết */
+#PopularPosts1 ul {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+#PopularPosts1 li {
+  border-bottom: 1px solid #eee; /* Đường kẻ mờ ngăn cách các bài */
+  padding: 10px 0 !important; /* Đẩy đệm một chút cho tiêu đề dài dễ thở */
+}
+
+#PopularPosts1 li:last-child {
+  border-bottom: none;
+  padding-bottom: 0 !important;
+}
+
+/* Định dạng Link bài viết */
+#PopularPosts1 li a {
+  color: #3c4043 !important;
+  font-size: 14px;
+  line-height: 1.5; /* Cực kỳ quan trọng: Giúp các tiêu đề dài xuống dòng không bị dính chữ */
+  text-decoration: none !important;
+  display: block;
+  transition: all 0.2s ease;
+}
+
+/* Hiệu ứng khi di chuột vào */
+#PopularPosts1 li a:hover {
+  color: #1a73e8 !important;
+  padding-left: 5px; /* Dịch chuyển nhẹ nhàng giống hệt menu Pages */
+}
+
+/* Ẩn div thừa */
+#PopularPosts1 .clear {
+  display: none;
+}  
+  
+  
+        .qms-marker {
+            background-color: rgba(44, 62, 80, 0.4);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.4);
+            box-sizing: border-box;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }  
+  
+  
+
+    </style>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.polylinemeasure/Leaflet.PolylineMeasure.css" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/leaflet.polylinemeasure/Leaflet.PolylineMeasure.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@turf/turf@6/turf.min.js"></script>
+<script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/12.12.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/12.12.1/firebase-auth-compat.js"></script>
+
 </head>
 <body>
 
-    <header>
-        <div class="container">
-            <a href="/" class="logo">QuickMapShare</a>
-            <nav>
-                <ul>
-                    <li><a href="/">Trang chủ</a></li>
-                    <li><a href="#tutorial">Hướng dẫn</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
 
-    <main class="app-container">
-        <div id="map-view">
-            <h1>Đang tải bản đồ...</h1>
+<div class='qms-loader' id='qms-loader'>
+    <div class='qms-spinner'/>
+    <div class='qms-loading-text' data-i18n='general.loading_map'>Loading map...</div> 
+</div>  
+    
+    
+<div id='diachinh-app'>
+    <div id='diachinh-sidebar'>
+      
+
+      
+      
+        <h3 style='margin-top:0; display: none;'>📍 Quick Map Share .com</h3>
+        
+        <div style='display: none;'>
+            <label data-i18n='sidebar.select_province'>Select Province:</label>
+            <select id='meridian'/>
+        </div>
+
+        <div id='customM-box'>
+            <label data-i18n='sidebar.central_meridian'>Central Meridian (L0):</label>
+            <input data-i18n-placeholder='sidebar.placeholder_meridian' id='manualM' placeholder='e.g., 105.5' step='0.01' type='number'/>
+        </div>
+
+        <div class='box-wrapper'>
+            <div data-i18n='status_box.idle' id='statusBox'>
+                Start: &#11040; Polygon / &#8605; Line
+            </div>
+            
+            <a class='help-button' data-i18n-title='general.guide_help' href='https://www.quickmapshare.com/p/guide-help.html' target='_blank' title='Guide &amp; Help'>
+                <svg fill='none' height='20' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='20'>
+                    <circle cx='12' cy='12' r='10'/>
+                    <path d='M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3'/>
+                    <line x1='12' x2='12.01' y1='17' y2='17'/>
+                </svg>
+            </a>
+        </div>        
+        
+        <div class='khung-nhap-toa-do' style='display: none;'>
+            <div class='cot-so-thu-tu' id='cotSo'>1</div>
+            <textarea class='textarea-toa-do' data-i18n-placeholder='sidebar.placeholder_coords' id='coordsInput' placeholder='Coordinates will appear here, or paste them manually...' wrap='off'/>
         </div>
         
-        <div class="control-panel">
-            <button id="btn-share" class="btn-primary">Tạo Link Chia Sẻ</button>
-        </div>
-    </main>
+        <button class='btn-draw' data-i18n='general.btn_show_on_map' onclick='processData()' style='display: none;'>SHOW ON MAP</button>
+        
+        <a data-i18n='general.guide_help' href='https://www.quickmapshare.com/p/guide-help.html' id='btnHelpLink' style='display: none; text-align: center; margin-top: 10px; margin-bottom: 10px; color: #3498db; text-decoration: none; font-weight: bold; padding: 5px; border: 1px dashed #3498db; border-radius: 4px;' target='_blank'>📖 Guide &amp; Help</a>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 QuickMapShare. All rights reserved.</p>
-        </div>
-    </footer>
+        <div id='results' style='display:none;'>
+            <div class='table-container'>
+              <table id='edgeTable'>
+                  <thead>
+                      <tr>
+                          <th data-i18n='results.table_edge'>Edge</th>
+                          <th id='lengthHeader'><span data-i18n='results.table_length'>Length</span> (m)</th>
+                      </tr>
+                  </thead>
+                  <tbody/>
+              </table>
+            </div>
+            
+            <div class='result-box'>
+                <span data-i18n='results.lbl_area'>Area:</span> <br/><span class='area-val' id='areaDisplay'>0 m&#178;</span>
+            </div>          
+          
+          
+          
 
-    <script src="script.js"></script>
+
+
+
+          
+          
+          
+        </div>
+      
+      
+<div id='auth-box' style='padding: 15px; border: 1px solid #ddd; border-radius: 8px; max-width: 300px; text-align: center; margin: 20px auto;'>
+  <div id='user-info' style='display: none; margin-bottom: 15px;'>
+    <img id='user-avatar' src='' style='width: 50px; height: 50px; border-radius: 50%; object-fit: cover; margin-bottom: 10px;'/>
+    <div id='user-name' style='font-weight: bold; font-family: sans-serif;'/>
+  </div>
+
+  <div id='inapp-warning-box' style='display: none; background-color: #fff3cd; color: #856404; border: 1px solid #ffeeba; padding: 12px; border-radius: 8px; margin-bottom: 16px; font-size: 14px; text-align: center; line-height: 1.5;'>
+    <strong>&#9888;&#65039; <span data-i18n='auth.inapp_warn_title'>Unsupported Browser</span></strong><br/>
+    
+    <span data-i18n='auth.inapp_warn_desc'>Please tap the 3 dots in the top right corner and select &quot;Open in browser&quot; (Chrome/Safari) to sign in with Google.</span>
+  </div>
+
+
+  
+  <div id='btn-login' style='font-family: sans-serif; font-size: 14px; color: #555; text-align: center; padding: 10px 0;'>
+    <span data-i18n='auth.manage_maps'>Manage your maps easily:</span> 
+    <a data-i18n='auth.sign_in' href='javascript:void(0)' onclick='loginGoogle()' onmouseout='this.style.textDecoration=&apos;none&apos;' onmouseover='this.style.textDecoration=&apos;underline&apos;' style='color: #1a73e8; text-decoration: none; font-weight: 600; white-space: nowrap;'>
+      Sign in with Google
+    </a>
+  </div>
+  
+  <button data-i18n='auth.sign_out' id='btn-logout' onclick='logout()' style='display: none; background: #ea4335; color: white; border: none; padding: 10px 15px; border-radius: 4px; cursor: pointer; font-family: sans-serif; font-size: 14px; width: 100%; margin-top: 10px;'>
+    Sign out
+  </button>
+  
+  <div id='my-maps-box' style='display: none; margin-top: 15px; text-align: left; border-top: 1px solid #eee; padding-top: 15px;'>
+    <div data-i18n='auth.my_maps_title' style='font-weight: bold; font-family: sans-serif; font-size: 14px; margin-bottom: 10px; color: #333;'>Bản đồ của tôi:</div>
+    <div id='my-maps-list' style='font-family: sans-serif; font-size: 13px;'/>
+  </div>
+</div>      
+
+
+      
+    </div>
+    
+    <div id='divider'>
+        <div class='drag-handle'/>
+    </div>
+    
+    <div id='diachinh-map'>
+        </div>
+    
+    <button class='btn-gmap' data-i18n='general.btn_open_gmap' id='btnGoogleMap' onclick='openGoogleMaps()'>📍 OPEN IN GOOGLE MAPS</button>
+</div>
+
+
+<script type='text/javascript'>
+
+
+// ==========================================
+// 1. HÀM TIỆN ÍCH ĐA NGÔN NGỮ (i18n HELPER)
+// ==========================================
+function t(path, defaultValue = '') {
+    if (typeof translations === 'undefined' || !translations) return defaultValue;
+    return path.split('.').reduce((obj, key) => obj && typeof obj[key] !== 'undefined' ? obj[key] : undefined, translations) ?? defaultValue;
+}
+
+// ==========================================
+// 2. KHAI BÁO BIẾN TOÀN CỤC & SỰ KIỆN GIAO DIỆN
+// ==========================================
+let startX = 0, startY = 0;
+
+document.addEventListener('touchstart', (e) => {
+    startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
+}, { passive: true });
+
+document.addEventListener('touchmove', (e) => {
+    const touch = e.touches[0];
+    const diffX = Math.abs(touch.clientX - startX);
+    const diffY = Math.abs(touch.clientY - startY);
+    if (diffX > diffY) {
+        if (startX < 30 && touch.clientX > startX) e.preventDefault();
+        if (startX > window.innerWidth - 30 && touch.clientX < startX) e.preventDefault();
+    }
+}, { passive: false });
+
+let map, currentPolySelect = null, centerLat = null, centerLng = null, pointLabelsLayer;
+let isDrawingMode = false, isLineMode = false, polyType = null;
+window.laDiemDauTien = true;
+let drawnMarkers = [], wgs84Coords = [], interactivePolySelect = null;
+let layerControl = null, googleStreets, googleSatellite, googleHybrid;
+window.duLieuRanhGioiTinh = null;
+
+window.addEventListener('load', () => {
+    const hideLoader = () => {
+        const l = document.getElementById('qms-loader');
+        if (l) l.classList.add('hidden');
+    };
+    setTimeout(hideLoader, 500);
+    setTimeout(hideLoader, 4000);
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const divider = document.getElementById('divider');
+    const mapPane = document.getElementById('diachinh-map');
+    const sidebarPane = document.getElementById('diachinh-sidebar');
+    let isDragging = false, rafId = null, lastY = 0;
+
+    if (window.innerWidth <= 768 && divider) {
+        divider.addEventListener('pointerdown', (e) => {
+            isDragging = true;
+            lastY = e.clientY;
+            e.preventDefault();
+            document.addEventListener('pointermove', onPointerMove);
+        });
+
+        function onPointerMove(e) {
+            if (!isDragging || Math.abs(e.clientY - lastY) < 3) return;
+            lastY = e.clientY;
+            if (rafId) cancelAnimationFrame(rafId);
+
+            rafId = requestAnimationFrame(() => {
+                let newMapHeight = (e.clientY / window.innerHeight) * 100;
+                if (newMapHeight >= 6 && newMapHeight <= 88) {
+                    mapPane.style.height = `${newMapHeight}%`;
+                    sidebarPane.style.height = `${100 - newMapHeight}%`;
+                }
+            });
+        }
+
+        document.addEventListener('pointerup', () => {
+            if (!isDragging) return;
+            isDragging = false;
+            document.removeEventListener('pointermove', onPointerMove);
+            if (typeof map !== 'undefined' && map != null) map.invalidateSize({ pan: false });
+        });
+    }
+
+    if (typeof initMap === 'function') initMap();
+});
+
+let globalAreaM2 = 0;
+let currentUnitSystem = localStorage.getItem('preferredUnitSystem') || 'metric';
+let currentShapeData = { area: 0, edges: [] };
+let appState = 'idle';
+
+// ==========================================
+// 3. LOGIC XỬ LÝ ĐO LƯỜNG & KẾT QUẢ
+// ==========================================
+function updateStatus() {
+    const el = document.getElementById('statusBox');
+    if (!el) return;
+
+    const statusMap = {
+        'idle': t('status_box.idle', 'Idle'),
+        'drawing_polygon': t('status_box.drawing_polygon', 'Drawing Polygon...'),
+        'drawing_line': t('status_box.drawing_line', 'Drawing Line...'),
+        'done': t('status_box.done', 'Done'),
+        'saved': t('status_box.saved', 'Saved'),
+        'modified': t('status_box.modified', 'Unsaved changes')
+    };
+    el.innerHTML = statusMap[appState] || appState;
+}
+
+function formatMeasurement(value, type = 'distance') {
+    if (type === 'distance') {
+        if (currentUnitSystem === 'metric') {
+            return value >= 1000 ? (value / 1000).toFixed(2) + " km" : value.toFixed(2) + " m";
+        }
+        let feet = value * 3.28084;
+        return feet >= 5280 ? (feet / 5280).toFixed(2) + " mi" : feet.toFixed(2) + " ft";
+    }
+
+    if (type === 'area') {
+        if (currentUnitSystem === 'metric') {
+            if (value >= 1000000) return `${(value / 1000000).toLocaleString('en-US', {maximumFractionDigits: 4})} km² (${value.toLocaleString('en-US', {maximumFractionDigits: 2})} m²)`;
+            if (value >= 10000) return `${(value / 10000).toLocaleString('en-US', {maximumFractionDigits: 4})} ha (${value.toLocaleString('en-US', {maximumFractionDigits: 2})} m²)`;
+            return `${value.toLocaleString('en-US', {maximumFractionDigits: 2})} m²`;
+        }
+        let sqft = value * 10.7639;
+        if (sqft >= 43560) return `${(sqft / 43560).toLocaleString('en-US', {maximumFractionDigits: 4})} ac (${sqft.toLocaleString('en-US', {maximumFractionDigits: 2})} sq ft)`;
+        return `${sqft.toLocaleString('en-US', {maximumFractionDigits: 2})} sq ft`;
+    }
+    return value;
+}
+
+function renderResults() {
+    let areaDisp = document.getElementById("areaDisplay");
+    let edgeTable = document.getElementById("edgeTable");
+
+    if (areaDisp) {
+        let areaM2 = currentShapeData.area;
+        if (currentUnitSystem === 'metric') {
+            areaDisp.innerHTML = `${(areaM2 / 1000000).toLocaleString(undefined, {minimumFractionDigits: 4, maximumFractionDigits: 4})} km²<br/><span style='font-size: 0.85em; color: #666;'>(${areaM2.toLocaleString('en-US', {maximumFractionDigits: 2})} m²)</span>`;
+        } else {
+            areaDisp.innerHTML = `${(areaM2 / 2589988.11).toLocaleString(undefined, {minimumFractionDigits: 4, maximumFractionDigits: 4})} sq mi<br/><span style='font-size: 0.85em; color: #666;'>(${areaM2.toLocaleString('en-US', {maximumFractionDigits: 2})} sq m)</span>`;
+        }
+    }
+
+    if (edgeTable) {
+        let tbody = edgeTable.querySelector('tbody') || edgeTable.appendChild(document.createElement('tbody'));
+        let tableBody = "";
+        let totalDistance = 0;
+        const edges = currentShapeData.edges;
+        const isPolygon = (typeof polyType !== 'undefined' && polyType == '1');
+
+        edges.forEach((dist, i) => {
+            totalDistance += dist;
+            let dKetThuc = (i === edges.length - 1 && isPolygon) ? 1 : i + 2;
+            tableBody += `<tr><td>${i + 1}-${dKetThuc}</td><td>${formatMeasurement(dist, 'distance')}</td></tr>`;
+        });
+        tableBody += `<tr style='font-weight: bold; background-color: #f8f9fa;'><td>${t('results.table_total', 'Total')}</td><td>${formatMeasurement(totalDistance, 'distance')}</td></tr>`;
+        tbody.innerHTML = tableBody;
+    }
+}
+
+// ==========================================
+// 4. LEAFLET CONTROLS (TỐI ƯU SIÊU GỌN)
+// ==========================================
+L.Control.DrawBtn = L.Control.extend({
+    options: { position: 'topleft' },
+    onAdd: function() {
+        let c = L.DomUtil.create('div', 'leaflet-bar leaflet-control'), a = L.DomUtil.create('a', '', c);
+        a.id = 'toggleDrawBtn'; a.href = '#';
+        a.title = t('map_controls.tooltip_draw_poly', 'Draw plot boundary (Press ESC to exit)');
+        a.setAttribute('data-i18n-title', 'map_controls.tooltip_draw_poly');
+        a.style.cssText = 'font-size:18px; line-height:30px; text-align:center; text-decoration:none; background-color:white; display:block; width:30px; height:30px; color:black;';
+        a.innerHTML = `<div style="display:flex;align-items:center;justify-content:center;width:100%;height:100%;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="pointer-events: none;"><path d="M12 3l9 7-3.5 11h-11L3 10l9-7z"></path></svg></div>`;
+        L.DomEvent.on(a, 'click', L.DomEvent.stop).on(a, 'click', typeof toggleInteractiveDraw !== 'undefined' ? toggleInteractiveDraw : ()=>{});
+        return c;
+    }
+});
+
+L.Control.LineBtn = L.Control.extend({
+    options: { position: 'topleft' },
+    onAdd: function() {
+        let c = L.DomUtil.create('div', 'leaflet-bar leaflet-control'), a = L.DomUtil.create('a', 'toggle-btn', c);
+        a.id = 'toggleLineBtn'; a.href = '#';
+        a.title = t('map_controls.tooltip_draw_line', 'Draw path (Press ESC to exit)');
+        a.setAttribute('data-i18n-title', 'map_controls.tooltip_draw_line');
+        a.style.cssText = 'font-size:18px; line-height:30px; text-align:center; text-decoration:none; background-color:white; display:block; width:30px; height:30px; color:black;';
+        a.innerHTML = `<div style="display:flex;align-items:center;justify-content:center;width:100%;height:100%;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="pointer-events: none;"><polyline points="3 20 9 11 14 16 20 8"></polyline><polyline points="15 8 20 8 20 13"></polyline></svg></div>`;
+        L.DomEvent.on(a, 'click', L.DomEvent.stop).on(a, 'click', typeof toggleLineDraw !== 'undefined' ? toggleLineDraw : ()=>{});
+        return c;
+    }
+});
+
+const LocateControl = L.Control.extend({
+    options: { position: 'topright' },
+    onAdd: function (map) {
+        let btn = L.DomUtil.create('button', 'leaflet-bar leaflet-control');
+        btn.style.cssText = 'background-color:white; width:38px; height:38px; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center;';
+        btn.title = t('map_controls.tooltip_my_location', 'My location');
+        btn.setAttribute('data-i18n-title', 'map_controls.tooltip_my_location');
+        btn.innerHTML = `<svg width="26" height="26" viewBox="2 2 20 20" fill="none" stroke="#555" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="pointer-events: none;"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3"></path><path d="M12 19v3"></path><path d="M2 12h3"></path><path d="M19 12h3"></path><circle cx="12" cy="12" r="7"></circle></svg>`;
+        L.DomEvent.disableClickPropagation(btn);
+
+        let myLocMarker = null, myLocCircle = null, isLocating = false;
+
+        btn.onclick = function () {
+            let svg = btn.querySelector('svg');
+            if (!isLocating) {
+                isLocating = true;
+                map.locate({ setView: true, maxZoom: 17, watch: true });
+                svg.style.stroke = "#aaa";
+            } else {
+                isLocating = false;
+                map.stopLocate();
+                if (myLocMarker) { map.removeLayer(myLocMarker); myLocMarker = null; }
+                if (myLocCircle) { map.removeLayer(myLocCircle); myLocCircle = null; }
+                svg.style.stroke = "#555";
+                if (typeof processData === 'function') processData();
+            }
+        };
+
+        map.on('locationfound', function (e) {
+            if (!isLocating) return;
+            let radius = Math.round(e.accuracy);
+            if (myLocMarker) map.removeLayer(myLocMarker);
+            if (myLocCircle) map.removeLayer(myLocCircle);
+
+            myLocMarker = L.circleMarker(e.latlng, { radius: 7, fillColor: "#4285F4", color: "#ffffff", weight: 3, opacity: 1, fillOpacity: 1 }).addTo(map);
+            myLocCircle = L.circle(e.latlng, { radius: radius, color: '#4285F4', fillColor: '#4285F4', fillOpacity: 0.15, weight: 1 }).addTo(map);
+
+            let displayRadius = radius, unitLabel = "m";
+            if (currentUnitSystem === 'imperial') {
+                displayRadius = (radius * 3.28084).toFixed(1);
+                unitLabel = "ft";
+            }
+            myLocMarker.bindPopup(`${t('map_controls.you_are_here', 'You are here!')}<br>${t('map_controls.accuracy', 'Accuracy:')} <b>${displayRadius} ${unitLabel}</b>`).openPopup();
+            btn.querySelector('svg').style.stroke = "#4285F4";
+        });
+
+        map.on('locationerror', function (e) {
+            if (!isLocating) return;
+            isLocating = false;
+            map.stopLocate();
+            if (typeof processData === 'function') processData();
+            alert(t('map_controls.alert_loc_error', 'Location access denied. ') + e.message);
+            btn.querySelector('svg').style.stroke = "#e74c3c";
+            setTimeout(() => {
+                if (!isLocating) btn.querySelector('svg').style.stroke = "#555";
+            }, 2000);
+        });
+        return btn;
+    }
+});
+
+L.Control.SnapshotControl = L.Control.extend({
+    options: { position: 'bottomright' },
+    onAdd: function (map) {
+        let container = L.DomUtil.create('div', 'leaflet-bar leaflet-control custom-snapshot-wrapper');
+        container.style.cssText = 'position:relative; margin-bottom:28px; margin-right:10px;';
+
+        let button = L.DomUtil.create('a', '', container);
+        button.innerHTML = '📸';
+        button.href = '#';
+        button.title = t('snapshot.tooltip_create_snapshot', 'Create Snapshot');
+        button.setAttribute('data-i18n-title', 'snapshot.tooltip_create_snapshot');
+        button.style.cssText = 'width:30px;height:30px;line-height:30px;text-align:center;display:block;font-size:16px;text-decoration:none;color:#333;background-color:#fff;';
+
+        let popup = L.DomUtil.create('div', 'snapshot-popup-box', container);
+        popup.style.cssText = 'display:none;position:absolute;right:-2px;bottom:-2px;background-color:white;padding:12px;border-radius:8px;box-shadow:0 4px 6px -1px rgba(0,0,0,0.1);width:280px;z-index:1000;';
+
+        popup.innerHTML = `
+            <style>.snap-input::-webkit-scrollbar{display:none}.snap-btn:hover{background-color:#f3f4f6!important}.snap-btn:active{background-color:#e5e7eb!important}</style>
+            <div style="font-family: ui-sans-serif, system-ui, sans-serif; width: 100%;">
+                <label data-i18n="snapshot.lbl_snapshot_link" style="display: block; font-size: 13px; font-weight: 500; color: #374151; margin-bottom: 8px;">${t('snapshot.lbl_snapshot_link', 'Snapshot Link')}</label>
+                
+                <div style="display: flex; align-items: stretch; width: 100%; border: 1px solid #e5e7eb; border-radius: 6px; overflow: hidden; background-color: #f9fafb; box-sizing: border-box; min-height: 36px;">
+                    
+                    <input type="text" id="linkDaTao" readonly class="snap-input" style="flex: 1; min-width: 0; background: transparent; border: none; color: #4b5563; font-size: 13px; padding: 8px 10px; outline: none; margin: 0; box-sizing: border-box;">
+                    
+                    <button id="btnCopyReal" class="snap-btn" data-i18n-title="snapshot.tooltip_copy_link" style="flex-shrink: 0; align-self: stretch; height: auto; margin: 0; display: flex; align-items: center; justify-content: center; gap: 4px; padding: 0 12px; background-color: #ffffff; border: none; border-left: 1px solid #e5e7eb; color: #374151; font-size: 12px; font-weight: 500; cursor: pointer; transition: all 0.2s; width: max-content !important; box-sizing: border-box;" title="${t('snapshot.tooltip_copy_link', 'Copy link')}">
+                        <svg id="copySnapshotIcon" style="width: 14px; height: 14px; stroke: #6b7280; flex-shrink: 0;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                        <svg id="checkSnapshotIcon" style="width: 14px; height: 14px; stroke: #10b981; display: none; flex-shrink: 0;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                        <span id="copySnapshotText" data-i18n="snapshot.btn_copy" style="white-space: nowrap;">${t('snapshot.btn_copy', 'Copy')}</span>
+                    </button>
+                    
+                </div>
+            </div>`;
+
+        L.DomEvent.disableClickPropagation(container);
+        L.DomEvent.disableScrollPropagation(container);
+
+        let isProcessing = false;
+
+        L.DomEvent.on(button, 'click', function (e) {
+            L.DomEvent.stop(e);
+            if (typeof appState !== 'undefined') {
+                if (appState === 'idle') return alert(t('snapshot.alert_draw_first', 'Please draw a boundary or path first.'));
+                if (appState === 'drawing_polygon' || appState === 'drawing_line') return alert(t('snapshot.alert_finish_drawing', 'Please finish drawing first.'));
+            }
+            if (isProcessing) return;
+
+            isProcessing = true;
+            button.style.opacity = '0.5';
+            button.style.cursor = 'wait';
+            button.title = t('snapshot.tooltip_generating_link', 'Generating link...');
+
+            if (typeof taoLinkChiaSe === 'function') taoLinkChiaSe();
+            popup.style.display = 'block';
+            if (typeof updateStatus === 'function') updateStatus();
+
+            popup.querySelector('#copySnapshotIcon').style.display = 'block';
+            popup.querySelector('#checkSnapshotIcon').style.display = 'none';
+            popup.querySelector('#copySnapshotText').innerText = t('snapshot.btn_copy', 'Copy');
+            popup.querySelector('#btnCopyReal').style.cssText += "border-color:#e5e7eb; background-color:#ffffff;";
+
+            setTimeout(() => {
+                isProcessing = false;
+                button.style.opacity = '1';
+                button.style.cursor = 'pointer';
+                button.title = t('snapshot.tooltip_create_snapshot', 'Create Snapshot');
+            }, 2000);
+            setTimeout(() => { popup.style.display = 'none'; }, 10000);
+        });
+
+        let btnCopy = popup.querySelector('#btnCopyReal');
+        L.DomEvent.on(btnCopy, 'click', function(e) {
+            L.DomEvent.stop(e);
+            if (typeof copyLinkThucTe === 'function') copyLinkThucTe();
+            else navigator.clipboard.writeText(popup.querySelector('#linkDaTao').value);
+
+            popup.querySelector('#copySnapshotIcon').style.display = 'none';
+            popup.querySelector('#checkSnapshotIcon').style.display = 'block';
+            let copyText = popup.querySelector('#copySnapshotText');
+            copyText.innerText = t('snapshot.btn_copied', 'Copied');
+            copyText.style.color = '#059669';
+            btnCopy.style.borderColor = '#bbf7d0';
+            btnCopy.style.backgroundColor = '#f0fdf4';
+
+            setTimeout(() => {
+                popup.querySelector('#copySnapshotIcon').style.display = 'block';
+                popup.querySelector('#checkSnapshotIcon').style.display = 'none';
+                copyText.innerText = t('snapshot.btn_copy', 'Copy');
+                copyText.style.color = '#374151';
+                btnCopy.style.borderColor = '#e5e7eb';
+                btnCopy.style.backgroundColor = '#ffffff';
+                popup.style.display = 'none';
+            }, 2000);
+        });
+
+        map.on('click', () => {
+            if (popup.style.display === 'block') popup.style.display = 'none';
+        });
+
+        return container;
+    }
+});
+
+// ==========================================
+// SETTINGS CONTROL (BẢNG CÀI ĐẶT)
+// ==========================================
+L.Control.SettingsControl = L.Control.extend({
+    options: { position: 'bottomleft' },
+    onAdd: function (map) {
+        let container = L.DomUtil.create('div', 'leaflet-bar leaflet-control custom-settings-wrapper');
+        container.style.position = 'relative';
+
+        let savedSidebar = localStorage.getItem('cfg_sidebar') !== 'false';
+        let savedUnit = localStorage.getItem('cfg_unit') || 'metric';
+        let savedLang = localStorage.getItem('user_lang') || 'en';
+        currentUnitSystem = savedUnit;
+
+        let btn = L.DomUtil.create('a', '', container);
+        btn.href = '#';
+        btn.style.cssText = 'width:34px; height:34px; display:flex; align-items:center; justify-content:center; background:#fff; text-decoration:none; color:#4b5563; transition: color 0.2s;';
+        btn.innerHTML = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>`;
+
+        btn.onmouseenter = () => btn.style.color = '#111827';
+        btn.onmouseleave = () => btn.style.color = '#4b5563';
+
+        let popup = L.DomUtil.create('div', 'settings-popup-box', container);
+        popup.style.cssText = 'display:none; position:absolute; left:42px; bottom:0; background:white; padding:12px; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.15); width:200px; z-index:1000;';
+
+        const langs = [
+            {v:'id', n:'Bahasa Indonesia'}, {v:'de', n:'Deutsch'}, {v:'en', n:'English'}, {v:'es', n:'Español'},
+            {v:'fr', n:'Français'}, {v:'it', n:'Italiano'}, {v:'nl', n:'Nederlands'}, {v:'pt', n:'Português'},
+            {v:'vi', n:'Tiếng Việt'}, {v:'tr', n:'Türkçe'}, {v:'ru', n:'Русский'}, {v:'hi', n:'हिन्दी'},
+            {v:'th', n:'ไทย'}, {v:'ko', n:'한국어'}, {v:'ja', n:'日本語'}, {v:'zh', n:'中文'}
+        ];
+        let langOptions = langs.map(l => `<option value="${l.v}" ${savedLang === l.v ? 'selected' : ''}>${l.n}</option>`).join('');
+
+        popup.innerHTML = `
+            <style>
+                .stg-switch{position:relative;display:inline-block;width:36px;height:20px;flex-shrink:0}
+                .stg-switch input{opacity:0;width:0;height:0}
+                .stg-slider{position:absolute;cursor:pointer;top:0;left:0;right:0;bottom:0;background-color:#ccc;transition:.4s;border-radius:20px}
+                .stg-slider:before{position:absolute;content:"";height:16px;width:16px;left:2px;bottom:2px;background-color:white;transition:.4s;border-radius:50%}
+                .stg-switch input:checked+.stg-slider{background-color:#10b981}
+                .stg-switch input:checked+.stg-slider:before{transform:translateX(16px)}
+                .stg-row{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+                .stg-label{font-size:13px;color:#374151;flex:1}
+                .stg-select{width:100%;padding:4px 6px;border:1px solid #d1d5db;border-radius:4px;font-size:12px}
+            </style>
+            <div class="stg-row">
+                <label class="stg-switch"><input type="checkbox" id="toggleSidebarUI" ${savedSidebar ? 'checked' : ''}><span class="stg-slider"></span></label>
+                <span class="stg-label" data-i18n="settings.show_board">${t('settings.show_board', 'Show Board')}</span>
+            </div>
+            <div class="stg-row">
+                <label class="stg-switch"><input type="checkbox" id="toggleUnitUI" ${savedUnit === 'metric' ? 'checked' : ''}><span class="stg-slider"></span></label>
+                <span class="stg-label" id="unitLabelText" data-i18n="${savedUnit === 'metric' ? 'settings.unit_metric' : 'settings.unit_imperial'}">
+                    ${savedUnit === 'metric' ? t('settings.unit_metric', 'Metric (m/ha)') : t('settings.unit_imperial', 'Imperial (ft/ac)')}
+                </span>
+            </div>
+            <div class="stg-row" style="margin-top: 14px; padding-top: 12px; border-top: 1px solid #e5e7eb;">
+                <span class="stg-label" style="min-width: 65px;" data-i18n="settings.language">${t('settings.language', 'Language:')}</span>
+                <select id="languageSelectUI" class="stg-select">${langOptions}</select>
+            </div>`;
+
+        L.DomEvent.disableClickPropagation(container);
+        L.DomEvent.disableScrollPropagation(container);
+
+        function applySidebarState(isVisible) {
+            const sidebar = document.getElementById('diachinh-sidebar');
+            const divider = document.getElementById('divider');
+            const mapDiv = document.getElementById('diachinh-map');
+
+            if (isVisible) {
+                if (sidebar) sidebar.style.display = '';
+                if (divider) divider.style.removeProperty('display');
+                if (mapDiv) {
+                    mapDiv.style.height = '';
+                    mapDiv.style.flexGrow = '';
+                }
+            } else {
+                if (sidebar) sidebar.style.display = 'none';
+                if (divider) divider.style.setProperty('display', 'none', 'important');
+                if (mapDiv) {
+                    mapDiv.style.height = '100%';
+                    mapDiv.style.flexGrow = '1';
+                }
+            }
+            setTimeout(() => { if (map) map.invalidateSize(); }, 200);
+        }
+
+        function updateMapScale(isMetric) {
+            if (window.currentScaleControl) map.removeControl(window.currentScaleControl);
+            document.querySelectorAll('.leaflet-control-scale').forEach(s => s.remove());
+
+            window.currentScaleControl = L.control.scale({ metric: isMetric, imperial: !isMetric, position: 'bottomleft' }).addTo(map);
+            let scaleEl = window.currentScaleControl.getContainer();
+            let cornerLeft = map._controlCorners.bottomleft;
+
+            if (scaleEl && cornerLeft) {
+                cornerLeft.appendChild(scaleEl);
+                scaleEl.style.cssText += 'margin-left:11px; margin-bottom:15px;';
+            }
+        }
+
+        setTimeout(() => {
+            if (!savedSidebar) applySidebarState(false);
+            updateMapScale(savedUnit === 'metric');
+            if (typeof renderResults === 'function') renderResults();
+        }, 100);
+
+        L.DomEvent.on(btn, 'click', (e) => {
+            L.DomEvent.stop(e);
+            popup.style.display = popup.style.display === 'none' ? 'block' : 'none';
+        });
+
+        map.on('click', () => { popup.style.display = 'none'; });
+
+        setTimeout(() => {
+            container.querySelector('#toggleSidebarUI').addEventListener('change', function() {
+                applySidebarState(this.checked);
+                localStorage.setItem('cfg_sidebar', this.checked);
+            });
+
+            container.querySelector('#toggleUnitUI').addEventListener('change', function() {
+                let isMetric = this.checked;
+                currentUnitSystem = isMetric ? 'metric' : 'imperial';
+                let label = document.getElementById('unitLabelText');
+
+                label.setAttribute('data-i18n', isMetric ? 'settings.unit_metric' : 'settings.unit_imperial');
+                label.innerText = isMetric ? t('settings.unit_metric', 'Metric (m/ha)') : t('settings.unit_imperial', 'Imperial (ft/ac)');
+                localStorage.setItem('cfg_unit', currentUnitSystem);
+
+                let header = document.getElementById('lengthHeader');
+                if (header) header.innerHTML = `<span data-i18n='results.table_length'>${t('results.table_length', 'Length')}</span> (${isMetric ? "m" : "ft"})`;
+
+                updateMapScale(isMetric);
+                if (typeof renderResults === 'function') renderResults();
+            });
+
+            container.querySelector('#languageSelectUI').addEventListener('change', function() {
+                localStorage.setItem('user_lang', this.value);
+                if (typeof loadLanguageData === 'function') loadLanguageData(this.value);
+                if (typeof appState !== 'undefined' && typeof updateStatus === 'function') {
+                    setTimeout(() => updateStatus(appState), 300);
+                }
+            });
+        }, 0);
+
+        return container;
+    }
+});
+
+// ==========================================
+// INIT MAP & SỰ KIỆN CLICK BẢN ĐỒ
+// ==========================================
+function initMap() {
+    map = L.map('diachinh-map', {
+        preferCanvas: true,
+        inertia: true,
+        zoomAnimation: true,
+        fadeAnimation: true,
+        markerZoomAnimation: true,
+        wheelPxPerZoomLevel: 60
+    }).setView([51.4779, -0.0015], 10);
+
+    googleStreets = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+        maxZoom: 22,
+        subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+        noWrap: false
+    });
+
+    googleSatellite = L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+        maxZoom: 22,
+        subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+        noWrap: false
+    });
+
+    googleHybrid = L.tileLayer('https://{s}.google.com/vt/lyrs=y&x={x}&y={y}&z={z}', {
+        maxZoom: 22,
+        subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+        noWrap: false
+    });
+
+    googleHybrid.addTo(map);
+
+    map.addControl(new L.Control.DrawBtn());
+    map.addControl(new L.Control.LineBtn());
+    map.addControl(new L.Control.SnapshotControl());
+    if (typeof LocateControl !== 'undefined') map.addControl(new LocateControl());
+    map.addControl(new L.Control.SettingsControl());
+
+    let currentSearchMarker = null;
+
+    if (typeof L.Control.Geocoder === 'function' || typeof L.Control.geocoder === 'function') {
+        window.myGeocoderControl = L.Control.geocoder({
+            position: 'topright',
+            placeholder: t('geocoder.placeholder', 'Address / WGS84 coords...'),
+            errorMessage: t('geocoder.error', 'Location not found.'),
+            defaultMarkGeocode: false
+        })
+        .on('markgeocode', function(e) {
+            let latlng = e.geocode.center;
+            if (currentSearchMarker) map.removeLayer(currentSearchMarker);
+
+            let txtResult = t('geocoder.result', 'Search Result');
+            currentSearchMarker = L.marker(latlng).addTo(map).bindPopup(`<b>📍 ${txtResult}:</b><br>${e.geocode.name}`).openPopup();
+
+            console.log("📍 Geocoder returned raw address:", e.geocode.name || "");
+            setTimeout(() => map.setView(latlng, 16), 500);
+        }).addTo(map);
+    } else {
+        console.warn("Leaflet Control Geocoder library not loaded!");
+    }
+
+    pointLabelsLayer = L.layerGroup().addTo(map);
+
+    map.on('click', function(e) {
+        if (isDrawingMode || isLineMode) {
+            let clickedLng = e.latlng.lng;
+            let wrappedLatLng = e.latlng.wrap();
+            if (clickedLng < -180 || clickedLng > 180) {
+                map.setView(map.getCenter().wrap(), map.getZoom(), { animate: false });
+            }
+            taoDiemMoi(wrappedLatLng);
+        }
+    });
+
+    if (typeof loadFromURL === 'function') loadFromURL();
+}
+
+// ==========================================
+// CÁC HÀM XỬ LÝ CHẾ ĐỘ VẼ ĐIỂM
+// ==========================================
+const ICON_SVG = {
+    draw: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="pointer-events:none;"><path d="M12 3l9 7-3.5 11h-11L3 10l9-7z"></path></svg>`,
+    line: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="pointer-events:none;"><polyline points="3 20 9 11 14 16 20 8"></polyline><polyline points="15 8 20 8 20 13"></polyline></svg>`
+};
+const btnWrapper = (svg) => `<div style="display:flex;align-items:center;justify-content:center;width:100%;height:100%;">${svg}</div>`;
+
+function toggleLineDraw() {
+    let lineBtn = document.getElementById('toggleLineBtn');
+    if (isLineMode) {
+        isLineMode = false;
+        if (lineBtn) {
+            lineBtn.style.backgroundColor = "white";
+            lineBtn.innerHTML = btnWrapper(ICON_SVG.line);
+        }
+        if (typeof processData === 'function') processData();
+    } else {
+        resetUI();
+        isLineMode = true;
+        polyType = 2;
+        appState = "drawing_line";
+        updateStatus();
+        if (isDrawingMode) toggleInteractiveDraw();
+
+        document.getElementById("coordsInput").value = "";
+        if (typeof capNhatSoDong === 'function') capNhatSoDong();
+        if (lineBtn) {
+            lineBtn.style.backgroundColor = "#e74c3c";
+            lineBtn.innerHTML = "❌";
+        }
+
+        if (!interactivePolySelect) {
+            interactivePolySelect = L.polyline([], {color: '#f39c12', weight: 3, fillColor: '#f1c40f', fillOpacity: 0.3}).addTo(map);
+        }
+        window.laDiemDauTien = true;
+    }
+}
+
+function toggleInteractiveDraw() {
+    let drawBtn = document.getElementById("toggleDrawBtn");
+    if (isDrawingMode) {
+        isDrawingMode = false;
+        if (drawBtn) {
+            drawBtn.style.backgroundColor = "white";
+            drawBtn.innerHTML = btnWrapper(ICON_SVG.draw);
+        }
+        if (typeof processData === 'function') processData();
+    } else {
+        resetUI();
+        isDrawingMode = true;
+        polyType = 1;
+        appState = "drawing_polygon";
+        updateStatus();
+        if (isLineMode) toggleLineDraw();
+
+        document.getElementById("coordsInput").value = "";
+        if (typeof capNhatSoDong === 'function') capNhatSoDong();
+        if (drawBtn) {
+            drawBtn.style.backgroundColor = "#e74c3c";
+            drawBtn.innerHTML = "❌";
+        }
+
+        if (!interactivePolySelect) {
+            interactivePolySelect = L.polygon([], {color: '#f39c12', weight: 3, fillColor: '#f1c40f', fillOpacity: 0.3}).addTo(map);
+        }
+        window.laDiemDauTien = true;
+    }
+}
+
+document.addEventListener("keydown", function(e) {
+    if (e.key === "Escape") {
+        if (isDrawingMode) toggleInteractiveDraw();
+        else if (isLineMode) toggleLineDraw();
+    }
+});
+
+function taoDiemMoi(latlng) {
+    let soThuTu = drawnMarkers.length + 1;
+    let isMobile = window.innerWidth <= 768;
+    let size = isMobile ? 26 : 22;
+    let fontSize = isMobile ? 14 : 12;
+
+    let iconSoThuTu = L.divIcon({
+        className: 'custom-div-icon',
+        html: `<div style='background-color:rgba(0,0,0,0.35); color:white; width:${size}px; height:${size}px; border-radius:50%; border:2px solid white; box-sizing: border-box; box-shadow: 0 0 5px rgba(0,0,0,0.5); display:flex; align-items:center; justify-content:center; font-size:${fontSize}px; font-weight:bold;'>${soThuTu}</div>`,
+        iconSize: [size, size],
+        iconAnchor: [size / 2, size / 2]
+    });
+
+    let marker = L.marker(latlng, { icon: iconSoThuTu, draggable: true }).addTo(map);
+    drawnMarkers.push(marker);
+
+    marker.on('drag', () => {
+        if (interactivePolySelect) interactivePolySelect.setLatLngs(drawnMarkers.map(m => m.getLatLng()));
+    });
+
+    marker.on('dragend', () => capNhatHinhVaToaDo());
+
+    capNhatHinhVaToaDo();
+    document.querySelector(".result-box").style.display = (polyType == 1) ? "block" : "none";
+    window.laDiemDauTien = false;
+}
+
+function capNhatHinhVaToaDo() {
+    let danhSachWGS84_Leaflet = [];
+    wgs84Coords = [];
+    let chuoiKetQuaWgs84 = "";
+
+    drawnMarkers.forEach((marker, index) => {
+        let pos = marker.getLatLng().wrap();
+        danhSachWGS84_Leaflet.push(pos);
+        wgs84Coords.push([pos.lat, pos.lng]);
+
+        let prefix = (index === 0 && window.laDiemDauTien) ? "" : "\n";
+        chuoiKetQuaWgs84 += `${prefix}${pos.lat.toFixed(6)} ${pos.lng.toFixed(6)}`;
+    });
+
+    if (interactivePolySelect) interactivePolySelect.setLatLngs(danhSachWGS84_Leaflet);
+
+    document.getElementById('coordsInput').value = chuoiKetQuaWgs84.trim();
+    if (typeof window.capNhatSoDong === "function") window.capNhatSoDong();
+
+    if (wgs84Coords.length >= 2) {
+        if (typeof calculateMetrics === 'function') calculateMetrics(wgs84Coords);
+        document.getElementById("results").style.display = "block";
+        document.getElementById("sidebar").style.display = "none";
+
+        let helpLinkBtn = document.getElementById("btnHelpLink");
+        if (helpLinkBtn) helpLinkBtn.style.display = "none";
+
+        if (danhSachWGS84_Leaflet.length >= 3 && typeof turf !== 'undefined') {
+            try {
+                let turfCoords = wgs84Coords.map(p => [p[0], p[1]]);
+                if (turfCoords[0][0] !== turfCoords[turfCoords.length - 1][0] || turfCoords[0][1] !== turfCoords[turfCoords.length - 1][1]) {
+                    turfCoords.push([turfCoords[0][0], turfCoords[0][1]]);
+                }
+                wgs84Coords = turfCoords;
+                let tamChuan = turf.pointOnFeature(turf.polygon([turfCoords]));
+                centerLat = tamChuan.geometry.coordinates[1];
+                centerLng = tamChuan.geometry.coordinates[0];
+            } catch (error) {
+                console.warn("Lỗi Turf:", error);
+                let bounds = interactivePolySelect.getBounds();
+                centerLat = bounds.getCenter().lat;
+                centerLng = bounds.getCenter().lng;
+            }
+        } else if (interactivePolySelect) {
+            let bounds = interactivePolySelect.getBounds();
+            centerLat = bounds.getCenter().lat;
+            centerLng = bounds.getCenter().lng;
+        }
+    } else {
+        document.getElementById("results").style.display = "none";
+        let btnGMap = document.getElementById("btnGoogleMap");
+        let btnHelp = document.getElementById("btnHelpLink");
+        if (btnGMap) btnGMap.style.display = "none";
+        if (btnHelp) btnHelp.style.display = "none";
+    }
+}
+
+function resetUI() {
+    isDrawingMode = false;
+    isLineMode = false;
+
+    let drawBtn = document.getElementById("toggleDrawBtn");
+    let lineBtn = document.getElementById("toggleLineBtn");
+    if (drawBtn) {
+        drawBtn.style.backgroundColor = "white";
+        drawBtn.innerHTML = btnWrapper(ICON_SVG.draw);
+    }
+    if (lineBtn) {
+        lineBtn.style.backgroundColor = "white";
+        lineBtn.innerHTML = btnWrapper(ICON_SVG.line);
+    }
+
+    if (currentPolySelect) map.removeLayer(currentPolySelect);
+    if (interactivePolySelect) {
+        map.removeLayer(interactivePolySelect);
+        interactivePolySelect = null;
+    }
+    if (pointLabelsLayer) pointLabelsLayer.clearLayers();
+
+    if (drawnMarkers && drawnMarkers.length > 0) {
+        drawnMarkers.forEach(m => map.removeLayer(m));
+        drawnMarkers = [];
+    }
+
+    document.getElementById("results").style.display = "none";
+    document.getElementById("sidebar").style.display = "none";
+
+    let btnGMap = document.getElementById("btnGoogleMap");
+    let btnHelp = document.getElementById("btnHelpLink");
+    if (btnGMap) btnGMap.style.display = "none";
+    if (btnHelp) btnHelp.style.display = "none";
+}
+
+// VẼ TỪ TEXTAREA NHẬP VÀO
+function processData() {
+    if (typeof resetUI === "function") resetUI();
+
+    let rawText = document.getElementById("coordsInput").value.trim();
+    if (rawText === "") {
+        appState = "idle";
+        updateStatus();
+        alert(translations.alerts.no_coordinates);
+        return;
+    }
+
+    const lines = rawText.split("\n");
+    let isWGS84 = null;
+    const parsedNumbers = [];
+
+    // ===================================================================
+    // BƯỚC 1: ĐỌC DỮ LIỆU VÀ NHẬN DIỆN HỆ TỌA ĐỘ
+    // ===================================================================
+    lines.forEach(line => {
+        let cleanLine = line.replace(/,/g, '.');
+        let numbers = cleanLine.match(/-?\d+(\.\d+)?/g);
+        if (numbers && numbers.length >= 2) {
+            let n1 = parseFloat(numbers[0]);
+            let n2 = parseFloat(numbers[1]);
+
+            if (isWGS84 === null) {
+                isWGS84 = true;
+            }
+            parsedNumbers.push({ n1, n2, originalNumbers: numbers });
+        }
+    });
+
+    if (parsedNumbers.length < 2 && polyType == 2) {
+        alert(translations.alerts.need_2_points);
+        appState = "idle";
+        updateStatus();
+        return;
+    } else if (parsedNumbers.length < 3 && polyType == 1) {
+        alert(translations.alerts.need_3_points);
+        appState = "idle";
+        updateStatus();
+        return;
+    }
+
+    wgs84Coords = [];
+    let chuoiChuanHoa = "";
+
+    function chuanHoa(str) {
+        if (!str) return "";
+        return str.toLowerCase()
+            .normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, '')
+            .replace(/đ/g, 'd')
+            .replace(/(tinh |thanh pho |tp\.|tp )/g, '')
+            .replace(/[^a-z0-9]/g, '')
+            .trim();
+    }
+
+    // ===================================================================
+    // BƯỚC 2: RẼ NHÁNH XỬ LÝ THEO TỪNG HỆ TỌA ĐỘ
+    // ===================================================================
+    if (isWGS84) {
+        parsedNumbers.forEach(p => {
+            let lat = p.n1, lng = p.n2;
+            let c3 = (p.originalNumbers.length > 2) ? parseFloat(p.originalNumbers[2]) : undefined;
+
+            if (Math.abs(lat) > 90) {
+                lat = p.n2;
+                lng = p.n1;
+            }
+
+            if (c3 !== undefined && !isNaN(c3)) {
+                wgs84Coords.push([lat, lng, c3]);
+                chuoiChuanHoa += lat.toFixed(6) + ", " + lng.toFixed(6) + ", " + c3 + "\n";
+            } else {
+                wgs84Coords.push([lat, lng]);
+                chuoiChuanHoa += lat.toFixed(6) + ", " + lng.toFixed(6) + "\n";
+            }
+        });
+    }
+
+    // ===================================================================
+    // BƯỚC 3: QUÉT VÙNG CẤM (Khu vực quân sự, nhạy cảm...)
+    // ===================================================================
+    try {
+        let turfCoords = wgs84Coords.map(p => [p[1], p[0]]);
+
+        if (wgs84Coords.length >= 3 && polyType !== 2) {
+            if (turfCoords[0][0] !== turfCoords[turfCoords.length - 1][0] ||
+                turfCoords[0][1] !== turfCoords[turfCoords.length - 1][1]) {
+                turfCoords.push([turfCoords[0][0], turfCoords[0][1]]);
+            }
+
+            const polygonGeoJSON = turf.polygon([turfCoords]);
+            const dienTichM2 = turf.area(polygonGeoJSON);
+            const DIEN_TICH_1_KM2 = 1000000;
+
+            if (dienTichM2 < DIEN_TICH_1_KM2) {
+                const centerPoint = turf.centroid(polygonGeoJSON);
+                const diemCamGoogleMaps = [
+                    [21.03707723479608, 105.83753872596262],
+                    [21.03927106127961, 105.8346196138419],
+                    [21.03678262906504, 105.83467078480963],
+                    [21.006421865289752, 105.78702741634761],
+                    [21.03381702880609, 105.8429280408007],
+                    [21.04831405325766, 105.77919012974833]
+                ];
+
+                const danhSachCam = diemCamGoogleMaps.map(p => turf.point([p[1], p[0]]));
+                const KHOANG_CACH_AN_TOAN = 100;
+
+                for (let diemCam of danhSachCam) {
+                    if (turf.booleanPointInPolygon(diemCam, polygonGeoJSON)) {
+                        alert(translations.alerts.restricted_overlap);
+                        resetUI();
+                        return;
+                    }
+                    const khoangCach = turf.distance(centerPoint, diemCam, { units: 'meters' });
+                    if (khoangCach < KHOANG_CACH_AN_TOAN) {
+                        alert(translations.alerts.restricted_close.replace('{distance}', Math.round(khoangCach)));
+                        resetUI();
+                        return;
+                    }
+                }
+            }
+        } else {
+            console.log("Đang vẽ Line, bỏ qua tính toán Polygon của Turf.");
+        }
+    } catch (error) {
+        console.error("Lỗi khi xử lý Turf.js:", error);
+    }
+
+    // ===================================================================
+    // BƯỚC 4: HIỂN THỊ LÊN BẢN ĐỒ VÀ GIAO DIỆN
+    // ===================================================================
+    let coordsInput = document.getElementById("coordsInput");
+    if (coordsInput) coordsInput.value = chuoiChuanHoa.trim();
+    if (typeof capNhatSoDong === "function") capNhatSoDong();
+
+    if (typeof calculateMetrics === "function") calculateMetrics(wgs84Coords);
+    if (typeof drawOnMap === "function") drawOnMap(wgs84Coords);
+
+    let resDiv = document.getElementById("results");
+    if (resDiv) resDiv.style.display = "block";
+    appState = "done";
+    updateStatus();
+
+    let btnHelp = document.getElementById("btnHelpLink");
+    if (btnHelp) btnHelp.style.display = "none";
+
+    if (polyType == 1) {
+        document.querySelector(".result-box").style.display = "block";
+    } else {
+        document.querySelector(".result-box").style.display = "none";
+    }
+}
+
+function calculateMetrics(points) {
+    if (!points || points.length === 0) return;
+
+    currentShapeData.edges = [];
+    currentShapeData.area = 0;
+
+    const isPolygon = (typeof polyType !== 'undefined' && polyType == '1');
+    const totalEdges = isPolygon ? points.length : points.length - 1;
+
+    for (let i = 0; i < totalEdges; i++) {
+        let p1 = points[i];
+        let p2 = points[(i + 1) % points.length];
+
+        let pt1 = turf.point([p1[1], p1[0]]);
+        let pt2 = turf.point([p2[1], p2[0]]);
+
+        let dist = turf.distance(pt1, pt2, { units: 'meters' });
+        currentShapeData.edges.push(dist);
+    }
+
+    if (isPolygon && points.length >= 3) {
+        let coordinates = points.map(p => [p[1], p[0]]);
+        coordinates.push([points[0][1], points[0][0]]);
+
+        try {
+            let polygon = turf.polygon([coordinates]);
+            currentShapeData.area = turf.area(polygon);
+        } catch (error) {
+            console.error("Lỗi khi tính diện tích Turf.js: ", error);
+        }
+    }
+
+    renderResults();
+
+    let coordsEl = document.getElementById("coordsInput");
+    const shareObj = {
+        t: typeof polyType !== 'undefined' ? polyType : 'polygon',
+        c: coordsEl ? coordsEl.value : ""
+    };
+
+    if (shareObj.c.trim() !== "") {
+        const encodedData = btoa(unescape(encodeURIComponent(JSON.stringify(shareObj))));
+        window.history.replaceState(null, null, window.location.pathname + "#data=" + encodedData);
+    } else {
+        window.history.replaceState(null, null, window.location.pathname);
+    }
+}
+
+function drawOnMap(coords) {
+    let dragMarker = null;
+    let lastPos = null;
+    let activeCoords = coords.map(c => [...c]);
+
+    if (currentPolySelect) map.removeLayer(currentPolySelect);
+
+    if (polyType == 2) {
+        currentPolySelect = L.polyline(activeCoords, {
+            color: '#00FFFF',
+            weight: 3,
+            fillColor: '#00FFFF',
+            fillOpacity: 0.2,
+            cursor: 'crosshair'
+        }).addTo(map);
+    } else {
+        currentPolySelect = L.polygon(activeCoords, {
+            color: '#00FFFF',
+            weight: 3,
+            fillColor: '#00FFFF',
+            fillOpacity: 0.2,
+            cursor: 'crosshair'
+        }).addTo(map);
+    }
+
+    currentPolySelect.off('click');
+
+    currentPolySelect.on('click', function(e) {
+        L.DomEvent.stopPropagation(e);
+
+        const pointClick = e.latlng;
+
+        let insertIndex = 0;
+        let minDistance = Infinity;
+        for (let i = 0; i < activeCoords.length; i++) {
+            let p1 = L.latLng(activeCoords[i]);
+            let p2 = L.latLng(activeCoords[(i + 1) % activeCoords.length]);
+            let dist = L.LineUtil.pointToSegmentDistance(
+                map.latLngToLayerPoint(pointClick),
+                map.latLngToLayerPoint(p1),
+                map.latLngToLayerPoint(p2)
+            );
+            if (dist < minDistance) {
+                minDistance = dist;
+                insertIndex = i + 1;
+            }
+        }
+        activeCoords.splice(insertIndex, 0, [pointClick.lat, pointClick.lng]);
+        refreshUIAndData();
+    });
+
+    function refreshUIAndData() {
+        if (pointLabelsLayer) pointLabelsLayer.clearLayers();
+        currentPolySelect.setLatLngs(activeCoords);
+        syncWithInput();
+    }
+
+    function updateCenterAndButton(coords) {
+        let bounds = L.latLngBounds(coords);
+        let center = bounds.getCenter();
+
+        centerLat = center.lat;
+        centerLng = center.lng;
+
+        if (coords.length >= 2) {
+            document.getElementById("btnGoogleMap").style.display = "block";
+        }
+    }
+
+    function renderMarkers() {
+        if (typeof pointLabelsLayer !== 'undefined' && pointLabelsLayer) {
+            pointLabelsLayer.clearLayers();
+        }
+
+        const isTrans = typeof translations !== 'undefined';
+        const txt = {
+            gmaps: (isTrans && translations.general?.lbl_gmaps) || 'Google Maps',
+            remove: (isTrans && translations.general?.btn_remove) || 'Remove',
+            addAuto: (isTrans && translations.general?.btn_add_point_auto) || 'Add point (Auto)',
+            need3: (isTrans && translations.alerts?.need_3_points) || 'At least 3 points are required!',
+            hide: (isTrans && translations.general?.btn_hide_circle) || 'Hide circle',
+            show: (isTrans && translations.general?.btn_show_circle) || 'Show circle',
+            showAll: (isTrans && translations.general?.btn_show_all) || 'Show all circles',
+            hideAll: (isTrans && translations.general?.btn_hide_all) || 'Hide all circles',
+            invalidWGS: (isTrans && translations.alerts?.no_coordinates) || "Invalid WGS84 coordinates!",
+            navTitle: (isTrans && translations.general?.lbl_nav_title) || 'Node Navigator',
+            placeholderWGS: (isTrans && translations.general?.lbl_placeholder_wgs) || 'WGS84 (Lat, Lng)...'
+        };
+
+        activeCoords.forEach((c, index) => {
+            const isHidden = (c[2] === 0);
+            const isFirst = (index === 0);
+            const isLast = (index === activeCoords.length - 1);
+
+            if (isHidden && !isFirst && !isLast) return;
+
+            let defaultBorder = '#fff';
+            if (isFirst) defaultBorder = '#00E676';
+            if (isLast) defaultBorder = '#FF1744';
+
+            const numStr = (index + 1).toString();
+            const size = numStr.length >= 4 ? 28 : 24;
+            const fontSize = numStr.length >= 3 ? 10 : 12;
+            const opacity = isHidden ? '0.6' : '1';
+            const dashStyle = isHidden ? 'dashed' : 'solid';
+
+            const icon = L.divIcon({
+                className: 'custom-div-icon',
+                html: `<div class="qms-marker" style="opacity: ${opacity}; width: ${size}px; height: ${size}px; border: 2px ${dashStyle} ${defaultBorder}; font-size: ${fontSize}px;">${numStr}</div>`,
+                iconSize: [size, size],
+                iconAnchor: [size / 2, size / 2]
+            });
+
+            const vMarker = L.marker(c, {
+                icon: icon,
+                draggable: true,
+                zIndexOffset: 1000,
+                markerIndex: index
+            }).addTo(pointLabelsLayer);
+
+            vMarker.on('click', function (e) {
+                L.DomEvent.stopPropagation(e);
+
+                const popupContainer = document.createElement('div');
+                popupContainer.style.cssText = "display: flex; flex-direction: column; gap: 4px; width: max-content; padding: 4px 0; font-family: sans-serif;";
+
+                let currentPopup;
+                let activeIdxInNav = index;
+
+                const btnG = createPopupButton(txt.gmaps, "#4285F4", `<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle>`);
+                const btnR = createPopupButton(txt.remove, "#EF4444", `<polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2z"></path>`);
+
+                const updateActionButtons = (targetIdx) => {
+                    activeIdxInNav = targetIdx;
+                    const coords = activeCoords[targetIdx];
+                    btnG.onclick = () => window.open(`https://www.google.com/maps?q=${coords[0]},${coords[1]}`, '_blank');
+                    btnR.onclick = () => {
+                        const minPoints = (typeof polyType !== 'undefined' && polyType === 2) ? 2 : 3;
+                        if (activeCoords.length <= minPoints) { alert(txt.need3); return; }
+                        activeCoords.splice(activeIdxInNav, 1);
+                        map.closePopup();
+                        if (typeof syncWithInput === "function") syncWithInput();
+                        if (typeof refreshUIAndData === "function") refreshUIAndData();
+                    };
+                };
+
+                if (isFirst) {
+                    const navTitle = document.createElement('div');
+                    navTitle.style.cssText = "font-size: 10px; font-weight: bold; color: #9CA3AF; text-transform: uppercase; padding: 0 8px;";
+                    navTitle.innerText = txt.navTitle;
+                    popupContainer.appendChild(navTitle);
+                }
+
+                const navWrapper = document.createElement('div');
+                navWrapper.style.cssText = "display: flex; align-items: center; gap: 6px; padding: 6px 8px; background: #F3F4F6; border-radius: 8px; margin-bottom: 4px; line-height: 0;";
+
+                const nodeInput = document.createElement('input');
+                nodeInput.type = "number";
+                nodeInput.value = index + 1;
+                nodeInput.min = 1;
+                nodeInput.max = activeCoords.length;
+                nodeInput.style.cssText = "width: 56px; height: 28px; margin: 0; border: 1px solid #D1D5DB; border-radius: 6px; padding: 0; font-size: 13px; font-weight: bold; text-align: center; outline: none;";
+
+                const statusBtn = document.createElement('button');
+                statusBtn.style.cssText = "width: 28px; height: 28px; margin: 0; padding: 0; border-radius: 6px; border: none; cursor: pointer; transition: all 0.2s; color: #fff; display: flex; align-items: center; justify-content: center;";
+
+                const updateNavigatorUI = (targetIdx) => {
+                    const isNodeHidden = activeCoords[targetIdx][2] === 0;
+
+                    const eyeOpenSVG = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>`;
+                    const eyeClosedSVG = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8-1 1.84-2.36 3.58-3.9 5.06m-5.17-7.15a3 3 0 1 1-4.24 4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>`;
+
+                    statusBtn.innerHTML = isNodeHidden ? eyeClosedSVG : eyeOpenSVG;
+                    statusBtn.style.background = isNodeHidden ? "#9CA3AF" : "#10B981";
+                    statusBtn.title = isNodeHidden ? txt.show : txt.hide;
+
+                    pointLabelsLayer.getLayers().forEach((m) => {
+                        if (!m._icon?.firstChild) return;
+                        const mDiv = m._icon.firstChild;
+                        const mIdx = m.options.markerIndex;
+                        let mBorder = (mIdx === 0) ? '#00E676' : (mIdx === activeCoords.length - 1 ? '#FF1744' : '#fff');
+
+                        if (mIdx === targetIdx) {
+                            mDiv.style.borderColor = '#FF9800';
+                            mDiv.style.boxShadow = "0 0 0 3px rgba(255, 152, 0, 0.4), 0 2px 6px rgba(0,0,0,0.5)";
+                            mDiv.style.zIndex = "1001";
+                        } else {
+                            mDiv.style.borderColor = mBorder;
+                            mDiv.style.boxShadow = "0 2px 4px rgba(0,0,0,0.4)";
+                            mDiv.style.zIndex = "1000";
+                        }
+                    });
+                    updateActionButtons(targetIdx);
+                };
+
+                statusBtn.onclick = () => {
+                    const idx = parseInt(nodeInput.value) - 1;
+                    const isNowHidden = activeCoords[idx][2] === 0;
+                    activeCoords[idx] = isNowHidden ? [activeCoords[idx][0], activeCoords[idx][1]] : [activeCoords[idx][0], activeCoords[idx][1], 0];
+                    updateNavigatorUI(idx);
+                    if (typeof syncWithInput === "function") syncWithInput();
+                    if (typeof refreshUIAndData === "function") refreshUIAndData();
+                };
+
+                const handleNavChange = (newVal) => {
+                    const val = Math.min(activeCoords.length, Math.max(1, newVal));
+                    nodeInput.value = val;
+                    const targetLatLng = [activeCoords[val - 1][0], activeCoords[val - 1][1]];
+                    map.panTo(targetLatLng);
+                    updateNavigatorUI(val - 1);
+                    if (currentPopup) currentPopup.setLatLng(targetLatLng);
+                };
+
+                nodeInput.onkeydown = (ev) => {
+                    if (ev.key === "ArrowUp") { ev.preventDefault(); handleNavChange(parseInt(nodeInput.value) + 1); }
+                    else if (ev.key === "ArrowDown") { ev.preventDefault(); handleNavChange(parseInt(nodeInput.value) - 1); }
+                    else if (ev.key === "ArrowLeft" || ev.key === "ArrowRight") { ev.preventDefault(); statusBtn.click(); }
+                };
+                nodeInput.onchange = () => handleNavChange(parseInt(nodeInput.value));
+
+                navWrapper.appendChild(nodeInput);
+                navWrapper.appendChild(statusBtn);
+                popupContainer.appendChild(navWrapper);
+                updateNavigatorUI(index);
+
+                popupContainer.appendChild(btnG);
+
+                if (isFirst) {
+                    const sep = document.createElement('div');
+                    sep.style.cssText = "height: 1px; background: #E5E7EB; margin: 4px 0;";
+                    popupContainer.appendChild(sep);
+
+                    const btnSAll = createPopupButton(txt.showAll, "#10B981", `<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle>`, true);
+                    btnSAll.onclick = () => { activeCoords = activeCoords.map(p => [p[0], p[1]]); map.closePopup(); refreshUIAndData(); };
+                    popupContainer.appendChild(btnSAll);
+
+                    const btnHAll = createPopupButton(txt.hideAll, "#6B7280", `<path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8-1 1.84-2.36 3.58-3.9 5.06m-5.17-7.15a3 3 0 1 1-4.24 4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>`, true);
+                    btnHAll.onclick = () => { activeCoords = activeCoords.map(p => [p[0], p[1], 0]); map.closePopup(); refreshUIAndData(); };
+                    popupContainer.appendChild(btnHAll);
+                }
+
+                popupContainer.appendChild(btnR);
+
+                if (isLast) {
+                    const btnA = createPopupButton(txt.addAuto, "#3B82F6", `<line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line>`, false, "1px dashed #E5E7EB");
+                    btnA.onclick = () => {
+                        const len = activeCoords.length;
+                        if (len < 2) return;
+                        const p1 = turf.point([activeCoords[len - 2][1], activeCoords[len - 2][0]]);
+                        const p2 = turf.point([activeCoords[len - 1][1], activeCoords[len - 1][0]]);
+                        const dest = turf.destination(p2, turf.distance(p1, p2, {units: 'meters'}), turf.bearing(p1, p2), {units: 'meters'});
+                        activeCoords.push([dest.geometry.coordinates[1], dest.geometry.coordinates[0]]);
+                        map.closePopup();
+                        refreshUIAndData();
+                    };
+                    popupContainer.appendChild(btnA);
+
+                    // Thẻ Wrapper (bác giữ nguyên, đã chuẩn rồi)
+                    const inputWrapper = document.createElement('div');
+                    inputWrapper.style.cssText = "display: flex; align-items: stretch; border: 1px solid #d1d5db; border-radius: 6px; overflow: hidden; margin-top: 4px; background: #f9fafb;";
+
+                    // Thẻ Input (bác giữ nguyên)
+                    const inputCoord = document.createElement('input');
+                    inputCoord.placeholder = txt.placeholderWGS;
+                    inputCoord.style.cssText = "flex: 1; border: none; background: transparent; padding: 7px 8px; font-size: 12px; outline: none; width: 130px; color: #374151; box-sizing: border-box;"; // Đã thêm box-sizing cho chắc ăn
+
+                    // Thẻ Button (SỬA Ở ĐÂY)
+                    const btnAddCoord = document.createElement('button');
+                    btnAddCoord.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>`;
+
+                    // Đã thêm: margin: 0; align-self: stretch; height: auto; box-sizing: border-box;
+                    btnAddCoord.style.cssText = "background: #eff6ff; border: none; border-left: 1px solid #d1d5db; padding: 0 12px; margin: 0; align-self: stretch; height: auto; box-sizing: border-box; cursor: pointer; color: #2563eb; display: flex; align-items: center; justify-content: center; transition: background 0.2s;";
+
+                    let handleManual = () => {
+                        let val = inputCoord.value.trim();
+                        if (!val) return;
+                        let matches = val.match(/-?\d+(\.\d+)?/g);
+                        if (matches && matches.length >= 2) {
+                            let lat = parseFloat(matches[0]), lng = parseFloat(matches[1]);
+                            if (!isNaN(lat) && !isNaN(lng) && lat >= -90 && lat <= 90 && lng >= -180 && lng <= 180) {
+                                activeCoords.push([lat, lng]);
+                                map.closePopup();
+                                refreshUIAndData();
+                                return;
+                            }
+                        }
+                        alert(txt.invalidWGS);
+                    };
+
+                    btnAddCoord.onclick = handleManual;
+                    inputCoord.onkeydown = (ev) => { if (ev.key === 'Enter') handleManual(); };
+                    inputWrapper.appendChild(inputCoord);
+                    inputWrapper.appendChild(btnAddCoord);
+                    popupContainer.appendChild(inputWrapper);
+                }
+
+                currentPopup = L.popup({ offset: [0, -5], minWidth: 160 })
+                    .setLatLng(e.latlng)
+                    .setContent(popupContainer)
+                    .openOn(map);
+
+                if (isFirst) setTimeout(() => nodeInput.focus(), 100);
+            });
+
+            vMarker.on('drag', function (e) {
+                const pos = e.latlng.wrap();
+                activeCoords[index] = isHidden ? [pos.lat, pos.lng, 0] : [pos.lat, pos.lng];
+                if (typeof currentPolySelect !== 'undefined' && currentPolySelect) {
+                    currentPolySelect.setLatLngs(activeCoords);
+                }
+            });
+
+            vMarker.on('dragend', () => {
+                if (typeof syncWithInput === "function") syncWithInput();
+                if (typeof refreshUIAndData === "function") refreshUIAndData();
+            });
+        });
+
+        if (typeof renderCenterTarget === "function") renderCenterTarget();
+    }
+
+    function createPopupButton(label, color, svgPath, isBold = false, borderTop = "none") {
+        const btn = document.createElement('button');
+        btn.style.cssText = `display: flex; align-items: center; gap: 8px; padding: 7px 10px; background: #fff; color: ${color}; border: none; border-radius: 6px; cursor: pointer; font-size: 13px; font-weight: ${isBold ? 'bold' : 'normal'}; border-top: ${borderTop}; transition: background 0.2s;`;
+        btn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">${svgPath}</svg> <span>${label}</span>`;
+        btn.onmouseover = () => btn.style.background = "#F9FAFB";
+        btn.onmouseout = () => btn.style.background = "#fff";
+        return btn;
+    }
+
+    if (typeof map !== 'undefined') {
+        map.on('popupclose', () => {
+            if (typeof pointLabelsLayer === 'undefined') return;
+            pointLabelsLayer.getLayers().forEach((m) => {
+                if (!m._icon?.firstChild) return;
+                const div = m._icon.firstChild;
+                const idx = m.options.markerIndex;
+                let border = (idx === 0) ? '#00E676' : (idx === activeCoords.length - 1 ? '#FF1744' : '#fff');
+                div.style.borderColor = border;
+                div.style.boxShadow = "0 2px 4px rgba(0,0,0,0.4)";
+                div.style.zIndex = "1000";
+            });
+        });
+    }
+
+    function renderCenterTarget() {
+        if (!activeCoords || activeCoords.length === 0) return;
+
+        let center = getPolygonCenter(activeCoords);
+
+        let dx = 0;
+        let dy = 0;
+
+        let zoom = (typeof map !== 'undefined' && typeof map.getZoom === 'function') ? map.getZoom() : 18;
+        if (zoom === 0 || isNaN(zoom)) zoom = 18;
+
+        let centerPt = map.project(L.latLng(center), zoom);
+        let nodePts = activeCoords.map(c => map.project(L.latLng(c), zoom));
+
+        const KHOANG_CACH_AN_TOAN = 28;
+
+        function checkPixelOverlap(testDx, testDy) {
+            let testX = centerPt.x + testDx;
+            let testY = centerPt.y + testDy;
+            return nodePts.some(pt => {
+                let dist = Math.sqrt(Math.pow(pt.x - testX, 2) + Math.pow(pt.y - testY, 2));
+                return dist < KHOANG_CACH_AN_TOAN;
+            });
+        }
+
+        if (checkPixelOverlap(0, 0)) {
+            let angle = 0;
+            let radius = KHOANG_CACH_AN_TOAN;
+            let maxAttempts = 50;
+            let attempts = 0;
+
+            while (attempts < maxAttempts) {
+                let rad = angle * Math.PI / 180;
+                let testDx = radius * Math.cos(rad);
+                let testDy = radius * Math.sin(rad);
+
+                if (!checkPixelOverlap(testDx, testDy)) {
+                    dx = testDx;
+                    dy = testDy;
+                    break;
+                }
+
+                angle += 30;
+                attempts++;
+
+                if (angle >= 360) {
+                    angle = 0;
+                    radius += 14;
+                }
+            }
+        }
+
+        const dragIcon = L.divIcon({
+            className: 'drag-handle',
+            html: `<div style="font-size: 28px; cursor: move; text-shadow: 0 0 5px #000;">🎯</div>`,
+            iconSize: [28, 28],
+            iconAnchor: [14 - dx, 14 - dy]
+        });
+
+        let dragMarker = L.marker(center, {
+            icon: dragIcon,
+            draggable: true,
+            zIndexOffset: 2000
+        }).addTo(pointLabelsLayer);
+
+        let lastPos = dragMarker.getLatLng();
+        let dragRafId = null;
+
+        dragMarker.on('dragstart', function(e) {
+            lastPos = e.target.getLatLng();
+            pointLabelsLayer.eachLayer(layer => {
+                if (layer !== dragMarker && typeof layer.setOpacity === 'function') layer.setOpacity(0);
+            });
+        });
+
+        dragMarker.on('drag', function(e) {
+            if (dragRafId) cancelAnimationFrame(dragRafId);
+
+            dragRafId = requestAnimationFrame(() => {
+                let currentPos = e.latlng;
+                let latDiff = currentPos.lat - lastPos.lat;
+                let lngDiff = currentPos.lng - lastPos.lng;
+
+                activeCoords = activeCoords.map(c => {
+                    let newPoint = [c[0] + latDiff, c[1] + lngDiff];
+                    if (c.length > 2) newPoint.push(c[2]);
+                    return newPoint;
+                });
+
+                if (currentPolySelect) currentPolySelect.setLatLngs(activeCoords);
+                lastPos = currentPos;
+            });
+        });
+
+        dragMarker.on('dragend', function(e) {
+            let i = 0;
+            pointLabelsLayer.eachLayer(layer => {
+                if (layer !== dragMarker && i < activeCoords.length) {
+                    layer.setLatLng(activeCoords[i]);
+                    if (typeof layer.setOpacity === 'function') layer.setOpacity(1);
+                    i++;
+                }
+            });
+            if (typeof syncWithInput === 'function') syncWithInput();
+        });
+    }
+
+    function syncWithInput() {
+        let txtWgs84 = "";
+        wgs84Coords = [];
+
+        activeCoords.forEach(coord => {
+            if (coord.length > 2 && coord[2] !== undefined) {
+                wgs84Coords.push([coord[0], coord[1], coord[2]]);
+                txtWgs84 += coord[0].toFixed(6) + " " + coord[1].toFixed(6) + " " + coord[2] + "\n";
+            } else {
+                wgs84Coords.push([coord[0], coord[1]]);
+                txtWgs84 += coord[0].toFixed(6) + " " + coord[1].toFixed(6) + "\n";
+            }
+        });
+
+        document.getElementById('coordsInput').value = txtWgs84.trim();
+        if (typeof calculateMetrics === "function") calculateMetrics(wgs84Coords);
+
+        renderMarkers();
+        appState = "modified";
+        updateStatus();
+    }
+
+    function getPolygonCenter(latlngs) {
+        try {
+            let turfCoords = latlngs.map(c => [c[1], c[0]]);
+            if (turfCoords[0][0] !== turfCoords[turfCoords.length - 1][0]) turfCoords.push(turfCoords[0]);
+            let tam = turf.pointOnFeature(turf.polygon([turfCoords]));
+            return [tam.geometry.coordinates[1], tam.geometry.coordinates[0]];
+        } catch (e) {
+            return L.polygon(latlngs).getBounds().getCenter();
+        }
+    }
+
+    renderMarkers();
+    refreshUIAndData();
+    if (currentPolySelect) {
+        map.fitBounds(currentPolySelect.getBounds(), {padding: [50, 50], maxZoom: 20});
+    }
+}
+
+function openGoogleMaps() {
+    if (centerLat != null && centerLng != null) {
+        let lat = String(centerLat);
+        let lng = String(centerLng);
+        let url = "https://www.google.com/maps/search/?api=1&query=" + lat + "," + lng;
+        window.open(url, "_blank");
+    }
+}
+
+let shortCode = "";
+
+const formatPolygonToText = (polygonArray) => {
+    if (!Array.isArray(polygonArray)) return "";
+    return polygonArray.map(([lng, lat, z]) => {
+        return z !== undefined ? `${lat}, ${lng}, ${z}` : `${lat}, ${lng}`;
+    }).join('\n');
+};
+
+const applyMapData = (coordsText, type, delay = 300) => {
+    const input = document.getElementById("coordsInput");
+    if (input) input.value = coordsText;
+
+    if (typeof polyType !== 'undefined') polyType = parseInt(type);
+    if (typeof processData === 'function') setTimeout(processData, delay);
+};
+
+/**
+ * Hàm tạo Description dựa trên loại bản đồ và địa danh
+ */
+function generateDescription(data) {
+    const { title, area, t } = data;
+    const areaStr = area ? `in ${area}` : "";
+    
+    // Fallback nếu title trống để câu văn tự nhiên hơn
+    const titleStr = title || (t == 1 ? "this area" : "this route");
+
+    return t == 1 
+        ? `Explore ${titleStr} ${areaStr} on QuickMapShare. View precise coordinate data.`
+        : `Track the route '${titleStr}' ${areaStr} via QuickMapShare.`;
+}
+
+/**
+ * Hàm helper giúp cập nhật hoặc tạo mới thẻ meta
+ */
+function updateMeta(selector, attrName, attrValue, content) {
+    let meta = document.querySelector(selector);
+    if (!meta) {
+        meta = document.createElement('meta');
+        meta.setAttribute(attrName, attrValue);
+        document.head.appendChild(meta);
+    }
+    meta.content = content;
+}
+
+/**
+ * Cập nhật SEO động (Title & Description & Thumbnail)
+ */
+function updateSEO(data, code) {
+	console.log("Data truyền vào updateSEO:", data);
+    if (!data) return;
+    
+    const { title, area, t, thumb } = data; 
+    const label = (t === 1) ? "Area" : "Route";
+    const displayTitle = title || (area ? `${label} in ${area}` : `Interactive ${label}`);
+    const descriptionText = generateDescription(data);
+
+    // 1. Cập nhật Title 
+    document.title = displayTitle + " | QuickMapShare";
+    
+    // Cập nhật Meta Description, og:title, og:description
+    updateMeta('meta[name="description"]', 'name', 'description', descriptionText);
+    updateMeta('meta[property="og:title"]', 'property', 'og:title', displayTitle);
+    updateMeta('meta[property="og:description"]', 'property', 'og:description', descriptionText);
+
+    // 2. CẬP NHẬT ẢNH THUMBNAIL
+    if (thumb) {
+        // Cập nhật og:image và twitter:image
+        updateMeta('meta[property="og:image"]', 'property', 'og:image', thumb);
+        updateMeta('meta[name="twitter:image"]', 'name', 'twitter:image', thumb);
+
+        // Cập nhật thẻ link rel='image_src'
+        let imageSrcTag = document.querySelector('link[rel="image_src"]');
+        if (imageSrcTag) {
+            imageSrcTag.href = thumb;
+        } else {
+            imageSrcTag = document.createElement('link');
+            imageSrcTag.rel = 'image_src';
+            imageSrcTag.href = thumb;
+            document.head.appendChild(imageSrcTag);
+        }
+    }
+
+    // 3. Cập nhật Canonical (Rất quan trọng cho Google Index ?s=)
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+        canonical = document.createElement('link');
+        canonical.rel = 'canonical';
+        document.head.appendChild(canonical);
+    }
+    canonical.href = `https://www.quickmapshare.com/?s=${code}`;
+} 
+
+/**
+ * Hàm lấy dữ liệu Map chính
+ */
+async function getMapData(code) {
+    const cacheKey = `offlineMap_${code}`;
+    const cached = localStorage.getItem(cacheKey);
+
+    if (cached) {
+        try {
+            const data = JSON.parse(cached);
+            updateSEO(data, code); // Chạy SEO ngay từ cache
+            applyMapData(formatPolygonToText(data.wgs84_polygon), data.t);
+            return; 
+        } catch (e) { console.error("Cache lỗi:", e); }
+    }
+
+    try {
+        const res = await fetch(`https://api.quickmapshare.com/api/get-map-data/${code}`);
+        const result = await res.json();
+
+        if (result.success && result.data) {
+            // FIX: Đã thêm trường `thumb` vào đây để lấy được ảnh từ API
+            const { wgs84_polygon, t, title, area, thumb } = result.data;
+            
+            // FIX: Đưa `thumb` vào dataToSave để dùng cho SEO và Cache
+            const dataToSave = { wgs84_polygon, t, title, area, thumb };
+
+            updateSEO(dataToSave, code); 
+            applyMapData(formatPolygonToText(wgs84_polygon), t);
+            
+            // Lưu vào LocalStorage có cả ảnh luôn
+            localStorage.setItem(cacheKey, JSON.stringify(dataToSave));
+        }
+    } catch (e) { console.error("Lỗi fetch API:", e); }
+}
+
+async function loadFromURL() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const hash = window.location.hash;
+    const code = urlParams.get("s");
+    const dataString = urlParams.get("data") || (hash.startsWith("#data=") ? hash.replace("#data=", "") : null);
+
+    if (code) {
+        if (typeof shortCode !== 'undefined') shortCode = code;
+        await getMapData(code);
+        return;
+    }
+
+    if (dataString) {
+        try {
+            const decoded = JSON.parse(decodeURIComponent(escape(atob(dataString))));
+            applyMapData(decoded.c, decoded.t, 500);
+        } catch (e) { console.error("Lỗi giải mã Base64:", e); }
+    }
+}
+
+window.capNhatSoDong = function() {
+    const txtToaDo = document.getElementById('coordsInput');
+    const cotSo = document.getElementById('cotSo');
+    if (!txtToaDo || !cotSo) return;
+
+    const soDong = txtToaDo.value.split('\n').length;
+    let chuoiSo = '';
+    for (let i = 1; i <= soDong; i++) chuoiSo += i + '<br>';
+    cotSo.innerHTML = chuoiSo;
+};
+
+document.addEventListener("DOMContentLoaded", function() {
+    const txtToaDo = document.getElementById('coordsInput');
+    const cotSo = document.getElementById('cotSo');
+
+    if (txtToaDo && cotSo) {
+        txtToaDo.addEventListener('input', window.capNhatSoDong);
+        txtToaDo.addEventListener('scroll', () => { cotSo.scrollTop = txtToaDo.scrollTop; });
+        window.capNhatSoDong();
+    }
+});
+
+async function taoLinkChiaSe() {
+    if (typeof wgs84Coords === 'undefined' || !Array.isArray(wgs84Coords) || wgs84Coords.length === 0) {
+        alert(t('alerts.no_coordinates', 'Vui lòng xem ranh đất trên bản đồ trước khi tạo link!'));
+        if (typeof appState !== 'undefined') appState = "idle";
+        if (typeof updateStatus === "function") updateStatus();
+        return;
+    }
+
+    let mapboxPolygon = wgs84Coords.map(diem => {
+        let point = [diem[1], diem[0]];
+        if (diem.length > 2) point.push(diem[2]);
+        return point;
+    });
+
+    const safePolyType = typeof polyType !== 'undefined' ? polyType : 1;
+    const currentUser = (typeof firebase !== 'undefined' && firebase.auth) ? firebase.auth().currentUser : null;
+    const userIdentifier = currentUser ? currentUser.uid : 'guest';
+
+    const hashCode = (s) => s.split('').reduce((a, b) => { a = ((a << 5) - a) + b.charCodeAt(0); return a & a }, 0);
+    const arrayString = JSON.stringify(mapboxPolygon);
+    const uniqueKey = `map_${userIdentifier}_${safePolyType}_${hashCode(arrayString)}`;
+
+    const cachedLink = localStorage.getItem(uniqueKey);
+    if (cachedLink) {
+        const inputLink = document.getElementById('linkDaTao');
+        if (inputLink) inputLink.value = cachedLink;
+        if (typeof appState !== 'undefined') appState = "saved";
+        if (typeof updateStatus === "function") updateStatus();
+        return;
+    }
+
+    let idToken = null;
+    if (currentUser) {
+        try { idToken = await currentUser.getIdToken(); }
+        catch (e) { console.error("Lấy token thất bại", e); }
+    }
+
+    const requestHeaders = { 'Content-Type': 'application/json' };
+    if (idToken) requestHeaders['Authorization'] = `Bearer ${idToken}`;
+
+    const titleInput = document.getElementById('tenBanDo');
+    const mapTitle = (titleInput && titleInput.value.trim() !== "") ? titleInput.value.trim() : null;
+
+    try {
+        const response = await fetch('https://api.quickmapshare.com/api/luu-ban-do', {
+            method: 'POST',
+            headers: requestHeaders,
+            body: JSON.stringify({
+                province: "WGS84",
+                meridian: "0",
+                polyType: safePolyType,
+                wgs84_polygon: mapboxPolygon,
+                origin: window.location.origin,
+                language: typeof currentLang !== 'undefined' ? currentLang : 'en',
+                title: mapTitle
+            })
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+            const apiDomain = "https://api.quickmapshare.com";
+            const fullShareLink = `${apiDomain}/share/${data.url}`;
+
+            const inputLink = document.getElementById('linkDaTao');
+            if (inputLink) inputLink.value = fullShareLink;
+
+            localStorage.setItem(uniqueKey, fullShareLink);
+            localStorage.setItem(`dict_${data.url}`, uniqueKey);
+
+            const mapDataToCache = { wgs84_polygon: mapboxPolygon, t: safePolyType };
+            localStorage.setItem(`offlineMap_${data.url}`, JSON.stringify(mapDataToCache));
+
+            if (typeof appState !== 'undefined') appState = "saved";
+            if (typeof updateStatus === "function") updateStatus();
+
+            if (idToken && typeof loadMyMaps === 'function') {
+                setTimeout(() => loadMyMaps(idToken), 500);
+            }
+        } else {
+            alert(t('alerts.error', 'Lỗi: ') + data.error);
+        }
+    } catch (error) {
+        console.error("Lỗi gọi API lưu bản đồ:", error);
+        alert(t('alerts.api_error', 'Không thể kết nối máy chủ! Vui lòng thử lại.'));
+    }
+}
+
+function scrollSidebar() {
+    const el = document.getElementById('diachinh-sidebar');
+    if (!el) return;
+
+    el.style.overflowY = 'hidden';
+    el.offsetHeight;
+    el.style.overflowY = 'auto';
+
+    requestAnimationFrame(() => { el.scrollTop = el.scrollHeight; });
+}
+
+function copyLinkThucTe() {
+    const linkInput = document.getElementById("linkDaTao");
+    linkInput.select();
+    linkInput.setSelectionRange(0, 99999);
+    navigator.clipboard.writeText(linkInput.value).catch(err => { document.execCommand("copy"); });
+}
+
+function hienThiThongBao(element, text) {
+    element.innerText = text;
+    element.style.display = "block";
+    element.style.color = "green";
+    setTimeout(() => element.style.display = "none", 4000);
+}
+
+document.addEventListener("DOMContentLoaded", async function() {
+    let coordsInput = document.getElementById('coordsInput');
+    if (coordsInput && !coordsInput.value) {
+        coordsInput.placeholder = "Example (WGS84):\n21.0285 105.8542\n21.0285 105.8564\n21.0268 105.8564\n21.0268 105.8542";
+    }
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = urlParams.get('id');
+
+    if (id) {
+        try {
+            const response = await fetch(`https://api.quickmapshare.com/api/lay-ban-do/${id}`);
+            const data = await response.json();
+
+            if (data.success) {
+                document.getElementById('coordsInput').value = data.data.coords;
+                if (typeof window.capNhatSoDong === 'function') window.capNhatSoDong();
+                setTimeout(() => { processData(); }, 600);
+            }
+        } catch (error) { console.error("Lỗi tải dữ liệu:", error); }
+    }
+});
+
+window.addEventListener('DOMContentLoaded', function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const rawData = urlParams.get('data');
+
+    if (rawData) {
+        try {
+            const decodedString = decodeURIComponent(escape(window.atob(rawData)));
+            const mapData = JSON.parse(decodedString);
+
+            if (mapData.s) {
+                shortCode = mapData.s;
+                console.log("🎯 Đã nhận diện mã bản đồ:", shortCode);
+            }
+        } catch (e) { console.error("❌ Đoạn script bổ sung gặp lỗi:", e); }
+    }
+
+    if (shortCode !== "") {
+        const thumbUrl = `https://api.quickmapshare.com/thumb/${shortCode}.png`;
+        const imgTest = new Image();
+
+        imgTest.onload = function() { console.log("✅ Ảnh Thumbnail vẫn sống!"); };
+
+        imgTest.onerror = function() {
+            console.warn(`❌ Ảnh ${shortCode}.png đã bay màu (404), đang yêu cầu Server vẽ lại...`);
+            fetch('https://api.quickmapshare.com/api/force-generate/' + shortCode)
+                .then(response => response.json())
+                .then(result => { if (result.success) console.log("🖼️ Server đã vẽ lại ảnh thành công!"); })
+                .catch(err => console.warn("Lỗi khi ép tạo ảnh:", err));
+        };
+
+        imgTest.src = thumbUrl;
+    }
+});
+
+const firebaseConfig = {
+    apiKey: "AIzaSyAsoTAYXGUiWkmQ7li7z1s40M48G29hBlQ",
+    authDomain: "arched-memory-205901.firebaseapp.com",
+    projectId: "arched-memory-205901",
+    appId: "1:261380837541:web:8ea743abc93e1f8e1dbd4c"
+};
+
+if (typeof firebase !== 'undefined') {
+    if (!firebase.apps.length) { firebase.initializeApp(firebaseConfig); }
+    const auth = firebase.auth();
+    const provider = new firebase.auth.GoogleAuthProvider();
+
+    window.loginGoogle = function() {
+        auth.signInWithPopup(provider).catch((error) => { alert(t('auth.error', 'Lỗi: ') + error.message); });
+    }
+
+    window.logout = function() { auth.signOut(); }
+
+    auth.onAuthStateChanged((user) => {
+        const box = document.getElementById('my-maps-box');
+        if (user) {
+            document.getElementById('btn-login').style.display = 'none';
+            document.getElementById('btn-logout').style.display = 'block';
+            document.getElementById('user-info').style.display = 'block';
+            document.getElementById('user-name').innerText = user.displayName;
+            document.getElementById('user-avatar').src = user.photoURL;
+            if (box) box.style.display = 'block';
+            user.getIdToken().then(token => loadMyMaps(token));
+        } else {
+            document.getElementById('btn-login').style.display = 'block';
+            document.getElementById('btn-logout').style.display = 'none';
+            document.getElementById('user-info').style.display = 'none';
+            if (box) box.style.display = 'none';
+            checkInAppBrowser();
+        }
+    });
+}
+
+function getTranslation(keyPath) {
+    return keyPath.split('.').reduce((obj, key) => (obj && obj[key] !== undefined ? obj[key] : null), translations);
+}
+
+// ==========================================
+// HÀM TẢI DỮ LIỆU JSON TỪ GITHUB
+// ==========================================
+function loadLanguageData(lang) {
+    const cacheBuster = new Date().getTime();
+    const cdnUrl = `https://raw.githubusercontent.com/quickmapshare/map-locales/main/${lang}.json?v=${cacheBuster}`;
+
+    fetch(cdnUrl)
+        .then(response => {
+            if (!response.ok) throw new Error(`Không tìm thấy file ngôn ngữ: ${lang}.json`);
+            return response.json();
+        })
+        .then(data => {
+            translations = data;
+            currentLang = lang;
+            localStorage.setItem('user_lang', currentLang);
+            applyTranslations();
+        })
+        .catch(error => {
+            console.warn(error);
+            if (lang !== 'en') {
+                console.log("Đang chuyển về ngôn ngữ mặc định (Tiếng Anh)...");
+                loadLanguageData('en');
+            }
+        });
+}
+
+// ==========================================
+// HÀM CẬP NHẬT GIAO DIỆN HTML (ĐA NGÔN NGỮ)
+// ==========================================
+function applyTranslations() {
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const textValue = getTranslation(el.getAttribute('data-i18n'));
+        if (textValue) {
+            if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                el.placeholder = textValue;
+            } else {
+                el.innerHTML = textValue;
+            }
+        }
+    });
+
+    document.querySelectorAll('[data-i18n-title]').forEach(el => {
+        const value = getTranslation(el.getAttribute('data-i18n-title'));
+        if (value && typeof value === 'string') el.title = value;
+    });
+
+    setTimeout(() => {
+        const searchInput = document.querySelector('.leaflet-control-geocoder-form input');
+        if (searchInput) {
+            searchInput.placeholder = getTranslation('geocoder.placeholder') || "Address / WGS84 coords...";
+            console.log("✅ Đã cập nhật Geocoder thành:", searchInput.placeholder);
+        }
+    }, 500);
+
+    updateMapLanguage(currentLang);
+
+    if (typeof updateStatus === 'function') {
+        updateStatus();
+        console.log("🔄 Đã cập nhật lại trạng thái StatusBox.");
+    }
+
+    setTimeout(() => {
+        const postpage = translations.postpage;
+        if (!postpage) return;
+
+        const newerLink = document.querySelector('.blog-pager-newer-link');
+        const olderLink = document.querySelector('.blog-pager-older-link');
+        const homeLink = document.querySelector('.home-link');
+
+        if (newerLink) newerLink.innerHTML = postpage['newer-page-title'];
+        if (olderLink) olderLink.innerHTML = postpage['older-page-title'];
+        if (homeLink) homeLink.innerHTML = postpage['home-msg'];
+    }, 800);
+}
+
+// ==========================================
+// HÀM CẬP NHẬT NGÔN NGỮ CHO BẢNG LAYER BẢN ĐỒ
+// ==========================================
+function updateMapLanguage(langCode) {
+    const lang = translations;
+    if (!lang || !lang.layer || typeof map === 'undefined') return;
+
+    if (layerControl !== null) {
+        map.removeControl(layerControl);
+    }
+
+    const baseMaps = {};
+    baseMaps[lang.layer.street] = googleStreets;
+    baseMaps[lang.layer.satellite] = googleSatellite;
+    baseMaps[lang.layer.hybrid] = googleHybrid;
+
+    layerControl = L.control.layers(baseMaps, null, {position: 'topright'}).addTo(map);
+
+    const controlContainer = layerControl.getContainer();
+    if (controlContainer && controlContainer.parentNode) {
+        controlContainer.parentNode.prepend(controlContainer);
+    }
+}
+
+// ==========================================
+// KHỞI CHẠY KHI WEB TẢI XONG (ENTRY POINT)
+// ==========================================
+document.addEventListener("DOMContentLoaded", function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    let initialLang = urlParams.get('lang') || localStorage.getItem('user_lang') || navigator.language.split('-')[0];
+
+    loadLanguageData(initialLang);
+});
+
+// ==========================================
+// CÁC HÀM QUẢN LÝ BẢN ĐỒ CÁ NHÂN
+// ==========================================
+async function deleteMap(shortCode) {
+    if (!confirm(t('auth.delete_confirm', 'Are you sure to delete this snapshot?'))) return;
+
+    try {
+        const user = firebase.auth().currentUser;
+        if (!user) return;
+        const token = await user.getIdToken();
+
+        const response = await fetch('https://api.quickmapshare.com/api/delete-map/' + shortCode, {
+            method: 'DELETE',
+            headers: { 'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json' }
+        });
+
+        const result = await response.json();
+        if (result.success) {
+            const keyToDelete = localStorage.getItem(`dict_${shortCode}`);
+            if (keyToDelete) localStorage.removeItem(keyToDelete);
+
+            localStorage.removeItem(`dict_${shortCode}`);
+            localStorage.removeItem(`offlineMap_${shortCode}`);
+
+            if (typeof loadMyMaps === 'function') loadMyMaps(token);
+        } else {
+            alert(t('auth.error', 'Lỗi: ') + result.error);
+        }
+    } catch (err) {
+        console.error("Lỗi xóa:", err);
+        alert(t('auth.delete_error', 'Không thể kết nối máy chủ để xóa.'));
+    }
+}
+
+async function loadMyMaps(token, retryCount = 0) {
+    const listDiv = document.getElementById('my-maps-list');
+    if (!listDiv) return;
+    const MAX_RETRIES = 3;
+
+    if (retryCount === 0) listDiv.innerHTML = `<div style="color:#666;text-align:center;padding:20px;">${t('auth.loading', 'Loading...')}</div>`;
+
+    try {
+        const response = await fetch('https://api.quickmapshare.com/api/my-maps', {
+            method: 'GET',
+            headers: { 'Authorization': `Bearer ${token}` }
+        });
+        const result = await response.json();
+
+        if (result.success && result.data) {
+            if (result.data.length === 0) {
+                listDiv.innerHTML = `<div style="color:#999;text-align:center;padding:20px;">${t('auth.no_maps', 'Bạn chưa có bản đồ nào.')}</div>`;
+                return;
+            }
+
+            const latestMap = result.data[0];
+            if (!latestMap.thumbnail_url && retryCount < MAX_RETRIES) {
+                setTimeout(() => loadMyMaps(token, retryCount + 1), 1000);
+            }
+
+            listDiv.innerHTML = result.data.map(map => {
+                const mapTitle = map.title || `${t('auth.snapshot', 'Snapshot ')}${map.short_code}`;
+                const mapDate = new Date(map.created_at).toLocaleDateString(typeof currentLang !== 'undefined' && currentLang === 'vi' ? 'vi-VN' : 'en-US');
+                const trashIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 16 16"><path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/><path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 1v1h11V1h-11z"/></svg>`;
+
+                const mediaHtml = map.thumbnail_url 
+                  ? `<img src="${map.thumbnail_url}" style="width:50px; height:50px; object-fit:cover; border-radius:6px; border:1px solid #ddd; display:block; flex-shrink:0;" />`
+                  : `<div style="width:50px; height:50px; background:#f8f9fa; border-radius:6px; flex-shrink:0; display:flex; align-items:center; justify-content:center; border:1px solid #eee; box-sizing:border-box;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#bbb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 6v16l7-4 8 4 7-4V2l-7 4-8-4-7 4zm7-4v16m8-4V6"></path></svg></div>`;
+
+                return `
+                    <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px; padding:8px; border-radius:8px; transition: background 0.2s;"
+                         onmouseover="this.style.background='#fcfcfc'"
+                         onmouseout="this.style.background='none'">
+                        ${mediaHtml}
+                        <div style="flex:1; min-width:0; display:flex; flex-direction:column; justify-content:center;">
+                            <a href="javascript:getMapData('${map.short_code}')"
+                               style="text-decoration:none; color:#1a73e8; font-weight:600; font-size:14px; margin-bottom:2px; display:block; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; font-family:sans-serif;"
+                               title="${mapTitle}">
+                               ${mapTitle}
+                            </a>
+                            <span style="color:#888; font-size:11px; font-family:sans-serif;">${mapDate}</span>
+                        </div>
+                        <button onclick="deleteMap('${map.short_code}')"
+                                style="width:28px; height:28px; border-radius:6px; border:none; background:transparent; color:#b0b0b0; cursor:pointer; display:flex; align-items:center; justify-content:center; transition: all 0.2s;"
+                                title="${t('auth.delete_map', 'Xóa bản đồ')}"
+                                onmouseover="this.style.background='#fdf2f2';this.style.color='#f87171'"
+                                onmouseout="this.style.background='transparent';this.style.color='#b0b0b0'">
+                            ${trashIcon}
+                        </button>
+                    </div>`;
+            }).join('');
+        }
+    } catch (err) {
+        listDiv.innerHTML = `<div style="color:red;padding:10px;text-align:center;">${t('auth.load_list_error', 'Không thể tải danh sách bản đồ.')}</div>`;
+    }
+}
+
+function checkInAppBrowser() {
+    const ua = navigator.userAgent || navigator.vendor || window.opera;
+    const globalAppsRegex = /wv|WhatsApp|FBAV|FBAN|Instagram|Threads|Twitter|LinkedIn|Snapchat|Reddit|Pinterest|TikTok|MicroMessenger|Line|KakaoTalk|Viber|Telegram|Discord|Slack|Zalo/i;
+    const isExplicitAppOrAndroidWV = globalAppsRegex.test(ua);
+
+    const isIos = /iPhone|iPad|iPod/i.test(ua);
+    const isIosWebView = isIos && /AppleWebKit/i.test(ua) && !/Safari/i.test(ua);
+
+    const isInAppBrowser = isExplicitAppOrAndroidWV || isIosWebView;
+
+    const warningBox = document.getElementById('inapp-warning-box');
+    const signInBtn = document.getElementById('btn-login');
+
+    if (isInAppBrowser) {
+        if (warningBox) warningBox.style.display = 'block';
+        if (signInBtn) signInBtn.style.display = 'none';
+        console.log("⚠️ Global In-app Browser detected. Google Sign-in button disabled.");
+    }
+}
+
+let translations = {};
+let currentLang = 'en';
+
+
+
+</script>
+    
+
 </body>
 </html>

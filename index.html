@@ -433,7 +433,6 @@
   
 
     </style>
-
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.polylinemeasure/Leaflet.PolylineMeasure.css" />
 <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
@@ -449,134 +448,107 @@
 </head>
 <body>
 
-
-<div class='qms-loader' id='qms-loader'>
-    <div class='qms-spinner'/>
-    <div class='qms-loading-text' data-i18n='general.loading_map'>Loading map...</div> 
+<div class="qms-loader" id="qms-loader">
+    <div class="qms-spinner"></div>
+    <div class="qms-loading-text" data-i18n="general.loading_map">Loading map...</div> 
 </div>  
     
-    
-<div id='diachinh-app'>
-    <div id='diachinh-sidebar'>
-      
-
-      
-      
-        <h3 style='margin-top:0; display: none;'>📍 Quick Map Share .com</h3>
+<div id="diachinh-app">
+    <div id="diachinh-sidebar">
         
-        <div style='display: none;'>
-            <label data-i18n='sidebar.select_province'>Select Province:</label>
-            <select id='meridian'></select>
+        <h3 style="margin-top:0; display: none;">📍 Quick Map Share .com</h3>
+        
+        <div style="display: none;">
+            <label data-i18n="sidebar.select_province">Select Province:</label>
+            <select id="meridian"></select>
         </div>
 
+        <div id="customM-box">
+            <label for="manualM" data-i18n="sidebar.central_meridian">Central Meridian (L0):</label>
+            <input id="manualM" type="number" step="0.01" placeholder="e.g., 105.5" data-i18n-placeholder="sidebar.placeholder_meridian">
+        </div>
 
-
-<div id="customM-box">
-    <label for="manualM" data-i18n="sidebar.central_meridian">Central Meridian (L0):</label>
-    <input id="manualM" type="number" step="0.01" placeholder="e.g., 105.5" data-i18n-placeholder="sidebar.placeholder_meridian">
-</div>
-
-        <div class='box-wrapper'>
-            <div data-i18n='status_box.idle' id='statusBox'>
+        <div class="box-wrapper">
+            <div data-i18n="status_box.idle" id="statusBox">
                 Start: &#11040; Polygon / &#8605; Line
             </div>
             
-            <a class='help-button' data-i18n-title='general.guide_help' href='https://www.quickmapshare.com/p/guide-help.html' target='_blank' title='Guide &amp; Help'>
-                <svg fill='none' height='20' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' width='20'>
-                    <circle cx='12' cy='12' r='10'/>
-                    <path d='M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3'/>
-                    <line x1='12' x2='12.01' y1='17' y2='17'/>
+            <a class="help-button" data-i18n-title="general.guide_help" href="https://www.quickmapshare.com/p/guide-help.html" target="_blank" title="Guide &amp; Help">
+                <svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                    <line x1="12" x2="12.01" y1="17" y2="17"></line>
                 </svg>
             </a>
         </div>        
         
-        <div class='khung-nhap-toa-do' style='display: none;'>
-            <div class='cot-so-thu-tu' id='cotSo'>1</div>
-            <textarea class='textarea-toa-do' data-i18n-placeholder='sidebar.placeholder_coords' id='coordsInput' placeholder='Coordinates will appear here, or paste them manually...' wrap='off'/>
+        <div class="khung-nhap-toa-do" style="display: none;">
+            <div class="cot-so-thu-tu" id="cotSo">1</div>
+            <textarea class="textarea-toa-do" data-i18n-placeholder="sidebar.placeholder_coords" id="coordsInput" placeholder="Coordinates will appear here, or paste them manually..." wrap="off"></textarea>
         </div>
         
-        <button class='btn-draw' data-i18n='general.btn_show_on_map' onclick='processData()' style='display: none;'>SHOW ON MAP</button>
+        <button class="btn-draw" data-i18n="general.btn_show_on_map" onclick="processData()" style="display: none;">SHOW ON MAP</button>
         
-        <a data-i18n='general.guide_help' href='https://www.quickmapshare.com/p/guide-help.html' id='btnHelpLink' style='display: none; text-align: center; margin-top: 10px; margin-bottom: 10px; color: #3498db; text-decoration: none; font-weight: bold; padding: 5px; border: 1px dashed #3498db; border-radius: 4px;' target='_blank'>📖 Guide &amp; Help</a>
+        <a data-i18n="general.guide_help" href="https://www.quickmapshare.com/p/guide-help.html" id="btnHelpLink" style="display: none; text-align: center; margin-top: 10px; margin-bottom: 10px; color: #3498db; text-decoration: none; font-weight: bold; padding: 5px; border: 1px dashed #3498db; border-radius: 4px;" target="_blank">📖 Guide &amp; Help</a>
 
-        <div id='results' style='display:none;'>
-            <div class='table-container'>
-              <table id='edgeTable'>
+        <div id="results" style="display:none;">
+            <div class="table-container">
+              <table id="edgeTable">
                   <thead>
                       <tr>
-                          <th data-i18n='results.table_edge'>Edge</th>
-                          <th id='lengthHeader'><span data-i18n='results.table_length'>Length</span> (m)</th>
+                          <th data-i18n="results.table_edge">Edge</th>
+                          <th id="lengthHeader"><span data-i18n="results.table_length">Length</span> (m)</th>
                       </tr>
                   </thead>
-                  <tbody/>
+                  <tbody></tbody>
               </table>
             </div>
             
-            <div class='result-box'>
-                <span data-i18n='results.lbl_area'>Area:</span> <br/><span class='area-val' id='areaDisplay'>0 m&#178;</span>
+            <div class="result-box">
+                <span data-i18n="results.lbl_area">Area:</span> <br><span class="area-val" id="areaDisplay">0 m&#178;</span>
             </div>          
-          
-          
-          
-
-
-
-
-          
-          
-          
         </div>
       
-      
-<div id='auth-box' style='padding: 15px; border: 1px solid #ddd; border-radius: 8px; max-width: 300px; text-align: center; margin: 20px auto;'>
-  <div id='user-info' style='display: none; margin-bottom: 15px;'>
-    <img id='user-avatar' src='' style='width: 50px; height: 50px; border-radius: 50%; object-fit: cover; margin-bottom: 10px;'/>
-    <div id='user-name' style='font-weight: bold; font-family: sans-serif;'/>
-  </div>
+        <div id="auth-box" style="padding: 15px; border: 1px solid #ddd; border-radius: 8px; max-width: 300px; text-align: center; margin: 20px auto;">
+          <div id="user-info" style="display: none; margin-bottom: 15px;">
+            <img id="user-avatar" src="" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; margin-bottom: 10px;">
+            <div id="user-name" style="font-weight: bold; font-family: sans-serif;"></div>
+          </div>
 
-  <div id='inapp-warning-box' style='display: none; background-color: #fff3cd; color: #856404; border: 1px solid #ffeeba; padding: 12px; border-radius: 8px; margin-bottom: 16px; font-size: 14px; text-align: center; line-height: 1.5;'>
-    <strong>&#9888;&#65039; <span data-i18n='auth.inapp_warn_title'>Unsupported Browser</span></strong><br/>
-    
-    <span data-i18n='auth.inapp_warn_desc'>Please tap the 3 dots in the top right corner and select &quot;Open in browser&quot; (Chrome/Safari) to sign in with Google.</span>
-  </div>
+          <div id="inapp-warning-box" style="display: none; background-color: #fff3cd; color: #856404; border: 1px solid #ffeeba; padding: 12px; border-radius: 8px; margin-bottom: 16px; font-size: 14px; text-align: center; line-height: 1.5;">
+            <strong>&#9888;&#65039; <span data-i18n="auth.inapp_warn_title">Unsupported Browser</span></strong><br>
+            <span data-i18n="auth.inapp_warn_desc">Please tap the 3 dots in the top right corner and select "Open in browser" (Chrome/Safari) to sign in with Google.</span>
+          </div>
 
-
-  
-  <div id='btn-login' style='font-family: sans-serif; font-size: 14px; color: #555; text-align: center; padding: 10px 0;'>
-    <span data-i18n='auth.manage_maps'>Manage your maps easily:</span> 
-    <a data-i18n='auth.sign_in' href='javascript:void(0)' onclick='loginGoogle()' onmouseout='this.style.textDecoration=&apos;none&apos;' onmouseover='this.style.textDecoration=&apos;underline&apos;' style='color: #1a73e8; text-decoration: none; font-weight: 600; white-space: nowrap;'>
-      Sign in with Google
-    </a>
-  </div>
-  
-  <button data-i18n='auth.sign_out' id='btn-logout' onclick='logout()' style='display: none; background: #ea4335; color: white; border: none; padding: 10px 15px; border-radius: 4px; cursor: pointer; font-family: sans-serif; font-size: 14px; width: 100%; margin-top: 10px;'>
-    Sign out
-  </button>
-  
-  <div id='my-maps-box' style='display: none; margin-top: 15px; text-align: left; border-top: 1px solid #eee; padding-top: 15px;'>
-    <div data-i18n='auth.my_maps_title' style='font-weight: bold; font-family: sans-serif; font-size: 14px; margin-bottom: 10px; color: #333;'>Bản đồ của tôi:</div>
-    <div id='my-maps-list' style='font-family: sans-serif; font-size: 13px;'/>
-  </div>
-</div>      
-
-
-      
+          <div id="btn-login" style="font-family: sans-serif; font-size: 14px; color: #555; text-align: center; padding: 10px 0;">
+            <span data-i18n="auth.manage_maps">Manage your maps easily:</span> 
+            <a data-i18n="auth.sign_in" href="javascript:void(0)" onclick="loginGoogle()" onmouseout="this.style.textDecoration='none'" onmouseover="this.style.textDecoration='underline'" style="color: #1a73e8; text-decoration: none; font-weight: 600; white-space: nowrap;">
+              Sign in with Google
+            </a>
+          </div>
+          
+          <button data-i18n="auth.sign_out" id="btn-logout" onclick="logout()" style="display: none; background: #ea4335; color: white; border: none; padding: 10px 15px; border-radius: 4px; cursor: pointer; font-family: sans-serif; font-size: 14px; width: 100%; margin-top: 10px;">
+            Sign out
+          </button>
+          
+          <div id="my-maps-box" style="display: none; margin-top: 15px; text-align: left; border-top: 1px solid #eee; padding-top: 15px;">
+            <div data-i18n="auth.my_maps_title" style="font-weight: bold; font-family: sans-serif; font-size: 14px; margin-bottom: 10px; color: #333;">Bản đồ của tôi:</div>
+            <div id="my-maps-list" style="font-family: sans-serif; font-size: 13px;"></div>
+          </div>
+        </div>      
     </div>
     
-    <div id='divider'>
-        <div class='drag-handle'/>
+    <div id="divider">
+        <div class="drag-handle"></div>
     </div>
     
-    <div id='diachinh-map'>
-        </div>
+    <div id="diachinh-map">
+    </div>
     
-    <button class='btn-gmap' data-i18n='general.btn_open_gmap' id='btnGoogleMap' onclick='openGoogleMaps()'>📍 OPEN IN GOOGLE MAPS</button>
+    <button class="btn-gmap" data-i18n="general.btn_open_gmap" id="btnGoogleMap" onclick="openGoogleMaps()">📍 OPEN IN GOOGLE MAPS</button>
 </div>
 
-
 <script>
-
-
 // ==========================================
 // 1. HÀM TIỆN ÍCH ĐA NGÔN NGỮ (i18n HELPER)
 // ==========================================

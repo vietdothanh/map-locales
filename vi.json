@@ -103,8 +103,8 @@
         "load_list_error": "Không thể tải danh sách bản đồ.",
         "inapp_warn_title": "Trình duyệt không hỗ trợ",
         "inapp_warn_desc": "Vui lòng bấm vào dấu 3 chấm ở góc trên bên phải và chọn \"Mở bằng trình duyệt\" (Chrome/Safari) để đăng nhập Google.",
-        "view": "Lihat peta",
-        "btn_new_map": "Peta baru"
+        "view": "Xem bản đồ",
+        "btn_new_map": "Bản đồ mới"
     }
     
 }

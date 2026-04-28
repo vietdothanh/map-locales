@@ -24,6 +24,8 @@
         "delete_map": "Elimina mappa",
         "load_list_error": "Impossibile caricare l'elenco delle mappe.",
         "inapp_warn_title": "Browser non supportato",
-        "inapp_warn_desc": "Tocca i 3 puntini nell'angolo in alto a destra e seleziona \"Apri nel browser\" (Chrome/Safari) per accedere con Google."
+        "inapp_warn_desc": "Tocca i 3 puntini nell'angolo in alto a destra e seleziona \"Apri nel browser\" (Chrome/Safari) per accedere con Google.",
+        "view": "Visualizza mappa",
+        "btn_new_map": "Nuova mappa"
     }
 }

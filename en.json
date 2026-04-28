@@ -102,6 +102,8 @@
         "delete_map": "Delete map",
         "load_list_error": "Could not load map list.",
         "inapp_warn_title": "Unsupported Browser",
-        "inapp_warn_desc": "Please tap the 3 dots in the top right corner and select \"Open in browser\" (Chrome/Safari) to sign in with Google."
+        "inapp_warn_desc": "Please tap the 3 dots in the top right corner and select \"Open in browser\" (Chrome/Safari) to sign in with Google.",
+        "view": "View map",
+        "btn_new_map": "New map"
     }
 }

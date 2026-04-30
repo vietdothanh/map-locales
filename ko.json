@@ -26,6 +26,20 @@
         "inapp_warn_title": "지원되지 않는 브라우저",
         "inapp_warn_desc": "Google 계정으로 로그인하려면 오른쪽 상단의 점 3개를 탭하고 \"브라우저에서 열기\"(Chrome/Safari)를 선택하세요.",
         "view": "지도 보기",
-        "btn_new_map": "새 지도"
+        "btn_new_map": "새 지도""manage_labels": "라벨 관리",
+        "load_error": "데이터 로드 오류"
+    },
+    "labels": {
+        "modal_title": "라벨 관리",
+        "placeholder": "검색 또는 새 라벨 입력...",
+        "btn_save": "저장",
+        "empty_text": "이 지도에는 아직 라벨이 없습니다.",
+        "filter_all": "모든 지도",
+        "filter_title": "라벨로 필터링:",
+        "unlabeled": "라벨 없음",
+        "saving": "저장 중...",
+        "save_success": "라벨이 성공적으로 저장되었습니다!",
+        "save_error": "라벨 저장 실패.",
+        "create_new": "새로 만들기"
     }
 }

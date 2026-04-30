@@ -26,7 +26,8 @@
         "inapp_warn_title": "不支持的浏览器",
         "inapp_warn_desc": "请点击右上角的 3 个点，然后选择“在浏览器中打开”（Chrome/Safari）以使用 Google 登录。",
         "view": "查看地图",
-        "btn_new_map": "新建地图""manage_labels": "管理标签",
+        "btn_new_map": "新建地图",
+        "manage_labels": "管理标签",
         "load_error": "数据加载错误"
     },
     "labels": {

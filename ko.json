@@ -26,7 +26,8 @@
         "inapp_warn_title": "지원되지 않는 브라우저",
         "inapp_warn_desc": "Google 계정으로 로그인하려면 오른쪽 상단의 점 3개를 탭하고 \"브라우저에서 열기\"(Chrome/Safari)를 선택하세요.",
         "view": "지도 보기",
-        "btn_new_map": "새 지도""manage_labels": "라벨 관리",
+        "btn_new_map": "새 지도",
+        "manage_labels": "라벨 관리",
         "load_error": "데이터 로드 오류"
     },
     "labels": {

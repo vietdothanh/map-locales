@@ -26,6 +26,20 @@
         "inapp_warn_title": "Navegador no compatible",
         "inapp_warn_desc": "Toca los 3 puntos en la esquina superior derecha y selecciona \"Abrir en el navegador\" (Chrome/Safari) para iniciar sesión con Google.",
         "view": "Ver mapa",
-        "btn_new_map": "Nuevo mapa"
+        "btn_new_map": "Nuevo mapa""manage_labels": "Administrar etiquetas",
+        "load_error": "Error al cargar datos"
+    },
+    "labels": {
+        "modal_title": "Administrar etiquetas",
+        "placeholder": "Buscar o ingresar nueva etiqueta...",
+        "btn_save": "Guardar",
+        "empty_text": "Este mapa aún no tiene etiquetas.",
+        "filter_all": "Todos los mapas",
+        "filter_title": "Filtrar por etiqueta:",
+        "unlabeled": "Sin etiquetas",
+        "saving": "Guardando...",
+        "save_success": "¡Etiquetas guardadas con éxito!",
+        "save_error": "Error al guardar etiquetas.",
+        "create_new": "Crear nueva"
     }
 }

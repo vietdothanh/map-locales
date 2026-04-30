@@ -26,7 +26,8 @@
         "inapp_warn_title": "Peramban Tidak Didukung",
         "inapp_warn_desc": "Ketuk 3 titik di sudut kanan atas dan pilih \"Buka di peramban\" (Chrome/Safari) untuk masuk dengan Google.",
         "view": "Lihat peta",
-        "btn_new_map": "Peta baru""manage_labels": "Kelola label",
+        "btn_new_map": "Peta baru",
+        "manage_labels": "Kelola label",
         "load_error": "Kesalahan memuat data"
     },
     "labels": {

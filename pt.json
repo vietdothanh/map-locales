@@ -26,6 +26,20 @@
         "inapp_warn_title": "Navegador não compatível",
         "inapp_warn_desc": "Toque nos 3 pontos no canto superior direito e selecione \"Abrir no navegador\" (Chrome/Safari) para fazer login com o Google.",
         "view": "Ver mapa",
-        "btn_new_map": "Novo mapa"
+        "btn_new_map": "Novo mapa""manage_labels": "Gerenciar rótulos",
+        "load_error": "Erro ao carregar dados"
+    },
+    "labels": {
+        "modal_title": "Gerenciar Rótulos",
+        "placeholder": "Pesquisar ou inserir novo rótulo...",
+        "btn_save": "Salvar",
+        "empty_text": "Este mapa ainda não possui rótulos.",
+        "filter_all": "Todos os mapas",
+        "filter_title": "Filtrar por rótulo:",
+        "unlabeled": "Sem rótulo",
+        "saving": "Salvando...",
+        "save_success": "Rótulos salvos com sucesso!",
+        "save_error": "Falha ao salvar rótulos.",
+        "create_new": "Criar novo"
     }
 }

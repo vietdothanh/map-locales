@@ -26,6 +26,20 @@
         "inapp_warn_title": "Peramban Tidak Didukung",
         "inapp_warn_desc": "Ketuk 3 titik di sudut kanan atas dan pilih \"Buka di peramban\" (Chrome/Safari) untuk masuk dengan Google.",
         "view": "Lihat peta",
-        "btn_new_map": "Peta baru"
+        "btn_new_map": "Peta baru""manage_labels": "Kelola label",
+        "load_error": "Kesalahan memuat data"
+    },
+    "labels": {
+        "modal_title": "Kelola Label",
+        "placeholder": "Cari atau masukkan label baru...",
+        "btn_save": "Simpan",
+        "empty_text": "Peta ini belum memiliki label.",
+        "filter_all": "Semua Peta",
+        "filter_title": "Saring berdasarkan label:",
+        "unlabeled": "Tanpa label",
+        "saving": "Menyimpan...",
+        "save_success": "Label berhasil disimpan!",
+        "save_error": "Gagal menyimpan label.",
+        "create_new": "Buat baru"
     }
 }

@@ -105,7 +105,8 @@
         "inapp_warn_desc": "Please tap the 3 dots in the top right corner and select \"Open in browser\" (Chrome/Safari) to sign in with Google.",
         "view": "View map",
         "btn_new_map": "New map",
-        "manage_labels": "Manage labels"
+        "manage_labels": "Manage labels",
+        "load_error": "Error loading data" 
     },
     "labels": {
         "modal_title": "Manage Labels",
@@ -117,6 +118,7 @@
         "unlabeled": "Unlabeled",
         "saving": "Saving...",
         "save_success": "Labels saved successfully!",
-        "save_error": "Failed to save labels."
+        "save_error": "Failed to save labels.",
+        "create_new": "Create new" 
     }
 }

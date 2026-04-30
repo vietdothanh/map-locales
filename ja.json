@@ -26,6 +26,20 @@
         "inapp_warn_title": "サポートされていないブラウザ",
         "inapp_warn_desc": "Googleでログインするには、右上隅にある3つの点をタップし、「ブラウザで開く」（Chrome/Safari）を選択してください。",
         "view": "地図を表示",
-        "btn_new_map": "新規地図"
+        "btn_new_map": "新規地図""manage_labels": "ラベルを管理",
+        "load_error": "データの読み込みエラー"
+    },
+    "labels": {
+        "modal_title": "ラベルを管理",
+        "placeholder": "検索または新しいラベルを入力...",
+        "btn_save": "保存",
+        "empty_text": "このマップにはまだラベルがありません。",
+        "filter_all": "すべてのマップ",
+        "filter_title": "ラベルでフィルタ:",
+        "unlabeled": "ラベルなし",
+        "saving": "保存中...",
+        "save_success": "ラベルが正常に保存されました！",
+        "save_error": "ラベルの保存に失敗しました。",
+        "create_new": "新規作成"
     }
 }

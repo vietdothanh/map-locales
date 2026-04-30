@@ -26,7 +26,8 @@
         "inapp_warn_title": "Navegador não compatível",
         "inapp_warn_desc": "Toque nos 3 pontos no canto superior direito e selecione \"Abrir no navegador\" (Chrome/Safari) para fazer login com o Google.",
         "view": "Ver mapa",
-        "btn_new_map": "Novo mapa""manage_labels": "Gerenciar rótulos",
+        "btn_new_map": "Novo mapa",
+        "manage_labels": "Gerenciar rótulos",
         "load_error": "Erro ao carregar dados"
     },
     "labels": {

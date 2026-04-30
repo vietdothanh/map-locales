@@ -26,6 +26,20 @@
         "inapp_warn_title": "不支持的浏览器",
         "inapp_warn_desc": "请点击右上角的 3 个点，然后选择“在浏览器中打开”（Chrome/Safari）以使用 Google 登录。",
         "view": "查看地图",
-        "btn_new_map": "新建地图"
+        "btn_new_map": "新建地图""manage_labels": "管理标签",
+        "load_error": "数据加载错误"
+    },
+    "labels": {
+        "modal_title": "管理标签",
+        "placeholder": "搜索或输入新标签...",
+        "btn_save": "保存",
+        "empty_text": "此地图尚无标签。",
+        "filter_all": "所有地图",
+        "filter_title": "按标签筛选：",
+        "unlabeled": "无标签",
+        "saving": "保存中...",
+        "save_success": "标签保存成功！",
+        "save_error": "保存标签失败。",
+        "create_new": "创建新标签"
     }
 }

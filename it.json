@@ -26,7 +26,8 @@
         "inapp_warn_title": "Browser non supportato",
         "inapp_warn_desc": "Tocca i 3 puntini nell'angolo in alto a destra e seleziona \"Apri nel browser\" (Chrome/Safari) per accedere con Google.",
         "view": "Visualizza mappa",
-        "btn_new_map": "Nuova mappa""manage_labels": "Gestisci etichette",
+        "btn_new_map": "Nuova mappa",
+        "manage_labels": "Gestisci etichette",
         "load_error": "Errore di caricamento dati"
     },
     "labels": {

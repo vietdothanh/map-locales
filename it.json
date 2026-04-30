@@ -26,6 +26,20 @@
         "inapp_warn_title": "Browser non supportato",
         "inapp_warn_desc": "Tocca i 3 puntini nell'angolo in alto a destra e seleziona \"Apri nel browser\" (Chrome/Safari) per accedere con Google.",
         "view": "Visualizza mappa",
-        "btn_new_map": "Nuova mappa"
+        "btn_new_map": "Nuova mappa""manage_labels": "Gestisci etichette",
+        "load_error": "Errore di caricamento dati"
+    },
+    "labels": {
+        "modal_title": "Gestisci Etichette",
+        "placeholder": "Cerca o inserisci una nuova etichetta...",
+        "btn_save": "Salva",
+        "empty_text": "Questa mappa non ha ancora etichette.",
+        "filter_all": "Tutte le mappe",
+        "filter_title": "Filtra per etichetta:",
+        "unlabeled": "Senza etichetta",
+        "saving": "Salvataggio...",
+        "save_success": "Etichette salvate con successo!",
+        "save_error": "Impossibile salvare le etichette.",
+        "create_new": "Crea nuova"
     }
 }

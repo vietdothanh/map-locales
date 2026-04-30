@@ -26,6 +26,20 @@
         "inapp_warn_title": "Navigateur non pris en charge",
         "inapp_warn_desc": "Veuillez appuyer sur les 3 points dans le coin supérieur droit et sélectionner \"Ouvrir dans le navigateur\" (Chrome/Safari) pour vous connecter avec Google.",
         "view": "Voir la carte",
-        "btn_new_map": "Nouvelle carte"
+        "btn_new_map": "Nouvelle carte""manage_labels": "Gérer les étiquettes",
+        "load_error": "Erreur de chargement des données"
+    },
+    "labels": {
+        "modal_title": "Gérer les étiquettes",
+        "placeholder": "Rechercher ou saisir une nouvelle étiquette...",
+        "btn_save": "Enregistrer",
+        "empty_text": "Cette carte n'a pas encore d'étiquettes.",
+        "filter_all": "Toutes les cartes",
+        "filter_title": "Filtrer par étiquette :",
+        "unlabeled": "Sans étiquette",
+        "saving": "Enregistrement...",
+        "save_success": "Étiquettes enregistrées avec succès !",
+        "save_error": "Échec de l'enregistrement des étiquettes.",
+        "create_new": "Créer un nouveau"
     }
 }

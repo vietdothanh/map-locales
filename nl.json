@@ -26,6 +26,20 @@
         "inapp_warn_title": "Niet-ondersteunde browser",
         "inapp_warn_desc": "Tik op de 3 puntjes in de rechterbovenhoek en selecteer \"Openen in browser\" (Chrome/Safari) om in te loggen met Google.",
         "view": "Kaart bekijken",
-        "btn_new_map": "Nieuwe kaart"
+        "btn_new_map": "Nieuwe kaart""manage_labels": "Labels beheren",
+        "load_error": "Fout bij laden van gegevens"
+    },
+    "labels": {
+        "modal_title": "Labels beheren",
+        "placeholder": "Zoek of voer nieuw label in...",
+        "btn_save": "Opslaan",
+        "empty_text": "Deze kaart heeft nog geen labels.",
+        "filter_all": "Alle kaarten",
+        "filter_title": "Filteren op label:",
+        "unlabeled": "Zonder label",
+        "saving": "Opslaan...",
+        "save_success": "Labels succesvol opgeslagen!",
+        "save_error": "Opslaan van labels mislukt.",
+        "create_new": "Nieuw maken"
     }
 }

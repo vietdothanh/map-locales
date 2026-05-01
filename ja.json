@@ -46,17 +46,17 @@
     "subscription": {
         "upgrade_title": "🚀 QMS Plusにアップグレード",
         "upgrade_desc_1": "無料マップの割り当てを使い切りました。",
-        "upgrade_desc_2": "<b>QMS Plus</b>にアップグレードして、最大<b>1000マップ</b>のストレージを解放しましょう！",
+        "upgrade_desc_2": "<b>QMS Plus</b>にアップグレードして、最大<b>10000マップ</b>のストレージを解放しましょう！",
         "btn_later": "後で",
-        "upgrade_success": "🎉 素晴らしい！QMS Plusへのアップグレードに成功しました。1000マップが解放されました！",
+        "upgrade_success": "🎉 素晴らしい！QMS Plusへのアップグレードに成功しました。10000マップが解放されました！",
         "upgrade_error": "エラー: ",
         "upgrade_network_error": "支払いは完了しましたが、ネットワークエラーが発生しました。サポートについて管理者に連絡してください！",
-        "plus_limit_reached": "システムがいっぱいです！QMS Plusプランの最大制限である1000マップに達しました。",
+        "plus_limit_reached": "システムがいっぱいです！QMS Plusプランの最大制限である10000マップに達しました。",
         "storage_warning": "ストレージ容量の警告",
         "used_maps": "使用済み：",
         "maps_limit": "マップ",
         "upgrade_link": "QMS Plusにアップグレード",
-        "to_expand": "して、最大1000個のマップを快適に保存しましょう！",
+        "to_expand": "して、最大10000個のマップを快適に保存しましょう！",
         "plus_max_warn": "Plusプランの最大制限に近づいています。"
     }
 }

@@ -42,5 +42,21 @@
         "save_success": "Rótulos salvos com sucesso!",
         "save_error": "Falha ao salvar rótulos.",
         "create_new": "Criar novo"
+    },
+    "subscription": {
+        "upgrade_title": "🚀 Atualizar para QMS Plus",
+        "upgrade_desc_1": "Você esgotou seu limite de mapas gratuitos.",
+        "upgrade_desc_2": "Atualize para <b>QMS Plus</b> para desbloquear armazenamento para até <b>1000 mapas</b>!",
+        "btn_later": "Talvez mais tarde",
+        "upgrade_success": "🎉 Incrível! Você atualizou com sucesso para o QMS Plus. 1000 mapas desbloqueados!",
+        "upgrade_error": "Erro: ",
+        "upgrade_network_error": "Pagamento concluído, mas ocorreu um erro de rede. Entre em contato com o Administrador para obter suporte!",
+        "plus_limit_reached": "Sistema cheio! Você atingiu o limite máximo de 1000 mapas para o plano QMS Plus.",
+        "storage_warning": "Aviso de capacidade de armazenamento",
+        "used_maps": "Você usou",
+        "maps_limit": "mapas.",
+        "upgrade_link": "Atualizar para QMS Plus",
+        "to_expand": "para armazenar confortavelmente até 1000 mapas!",
+        "plus_max_warn": "Você está atingindo o limite máximo do seu plano Plus."
     }
 }

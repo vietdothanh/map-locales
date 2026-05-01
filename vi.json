@@ -120,6 +120,22 @@
         "save_success": "Đã lưu nhãn thành công!",
         "save_error": "Lỗi khi lưu nhãn.",
         "create_new": "Tạo mới"
+    },
+    "subscription": {
+        "upgrade_title": "🚀 Nâng cấp QMS Plus",
+        "upgrade_desc_1": "Bác đã dùng hết số bản đồ miễn phí.",
+        "upgrade_desc_2": "Nâng cấp <b>QMS Plus</b> để mở khóa dung lượng lưu trữ lên tới <b>1000 bản đồ</b> nhé!",
+        "btn_later": "Để sau",
+        "upgrade_success": "🎉 Tuyệt vời! Bác đã nâng cấp thành công lên QMS Plus. Đã mở khóa 1000 bản đồ!",
+        "upgrade_error": "Lỗi: ",
+        "upgrade_network_error": "Đã thanh toán xong nhưng có lỗi mạng. Bác vui lòng liên hệ Admin để được hỗ trợ!",
+        "plus_limit_reached": "Hệ thống đã đầy! Bác đã đạt giới hạn tối đa 1000 bản đồ của gói QMS Plus.",
+        "storage_warning": "Cảnh báo dung lượng lưu trữ",
+        "used_maps": "Bác đã dùng",
+        "maps_limit": "bản đồ.",
+        "upgrade_link": "Nâng cấp QMS Plus",
+        "to_expand": "để thoải mái lưu trữ lên đến 1000 bản đồ nhé!",
+        "plus_max_warn": "Bác sắp đạt giới hạn tối đa của gói Plus."
     }
     
 }

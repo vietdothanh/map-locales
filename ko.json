@@ -42,5 +42,21 @@
         "save_success": "라벨이 성공적으로 저장되었습니다!",
         "save_error": "라벨 저장 실패.",
         "create_new": "새로 만들기"
+    },
+    "subscription": {
+        "upgrade_title": "🚀 QMS Plus로 업그레이드",
+        "upgrade_desc_1": "무료 지도 허용량을 모두 사용하셨습니다.",
+        "upgrade_desc_2": "<b>QMS Plus</b>로 업그레이드하여 최대 <b>1000개의 지도</b>를 저장하세요!",
+        "btn_later": "나중에 하기",
+        "upgrade_success": "🎉 멋집니다! QMS Plus로 성공적으로 업그레이드되었습니다. 1000개의 지도가 잠금 해제되었습니다!",
+        "upgrade_error": "오류: ",
+        "upgrade_network_error": "결제가 완료되었으나 네트워크 오류가 발생했습니다. 관리자에게 지원을 요청하세요!",
+        "plus_limit_reached": "시스템 용량 초과! QMS Plus 요금제의 최대 한도인 1000개 지도에 도달했습니다.",
+        "storage_warning": "저장 용량 경고",
+        "used_maps": "사용 중인 지도:",
+        "maps_limit": "개",
+        "upgrade_link": "QMS Plus로 업그레이드",
+        "to_expand": "하여 최대 1000개의 지도를 넉넉하게 저장하세요!",
+        "plus_max_warn": "Plus 요금제의 최대 한도에 도달하고 있습니다."
     }
 }

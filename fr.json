@@ -46,17 +46,17 @@
     "subscription": {
         "upgrade_title": "🚀 Passer à QMS Plus",
         "upgrade_desc_1": "Vous avez épuisé votre quota de cartes gratuites.",
-        "upgrade_desc_2": "Passez à <b>QMS Plus</b> pour débloquer le stockage jusqu'à <b>1000 cartes</b> !",
+        "upgrade_desc_2": "Passez à <b>QMS Plus</b> pour débloquer le stockage jusqu'à <b>10000 cartes</b> !",
         "btn_later": "Peut-être plus tard",
-        "upgrade_success": "🎉 Génial ! Vous êtes passé avec succès à QMS Plus. 1000 cartes débloquées !",
+        "upgrade_success": "🎉 Génial ! Vous êtes passé avec succès à QMS Plus. 10000 cartes débloquées !",
         "upgrade_error": "Erreur : ",
         "upgrade_network_error": "Paiement terminé mais une erreur réseau s'est produite. Veuillez contacter l'administrateur pour obtenir de l'aide !",
-        "plus_limit_reached": "Système plein ! Vous avez atteint la limite maximale de 1000 cartes pour le forfait QMS Plus.",
+        "plus_limit_reached": "Système plein ! Vous avez atteint la limite maximale de 10000 cartes pour le forfait QMS Plus.",
         "storage_warning": "Avertissement de capacité de stockage",
         "used_maps": "Vous avez utilisé",
         "maps_limit": "cartes.",
         "upgrade_link": "Passer à QMS Plus",
-        "to_expand": "pour stocker confortablement jusqu'à 1000 cartes !",
+        "to_expand": "pour stocker confortablement jusqu'à 10000 cartes !",
         "plus_max_warn": "Vous atteignez la limite maximale de votre forfait Plus."
     }
 }

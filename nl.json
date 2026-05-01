@@ -46,17 +46,17 @@
     "subscription": {
         "upgrade_title": "🚀 Upgrade naar QMS Plus",
         "upgrade_desc_1": "Je hebt je gratis kaartenlimiet verbruikt.",
-        "upgrade_desc_2": "Upgrade naar <b>QMS Plus</b> om opslagruimte te ontgrendelen voor maximaal <b>1000 kaarten</b>!",
+        "upgrade_desc_2": "Upgrade naar <b>QMS Plus</b> om opslagruimte te ontgrendelen voor maximaal <b>10000 kaarten</b>!",
         "btn_later": "Misschien later",
-        "upgrade_success": "🎉 Geweldig! Je bent succesvol geüpgraded naar QMS Plus. 1000 kaarten ontgrendeld!",
+        "upgrade_success": "🎉 Geweldig! Je bent succesvol geüpgraded naar QMS Plus. 10000 kaarten ontgrendeld!",
         "upgrade_error": "Fout: ",
         "upgrade_network_error": "Betaling voltooid, maar er is een netwerkfout opgetreden. Neem contact op met de beheerder voor ondersteuning!",
-        "plus_limit_reached": "Systeem vol! Je hebt de maximale limiet van 1000 kaarten voor het QMS Plus-abonnement bereikt.",
+        "plus_limit_reached": "Systeem vol! Je hebt de maximale limiet van 10000 kaarten voor het QMS Plus-abonnement bereikt.",
         "storage_warning": "Waarschuwing opslagcapaciteit",
         "used_maps": "Je hebt",
         "maps_limit": "kaarten gebruikt.",
         "upgrade_link": "Upgrade naar QMS Plus",
-        "to_expand": "om comfortabel tot 1000 kaarten op te slaan!",
+        "to_expand": "om comfortabel tot 10000 kaarten op te slaan!",
         "plus_max_warn": "Je bereikt de maximale limiet van je Plus-abonnement."
     }
 }

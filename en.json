@@ -120,5 +120,21 @@
         "save_success": "Labels saved successfully!",
         "save_error": "Failed to save labels.",
         "create_new": "Create new" 
+    },
+    "subscription": {
+        "upgrade_title": "🚀 Upgrade to QMS Plus",
+        "upgrade_desc_1": "You have used up your free maps allowance.",
+        "upgrade_desc_2": "Upgrade to <b>QMS Plus</b> to unlock storage up to <b>1000 maps</b>!",
+        "btn_later": "Maybe later",
+        "upgrade_success": "🎉 Awesome! You have successfully upgraded to QMS Plus. 1000 maps unlocked!",
+        "upgrade_error": "Error: ",
+        "upgrade_network_error": "Payment completed but a network error occurred. Please contact Admin for support!",
+        "plus_limit_reached": "System full! You have reached the maximum limit of 1000 maps for the QMS Plus plan.",
+        "storage_warning": "Storage capacity warning",
+        "used_maps": "You have used",
+        "maps_limit": "maps.",
+        "upgrade_link": "Upgrade to QMS Plus",
+        "to_expand": "to comfortably store up to 1000 maps!",
+        "plus_max_warn": "You are reaching the maximum limit of your Plus plan."
     }
 }

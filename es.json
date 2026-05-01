@@ -46,17 +46,17 @@
     "subscription": {
         "upgrade_title": "🚀 Mejorar a QMS Plus",
         "upgrade_desc_1": "Has agotado tu límite de mapas gratuitos.",
-        "upgrade_desc_2": "¡Mejora a <b>QMS Plus</b> para desbloquear almacenamiento para hasta <b>1000 mapas</b>!",
+        "upgrade_desc_2": "¡Mejora a <b>QMS Plus</b> para desbloquear almacenamiento para hasta <b>10000 mapas</b>!",
         "btn_later": "Quizás más tarde",
-        "upgrade_success": "🎉 ¡Genial! Has mejorado con éxito a QMS Plus. ¡1000 mapas desbloqueados!",
+        "upgrade_success": "🎉 ¡Genial! Has mejorado con éxito a QMS Plus. ¡10000 mapas desbloqueados!",
         "upgrade_error": "Error: ",
         "upgrade_network_error": "El pago se completó pero ocurrió un error de red. ¡Por favor, contacta al Administrador para obtener soporte!",
-        "plus_limit_reached": "¡Sistema lleno! Has alcanzado el límite máximo de 1000 mapas del plan QMS Plus.",
+        "plus_limit_reached": "¡Sistema lleno! Has alcanzado el límite máximo de 10000 mapas del plan QMS Plus.",
         "storage_warning": "Advertencia de capacidad de almacenamiento",
         "used_maps": "Has usado",
         "maps_limit": "mapas.",
         "upgrade_link": "Mejorar a QMS Plus",
-        "to_expand": "para almacenar cómodamente hasta 1000 mapas.",
+        "to_expand": "para almacenar cómodamente hasta 10000 mapas.",
         "plus_max_warn": "Estás a punto de alcanzar el límite máximo de tu plan Plus."
     }
 }

@@ -46,17 +46,17 @@
     "subscription": {
         "upgrade_title": "🚀 Upgrade auf QMS Plus",
         "upgrade_desc_1": "Sie haben Ihr Kontingent an kostenlosen Karten aufgebraucht.",
-        "upgrade_desc_2": "Holen Sie sich <b>QMS Plus</b>, um den Speicherplatz auf bis zu <b>1000 Karten</b> zu erweitern!",
+        "upgrade_desc_2": "Holen Sie sich <b>QMS Plus</b>, um den Speicherplatz auf bis zu <b>10000 Karten</b> zu erweitern!",
         "btn_later": "Vielleicht später",
-        "upgrade_success": "🎉 Großartig! Sie haben erfolgreich auf QMS Plus upgegradet. 1000 Karten freigeschaltet!",
+        "upgrade_success": "🎉 Großartig! Sie haben erfolgreich auf QMS Plus upgegradet. 10000 Karten freigeschaltet!",
         "upgrade_error": "Fehler: ",
         "upgrade_network_error": "Zahlung abgeschlossen, aber ein Netzwerkfehler ist aufgetreten. Bitte kontaktieren Sie den Admin für Support!",
-        "plus_limit_reached": "System voll! Sie haben das maximale Limit von 1000 Karten für den QMS Plus-Plan erreicht.",
+        "plus_limit_reached": "System voll! Sie haben das maximale Limit von 10000 Karten für den QMS Plus-Plan erreicht.",
         "storage_warning": "Warnung zur Speicherkapazität",
         "used_maps": "Sie haben",
         "maps_limit": "Karten verwendet.",
         "upgrade_link": "Auf QMS Plus upgraden",
-        "to_expand": "um bis zu 1000 Karten bequem zu speichern!",
+        "to_expand": "um bis zu 10000 Karten bequem zu speichern!",
         "plus_max_warn": "Sie erreichen das maximale Limit Ihres Plus-Plans."
     }
 }

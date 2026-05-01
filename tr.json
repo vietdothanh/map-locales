@@ -42,5 +42,21 @@
         "save_success": "Etiketler başarıyla kaydedildi!",
         "save_error": "Etiketler kaydedilemedi.",
         "create_new": "Yeni oluştur"
+    },
+    "subscription": {
+        "upgrade_title": "🚀 QMS Plus'a Yükselt",
+        "upgrade_desc_1": "Ücretsiz harita hakkınızı tükettiniz.",
+        "upgrade_desc_2": "<b>1000 haritaya</b> kadar depolama alanının kilidini açmak için <b>QMS Plus</b>'a yükseltin!",
+        "btn_later": "Belki daha sonra",
+        "upgrade_success": "🎉 Harika! QMS Plus'a başarıyla yükselttiniz. 1000 haritanın kilidi açıldı!",
+        "upgrade_error": "Hata: ",
+        "upgrade_network_error": "Ödeme tamamlandı ancak bir ağ hatası oluştu. Lütfen destek için Yönetici ile iletişime geçin!",
+        "plus_limit_reached": "Sistem dolu! QMS Plus planı için maksimum sınır olan 1000 haritaya ulaştınız.",
+        "storage_warning": "Depolama kapasitesi uyarısı",
+        "used_maps": "Kullandığınız",
+        "maps_limit": "harita.",
+        "upgrade_link": "QMS Plus'a Yükselt",
+        "to_expand": "ile 1000 haritaya kadar rahatça depolama yapın!",
+        "plus_max_warn": "Plus planınızın maksimum sınırına ulaşıyorsunuz."
     }
 }

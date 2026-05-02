@@ -119,7 +119,8 @@
         "saving": "Đang lưu...",
         "save_success": "Đã lưu nhãn thành công!",
         "save_error": "Lỗi khi lưu nhãn.",
-        "create_new": "Tạo mới"
+        "create_new": "Tạo mới",
+        "add_label": "Thêm nhãn"
     },
     "subscription": {
         "upgrade_title": "🚀 Nâng cấp QMS Plus",

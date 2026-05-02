@@ -119,7 +119,8 @@
         "saving": "Saving...",
         "save_success": "Labels saved successfully!",
         "save_error": "Failed to save labels.",
-        "create_new": "Create new" 
+        "create_new": "Create new",
+        "add_label": "Add label"
     },
     "subscription": {
         "upgrade_title": "🚀 Upgrade to QMS Plus",

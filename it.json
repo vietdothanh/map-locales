@@ -41,7 +41,8 @@
         "saving": "Salvataggio...",
         "save_success": "Etichette salvate con successo!",
         "save_error": "Impossibile salvare le etichette.",
-        "create_new": "Crea nuova"
+        "create_new": "Crea nuova",
+        "add_label": "Aggiungi etichetta"
     },
     "subscription": {
         "upgrade_title": "🚀 Passa a QMS Plus",

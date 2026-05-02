@@ -41,7 +41,8 @@
         "saving": "Сохранение...",
         "save_success": "Метки успешно сохранены!",
         "save_error": "Не удалось сохранить метки.",
-        "create_new": "Создать новую"
+        "create_new": "Создать новую",
+        "add_label": "Добавить метку"
     },
     "subscription": {
         "upgrade_title": "🚀 Перейти на QMS Plus",

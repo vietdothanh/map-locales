@@ -41,7 +41,8 @@
         "saving": "Opslaan...",
         "save_success": "Labels succesvol opgeslagen!",
         "save_error": "Opslaan van labels mislukt.",
-        "create_new": "Nieuw maken"
+        "create_new": "Nieuw maken",
+        "add_label": "Label toevoegen"
     },
     "subscription": {
         "upgrade_title": "🚀 Upgrade naar QMS Plus",

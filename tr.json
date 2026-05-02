@@ -41,7 +41,8 @@
         "saving": "Kaydediliyor...",
         "save_success": "Etiketler başarıyla kaydedildi!",
         "save_error": "Etiketler kaydedilemedi.",
-        "create_new": "Yeni oluştur"
+        "create_new": "Yeni oluştur",
+        "add_label": "Etiket ekle"
     },
     "subscription": {
         "upgrade_title": "🚀 QMS Plus'a Yükselt",

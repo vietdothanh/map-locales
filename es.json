@@ -41,7 +41,8 @@
         "saving": "Guardando...",
         "save_success": "¡Etiquetas guardadas con éxito!",
         "save_error": "Error al guardar etiquetas.",
-        "create_new": "Crear nueva"
+        "create_new": "Crear nueva",
+        "add_label": "Añadir etiqueta"
     },
     "subscription": {
         "upgrade_title": "🚀 Mejorar a QMS Plus",

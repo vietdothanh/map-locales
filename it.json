@@ -42,7 +42,9 @@
         "save_success": "Etichette salvate con successo!",
         "save_error": "Impossibile salvare le etichette.",
         "create_new": "Crea nuova",
-        "add_label": "Aggiungi etichetta"
+        "add_label": "Aggiungi etichetta",
+        "no_match": "Nessuna mappa corrisponde al filtro",
+        "remove_tags_hint": "Prova a rimuovere alcune etichette per vedere più risultati."
     },
     "subscription": {
         "upgrade_title": "🚀 Passa a QMS Plus",

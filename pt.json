@@ -42,7 +42,9 @@
         "save_success": "Rótulos salvos com sucesso!",
         "save_error": "Falha ao salvar rótulos.",
         "create_new": "Criar novo",
-        "add_label": "Adicionar etiqueta"
+        "add_label": "Adicionar etiqueta",
+        "no_match": "Nenhum mapa corresponde ao filtro",
+        "remove_tags_hint": "Tente remover alguns rótulos para ver mais resultados."
     },
     "subscription": {
         "upgrade_title": "🚀 Atualizar para QMS Plus",

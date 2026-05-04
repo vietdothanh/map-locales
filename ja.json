@@ -42,7 +42,9 @@
         "save_success": "ラベルが正常に保存されました！",
         "save_error": "ラベルの保存に失敗しました。",
         "create_new": "新規作成",
-        "add_label": "ラベルを追加"
+        "add_label": "ラベルを追加",
+        "no_match": "フィルターに一致するマップはありません",
+        "remove_tags_hint": "さらに結果を表示するには、いくつかのラベルを削除してみてください。"
     },
     "subscription": {
         "upgrade_title": "🚀 QMS Plusにアップグレード",

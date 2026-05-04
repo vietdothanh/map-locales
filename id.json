@@ -42,7 +42,9 @@
         "save_success": "Label berhasil disimpan!",
         "save_error": "Gagal menyimpan label.",
         "create_new": "Buat baru",
-        "add_label": "Tambahkan label"
+        "add_label": "Tambahkan label",
+        "no_match": "Tidak ada peta yang cocok dengan filter",
+        "remove_tags_hint": "Coba hapus beberapa label untuk melihat lebih banyak hasil."
     },
     "subscription": {
         "upgrade_title": "🚀 Tingkatkan ke QMS Plus",

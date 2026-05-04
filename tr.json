@@ -42,7 +42,9 @@
         "save_success": "Etiketler başarıyla kaydedildi!",
         "save_error": "Etiketler kaydedilemedi.",
         "create_new": "Yeni oluştur",
-        "add_label": "Etiket ekle"
+        "add_label": "Etiket ekle",
+        "no_match": "Filtreyle eşleşen harita yok",
+        "remove_tags_hint": "Daha fazla sonuç görmek için bazı etiketleri kaldırmayı deneyin."
     },
     "subscription": {
         "upgrade_title": "🚀 QMS Plus'a Yükselt",

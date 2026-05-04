@@ -63,13 +63,16 @@
         "select_province_first": "Vui lòng chọn Tỉnh/Thành phố (Kinh tuyến trục) trước khi nhập tọa độ VN2000!",
         "out_of_bounds": "⚠️ CẢNH BÁO ĐỎ: Các tọa độ VN-2000 này KHÔNG NẰM TRONG {province}!\n\nCó thể bạn đã chọn sai Kinh tuyến trục. Vui lòng kiểm tra lại!",
         "restricted_overlap": "🛑 TỪ CHỐI TRUY CẬP: Các tọa độ này chồng lấn với khu vực hạn chế!",
-        "restricted_close": "🛑 TỪ CHỐI TRUY CẬP: Thửa đất quá gần khu vực hạn chế ({distance}m)."
+        "restricted_close": "🛑 TỪ CHỐI TRUY CẬP: Thửa đất quá gần khu vực hạn chế ({distance}m).",
+        "export_empty": "Chưa có dữ liệu bản đồ để xuất!"
     },
     "settings": {
         "show_board": "Hiện bảng",
         "unit_metric": "Hệ mét (m/ha)",
         "unit_imperial": "Hệ Anh (ft/ac)",
-        "language": "Ngôn ngữ:"
+        "language": "Ngôn ngữ:",
+        "import_kml": "Nhập KML",
+        "export_kml": "Xuất KML"
     },
     "geocoder": {
         "placeholder": "Địa chỉ / Tọa độ WGS84...",

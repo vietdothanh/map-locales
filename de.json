@@ -42,7 +42,9 @@
         "save_success": "Labels erfolgreich gespeichert!",
         "save_error": "Fehler beim Speichern der Labels.",
         "create_new": "Neu erstellen",
-        "add_label": "Label hinzufügen"
+        "add_label": "Label hinzufügen",
+        "no_match": "Keine Karten entsprechen dem Filter",
+        "remove_tags_hint": "Versuchen Sie, einige Labels zu entfernen, um mehr Ergebnisse zu sehen."
     },
     "subscription": {
         "upgrade_title": "🚀 Upgrade auf QMS Plus",

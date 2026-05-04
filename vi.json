@@ -120,7 +120,9 @@
         "save_success": "Đã lưu nhãn thành công!",
         "save_error": "Lỗi khi lưu nhãn.",
         "create_new": "Tạo mới",
-        "add_label": "Thêm nhãn"
+        "add_label": "Thêm nhãn",
+        "no_match": "Không có bản đồ nào khớp với bộ lọc",
+        "remove_tags_hint": "Hãy thử bỏ bớt nhãn để xem thêm kết quả."
     },
     "subscription": {
         "upgrade_title": "🚀 Nâng cấp QMS Plus",

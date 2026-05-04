@@ -63,13 +63,16 @@
         "select_province_first": "Please select a Province/Central Meridian before entering VN2000 coordinates!",
         "out_of_bounds": "⚠️ RED ALERT: These VN-2000 coordinates DO NOT FALL INSIDE {province}!\n\nYou may have selected the wrong Central Meridian. Please double check!",
         "restricted_overlap": "🛑 ACCESS DENIED: These coordinates overlap with a restricted area!",
-        "restricted_close": "🛑 ACCESS DENIED: The plot is too close to a restricted area ({distance}m)."
+        "restricted_close": "🛑 ACCESS DENIED: The plot is too close to a restricted area ({distance}m).",
+        "export_empty": "No map data to export!"
     },
     "settings": {
         "show_board": "Show Board",
         "unit_metric": "Metric (m/ha)",
         "unit_imperial": "Imperial (ft/ac)",
-        "language": "Language:"
+        "language": "Language:",
+        "import_kml": "Import KML",
+        "export_kml": "Export KML"
     },
     "geocoder": {
         "placeholder": "Address / WGS84 coords...",
